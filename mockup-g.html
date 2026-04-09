@@ -3,256 +3,286 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Option G — Queue Table</title>
+<title>Option G — Priority Queue</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',500:'#6366f1',600:'#4f46e5',700:'#4338ca'}}}}}</script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 body{font-family:'Inter',sans-serif}
-tr.action-row{background:#fef2f2}
-tr.action-row:hover{background:#fee2e2}
-tr.waiting-row:hover{background:#f9fafb}
 </style>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gray-100 min-h-screen">
 
 <!-- Preview -->
 <div class="bg-yellow-50 border-b border-yellow-200 px-4 py-1.5 text-center">
-  <span class="text-[10px] font-bold text-yellow-600 uppercase tracking-widest">Option G · Queue Table · Not Live</span>
+  <span class="text-[10px] font-bold text-yellow-600 uppercase tracking-widest">Option G · Priority Queue · Not Live</span>
 </div>
 
 <!-- Header -->
 <header class="bg-white border-b border-gray-200">
-  <div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+  <div class="px-8 py-3 flex items-center justify-between">
     <div class="flex items-center gap-4">
-      <h1 class="text-lg font-black text-gray-900">Caleb Hammer</h1>
-      <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-50 text-brand-600 border border-brand-200">Creator Dashboard</span>
+      <h1 class="text-base font-black text-gray-900">Caleb Hammer</h1>
+      <span class="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-brand-50 text-brand-600 border border-brand-200">Creator Dashboard</span>
     </div>
-    <div class="flex items-center gap-6">
-      <div class="flex items-center gap-2 text-sm">
-        <span class="text-gray-400">Lifetime:</span>
-        <span class="font-black text-gray-900">$284,320</span>
-      </div>
-      <div class="flex items-center gap-2 text-sm">
-        <span class="text-gray-400">Incoming:</span>
-        <span class="font-black text-green-600">$27,500</span>
-      </div>
+    <div class="flex items-center gap-6 text-xs">
+      <span class="text-gray-400">Lifetime: <span class="font-black text-gray-900">$284,320</span></span>
+      <span class="text-gray-400">Incoming: <span class="font-black text-green-600">$27,500</span></span>
+      <button class="text-brand-600 font-semibold hover:underline">Earnings History →</button>
     </div>
   </div>
 </header>
 
-<main class="max-w-7xl mx-auto px-8 py-6 space-y-6">
+<main class="px-8 py-6 space-y-6">
 
-  <!-- ACTION QUEUE — top priority, PS-style table -->
+  <!-- ═══ PRIORITY QUEUE — 4 columns like the PS admin ═══ -->
   <div class="bg-white rounded-xl border border-gray-200 shadow-sm">
-    <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
-        <h2 class="text-sm font-bold text-gray-900">Action Needed</h2>
-        <span class="text-xs font-bold bg-red-100 text-red-700 px-2 py-0.5 rounded-full">3 items</span>
-      </div>
-      <span class="text-xs text-gray-400">These need you to take action</span>
+    <div class="px-6 py-3 border-b border-gray-100 flex items-center gap-3">
+      <h2 class="text-sm font-bold text-gray-900">Priority Queue</h2>
+      <span class="text-[10px] font-bold bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full">3 need action</span>
     </div>
-    <table class="w-full">
-      <thead>
-        <tr class="border-b border-gray-100">
-          <th class="text-left px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider w-[200px]">Brand</th>
-          <th class="text-left px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Deliverable</th>
-          <th class="text-left px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">What You Need to Do</th>
-          <th class="text-left px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Upload Date</th>
-          <th class="text-left px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Urgency</th>
-          <th class="text-right px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Value</th>
-          <th class="px-6 py-3"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="action-row border-b border-red-100 cursor-pointer">
-          <td class="px-6 py-4">
-            <span class="text-sm font-bold text-gray-900">SoFi</span>
-          </td>
-          <td class="px-6 py-4">
-            <span class="text-sm text-gray-700">Dedicated Video</span>
-            <span class="text-xs text-gray-400 ml-1">· YouTube</span>
-          </td>
-          <td class="px-6 py-4">
-            <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-green-700">
-              <span class="w-2 h-2 rounded-full bg-green-500"></span>
-              Post your approved video
-            </span>
-          </td>
-          <td class="px-6 py-4 text-sm text-gray-700">Apr 18</td>
-          <td class="px-6 py-4">
-            <span class="text-xs font-bold text-red-700 bg-red-100 px-2.5 py-1 rounded-full">9 days</span>
-          </td>
-          <td class="px-6 py-4 text-right text-sm font-bold text-gray-900">$12,000</td>
-          <td class="px-6 py-4">
-            <button class="px-4 py-2 bg-green-600 text-white text-xs font-bold rounded-lg hover:bg-green-700 whitespace-nowrap">View & Post</button>
-          </td>
-        </tr>
-        <tr class="action-row border-b border-red-100 cursor-pointer">
-          <td class="px-6 py-4">
-            <span class="text-sm font-bold text-gray-900">NordVPN</span>
-          </td>
-          <td class="px-6 py-4">
-            <span class="text-sm text-gray-700">Integration</span>
-            <span class="text-xs text-gray-400 ml-1">· YouTube</span>
-          </td>
-          <td class="px-6 py-4">
-            <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-yellow-700">
-              <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
-              Submit your script
-            </span>
-          </td>
-          <td class="px-6 py-4 text-sm text-gray-700">May 15</td>
-          <td class="px-6 py-4">
-            <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2.5 py-1 rounded-full">3 days</span>
-          </td>
-          <td class="px-6 py-4 text-right text-sm font-bold text-gray-900">$8,000</td>
-          <td class="px-6 py-4">
-            <button class="px-4 py-2 bg-brand-600 text-white text-xs font-bold rounded-lg hover:bg-brand-700 whitespace-nowrap">Submit Script</button>
-          </td>
-        </tr>
-        <tr class="action-row cursor-pointer">
-          <td class="px-6 py-4">
-            <span class="text-sm font-bold text-gray-900">Betterment</span>
-          </td>
-          <td class="px-6 py-4">
-            <span class="text-sm text-gray-700">Integration</span>
-            <span class="text-xs text-gray-400 ml-1">· YouTube</span>
-          </td>
-          <td class="px-6 py-4">
-            <div class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700">
-              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-              Upload your video
+
+    <div class="grid grid-cols-4 divide-x divide-gray-100 min-h-[280px]">
+
+      <!-- COL 1: YOUR ACTION NEEDED (red) -->
+      <div class="p-4">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 rounded-full bg-red-500"></span>
+          <span class="text-[10px] font-bold text-red-600 uppercase tracking-widest">Your Action Needed</span>
+        </div>
+        <div class="space-y-2">
+          <!-- Item: Post -->
+          <div class="rounded-lg border border-green-200 bg-green-50 p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-bold text-gray-900">SoFi</span>
+              <span class="text-xs font-black text-green-700">$12K</span>
             </div>
-            <div class="text-xs text-amber-600 mt-1">Brand: "Swap CTA to mention referral bonus"</div>
-          </td>
-          <td class="px-6 py-4 text-sm text-gray-700">May 20</td>
-          <td class="px-6 py-4">
-            <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2.5 py-1 rounded-full">8 days</span>
-          </td>
-          <td class="px-6 py-4 text-right text-sm font-bold text-gray-900">$6,500</td>
-          <td class="px-6 py-4">
-            <button class="px-4 py-2 bg-brand-600 text-white text-xs font-bold rounded-lg hover:bg-brand-700 whitespace-nowrap">Upload Video</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <div class="text-[11px] text-gray-500 mb-2">Dedicated Video · YouTube</div>
+            <div class="text-[11px] font-semibold text-green-700 mb-2">Video approved — post by Apr 18</div>
+            <button class="w-full py-1.5 bg-green-600 text-white text-[11px] font-bold rounded-lg hover:bg-green-700">View & Post</button>
+          </div>
+          <!-- Item: Script -->
+          <div class="rounded-lg border border-orange-200 bg-orange-50 p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-bold text-gray-900">NordVPN</span>
+              <span class="text-xs font-black text-gray-900">$8K</span>
+            </div>
+            <div class="text-[11px] text-gray-500 mb-2">Integration · YouTube</div>
+            <div class="text-[11px] font-semibold text-orange-700 mb-2">Submit script · 3 days left</div>
+            <button class="w-full py-1.5 bg-brand-600 text-white text-[11px] font-bold rounded-lg hover:bg-brand-700">Submit Script</button>
+          </div>
+          <!-- Item: Video -->
+          <div class="rounded-lg border border-yellow-200 bg-yellow-50 p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-bold text-gray-900">Betterment</span>
+              <span class="text-xs font-black text-gray-900">$6.5K</span>
+            </div>
+            <div class="text-[11px] text-gray-500 mb-2">Integration · YouTube</div>
+            <div class="text-[11px] font-semibold text-yellow-700 mb-2">Upload video draft · May 20</div>
+            <button class="w-full py-1.5 bg-brand-600 text-white text-[11px] font-bold rounded-lg hover:bg-brand-700">Upload Video</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 2: BRAND REVIEWING (purple) -->
+      <div class="p-4">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+          <span class="text-[10px] font-bold text-purple-600 uppercase tracking-widest">Brand Reviewing</span>
+        </div>
+        <div class="space-y-2">
+          <div class="rounded-lg border border-purple-200 bg-purple-50 p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-bold text-gray-900">Rocket Money</span>
+              <span class="text-xs font-black text-gray-900">$7.5K</span>
+            </div>
+            <div class="text-[11px] text-gray-500">Integration · YouTube</div>
+            <div class="text-[11px] text-purple-600 mt-1.5">Script submitted Apr 7</div>
+            <div class="text-[10px] text-gray-400 mt-1">Waiting on brand approval (day 2)</div>
+          </div>
+          <div class="rounded-lg border border-purple-200 bg-purple-50 p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-bold text-gray-900">Wealthfront</span>
+              <span class="text-xs font-black text-gray-900">$2.5K</span>
+            </div>
+            <div class="text-[11px] text-gray-500">IG Story · Instagram</div>
+            <div class="text-[11px] text-purple-600 mt-1.5">Content draft submitted Apr 6</div>
+            <div class="text-[10px] text-gray-400 mt-1">Waiting on brand approval (day 3)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 3: WAITING ON BRAND (gray) -->
+      <div class="p-4">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 rounded-full bg-gray-400"></span>
+          <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Waiting on Brand</span>
+        </div>
+        <div class="space-y-2">
+          <div class="rounded-lg border border-gray-200 bg-gray-50 p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-bold text-gray-900">Shopify</span>
+              <span class="text-xs font-black text-gray-900">$4K</span>
+            </div>
+            <div class="text-[11px] text-gray-500">Integration · TikTok</div>
+            <div class="text-[11px] text-gray-500 mt-1.5">Waiting for talking points</div>
+            <div class="text-[10px] text-gray-400 mt-1">Upload date: Jun 1</div>
+          </div>
+          <div class="rounded-lg border border-gray-200 bg-gray-50 p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-bold text-gray-900">Credit Karma</span>
+              <span class="text-xs font-black text-gray-900">$3K</span>
+            </div>
+            <div class="text-[11px] text-gray-500">Newsletter</div>
+            <div class="text-[11px] text-gray-500 mt-1.5">Waiting for talking points</div>
+            <div class="text-[10px] text-gray-400 mt-1">Upload date: May 10</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 4: PAYMENTS COMING (green) -->
+      <div class="p-4">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          <span class="text-[10px] font-bold text-green-600 uppercase tracking-widest">Payments Coming</span>
+        </div>
+        <div class="space-y-2">
+          <div class="rounded-lg border border-green-200 bg-green-50 p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-bold text-gray-900">SoFi</span>
+              <span class="text-sm font-black text-green-600">+$12,000</span>
+            </div>
+            <div class="text-[11px] text-gray-500">Payout: Apr 30</div>
+          </div>
+          <div class="rounded-lg border border-green-200 bg-green-50 p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-bold text-gray-900">Rocket Money</span>
+              <span class="text-sm font-black text-green-600">+$7,500</span>
+            </div>
+            <div class="text-[11px] text-gray-500">Payout: May 15</div>
+          </div>
+          <div class="rounded-lg border border-green-200 bg-green-50 p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-bold text-gray-900">NordVPN</span>
+              <span class="text-sm font-black text-green-600">+$8,000</span>
+            </div>
+            <div class="text-[11px] text-gray-500">Payout: May 30</div>
+          </div>
+          <div class="rounded-lg bg-green-100 p-3 mt-1">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-green-800">Total incoming</span>
+              <span class="text-sm font-black text-green-700">$27,500</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <!-- ALL DEALS TABLE — full pipeline view -->
+  <!-- ═══ ALL DELIVERABLES TABLE ═══ -->
   <div class="bg-white rounded-xl border border-gray-200">
-    <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-      <h2 class="text-sm font-bold text-gray-900">All Deals</h2>
-      <div class="flex items-center gap-2">
-        <button class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700">Active</button>
-        <button class="text-xs font-medium px-3 py-1.5 rounded-lg text-gray-400 hover:bg-gray-50">Completed</button>
+    <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between">
+      <h2 class="text-sm font-bold text-gray-900">All Deliverables</h2>
+      <div class="flex gap-2">
+        <button class="text-[10px] font-bold px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg">Active (7)</button>
+        <button class="text-[10px] font-medium px-3 py-1.5 text-gray-400 rounded-lg hover:bg-gray-50">Completed</button>
       </div>
     </div>
     <table class="w-full">
       <thead>
         <tr class="border-b border-gray-100">
-          <th class="text-left px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Brand</th>
-          <th class="text-left px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Type</th>
-          <th class="text-left px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Platform</th>
-          <th class="text-left px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Stage</th>
-          <th class="text-left px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Upload Date</th>
-          <th class="text-left px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Payout</th>
-          <th class="text-left px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Agent</th>
-          <th class="text-right px-6 py-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Value</th>
+          <th class="text-left px-6 py-2.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Brand</th>
+          <th class="text-left px-4 py-2.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Type</th>
+          <th class="text-left px-4 py-2.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Platform</th>
+          <th class="text-left px-4 py-2.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Stage</th>
+          <th class="text-left px-4 py-2.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Who</th>
+          <th class="text-left px-4 py-2.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Upload</th>
+          <th class="text-left px-4 py-2.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Payout</th>
+          <th class="text-left px-4 py-2.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Agent</th>
+          <th class="text-right px-6 py-2.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Value</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-50">
-        <tr class="hover:bg-gray-50 cursor-pointer">
-          <td class="px-6 py-3.5 text-sm font-semibold text-gray-900">SoFi</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Dedicated Video</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">YouTube</td>
-          <td class="px-6 py-3.5"><span class="text-xs font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">Ready to Post</span></td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Apr 18</td>
-          <td class="px-6 py-3.5 text-sm text-green-600 font-medium">Apr 30</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Charlie</td>
-          <td class="px-6 py-3.5 text-sm text-right font-bold text-gray-900">$12,000</td>
+        <tr class="bg-red-50/40 hover:bg-red-50/70">
+          <td class="px-6 py-3 text-sm font-bold text-gray-900">SoFi</td>
+          <td class="px-4 py-3 text-xs text-gray-600">Dedicated Video</td>
+          <td class="px-4 py-3 text-xs text-gray-600">YouTube</td>
+          <td class="px-4 py-3"><span class="text-[10px] font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">Ready to Post</span></td>
+          <td class="px-4 py-3 text-xs font-bold text-red-600">You</td>
+          <td class="px-4 py-3 text-xs text-gray-600">Apr 18</td>
+          <td class="px-4 py-3 text-xs text-green-600 font-medium">Apr 30</td>
+          <td class="px-4 py-3 text-xs text-gray-600">Charlie</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-gray-900">$12,000</td>
         </tr>
-        <tr class="hover:bg-gray-50 cursor-pointer">
-          <td class="px-6 py-3.5 text-sm font-semibold text-gray-900">NordVPN</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Integration</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">YouTube</td>
-          <td class="px-6 py-3.5"><span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-0.5 rounded-full">Script Due</span></td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">May 15</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Jun 15</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Charlie</td>
-          <td class="px-6 py-3.5 text-sm text-right font-bold text-gray-900">$8,000</td>
+        <tr class="bg-red-50/40 hover:bg-red-50/70">
+          <td class="px-6 py-3 text-sm font-bold text-gray-900">NordVPN</td>
+          <td class="px-4 py-3 text-xs text-gray-600">Integration</td>
+          <td class="px-4 py-3 text-xs text-gray-600">YouTube</td>
+          <td class="px-4 py-3"><span class="text-[10px] font-bold text-yellow-700 bg-yellow-100 px-2 py-0.5 rounded-full">Script Due</span></td>
+          <td class="px-4 py-3 text-xs font-bold text-red-600">You</td>
+          <td class="px-4 py-3 text-xs text-gray-600">May 15</td>
+          <td class="px-4 py-3 text-xs text-gray-600">Jun 15</td>
+          <td class="px-4 py-3 text-xs text-gray-600">Charlie</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-gray-900">$8,000</td>
         </tr>
-        <tr class="hover:bg-gray-50 cursor-pointer">
-          <td class="px-6 py-3.5 text-sm font-semibold text-gray-900">Betterment</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Integration</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">YouTube</td>
-          <td class="px-6 py-3.5"><span class="text-xs font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">Video Due</span></td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">May 20</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Jun 20</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Charlie</td>
-          <td class="px-6 py-3.5 text-sm text-right font-bold text-gray-900">$6,500</td>
+        <tr class="bg-red-50/40 hover:bg-red-50/70">
+          <td class="px-6 py-3 text-sm font-bold text-gray-900">Betterment</td>
+          <td class="px-4 py-3 text-xs text-gray-600">Integration</td>
+          <td class="px-4 py-3 text-xs text-gray-600">YouTube</td>
+          <td class="px-4 py-3"><span class="text-[10px] font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">Video Due</span></td>
+          <td class="px-4 py-3 text-xs font-bold text-red-600">You</td>
+          <td class="px-4 py-3 text-xs text-gray-600">May 20</td>
+          <td class="px-4 py-3 text-xs text-gray-600">Jun 20</td>
+          <td class="px-4 py-3 text-xs text-gray-600">Charlie</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-gray-900">$6,500</td>
         </tr>
-        <tr class="hover:bg-gray-50 cursor-pointer">
-          <td class="px-6 py-3.5 text-sm font-semibold text-gray-900">Rocket Money</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Integration</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">YouTube</td>
-          <td class="px-6 py-3.5"><span class="text-xs font-medium text-purple-600 bg-purple-100 px-2 py-0.5 rounded-full">Brand Reviewing Script</span></td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">May 25</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Jun 25</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Charlie</td>
-          <td class="px-6 py-3.5 text-sm text-right font-bold text-gray-900">$7,500</td>
+        <tr class="hover:bg-gray-50">
+          <td class="px-6 py-3 text-sm font-semibold text-gray-700">Rocket Money</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Integration</td>
+          <td class="px-4 py-3 text-xs text-gray-500">YouTube</td>
+          <td class="px-4 py-3"><span class="text-[10px] font-medium text-purple-600 bg-purple-50 px-2 py-0.5 rounded-full">Script Review</span></td>
+          <td class="px-4 py-3 text-xs text-purple-500">Brand</td>
+          <td class="px-4 py-3 text-xs text-gray-500">May 25</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Jun 25</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Charlie</td>
+          <td class="px-6 py-3 text-right text-sm font-semibold text-gray-700">$7,500</td>
         </tr>
-        <tr class="hover:bg-gray-50 cursor-pointer">
-          <td class="px-6 py-3.5 text-sm font-semibold text-gray-900">Wealthfront</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">IG Story</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Instagram</td>
-          <td class="px-6 py-3.5"><span class="text-xs font-medium text-purple-600 bg-purple-100 px-2 py-0.5 rounded-full">Brand Reviewing Content</span></td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">May 8</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Jun 8</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Henry</td>
-          <td class="px-6 py-3.5 text-sm text-right font-bold text-gray-900">$2,500</td>
+        <tr class="hover:bg-gray-50">
+          <td class="px-6 py-3 text-sm font-semibold text-gray-700">Wealthfront</td>
+          <td class="px-4 py-3 text-xs text-gray-500">IG Story</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Instagram</td>
+          <td class="px-4 py-3"><span class="text-[10px] font-medium text-purple-600 bg-purple-50 px-2 py-0.5 rounded-full">Content Review</span></td>
+          <td class="px-4 py-3 text-xs text-purple-500">Brand</td>
+          <td class="px-4 py-3 text-xs text-gray-500">May 8</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Jun 8</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Henry</td>
+          <td class="px-6 py-3 text-right text-sm font-semibold text-gray-700">$2,500</td>
         </tr>
-        <tr class="hover:bg-gray-50 cursor-pointer">
-          <td class="px-6 py-3.5 text-sm font-semibold text-gray-900">Shopify</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Integration</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">TikTok</td>
-          <td class="px-6 py-3.5"><span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">Waiting on Talking Pts</span></td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Jun 1</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Jul 1</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Annie</td>
-          <td class="px-6 py-3.5 text-sm text-right font-bold text-gray-900">$4,000</td>
+        <tr class="hover:bg-gray-50">
+          <td class="px-6 py-3 text-sm font-semibold text-gray-700">Shopify</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Integration</td>
+          <td class="px-4 py-3 text-xs text-gray-500">TikTok</td>
+          <td class="px-4 py-3"><span class="text-[10px] font-medium text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">Talking Points</span></td>
+          <td class="px-4 py-3 text-xs text-gray-400">Brand</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Jun 1</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Jul 1</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Annie</td>
+          <td class="px-6 py-3 text-right text-sm font-semibold text-gray-700">$4,000</td>
         </tr>
-        <tr class="hover:bg-gray-50 cursor-pointer">
-          <td class="px-6 py-3.5 text-sm font-semibold text-gray-900">Credit Karma</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Newsletter</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Newsletter</td>
-          <td class="px-6 py-3.5"><span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-0.5 rounded-full">Copy Due</span></td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">May 10</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Jun 10</td>
-          <td class="px-6 py-3.5 text-sm text-gray-600">Charlie</td>
-          <td class="px-6 py-3.5 text-sm text-right font-bold text-gray-900">$3,000</td>
+        <tr class="hover:bg-gray-50">
+          <td class="px-6 py-3 text-sm font-semibold text-gray-700">Credit Karma</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Newsletter</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Newsletter</td>
+          <td class="px-4 py-3"><span class="text-[10px] font-medium text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">Talking Points</span></td>
+          <td class="px-4 py-3 text-xs text-gray-400">Brand</td>
+          <td class="px-4 py-3 text-xs text-gray-500">May 10</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Jun 10</td>
+          <td class="px-4 py-3 text-xs text-gray-500">Charlie</td>
+          <td class="px-6 py-3 text-right text-sm font-semibold text-gray-700">$3,000</td>
         </tr>
       </tbody>
     </table>
-  </div>
-
-  <!-- Revenue strip -->
-  <div class="bg-white rounded-xl border border-gray-200 px-6 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-8">
-      <div>
-        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Lifetime Revenue</div>
-        <div class="text-2xl font-black text-gray-900">$284,320</div>
-        <div class="text-xs text-gray-400">142 paid deals</div>
-      </div>
-      <div class="w-px h-10 bg-gray-200"></div>
-      <div>
-        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Incoming Payments</div>
-        <div class="text-2xl font-black text-green-600">$27,500</div>
-        <div class="text-xs text-gray-400">SoFi Apr 30 · Rocket Money May 15 · NordVPN May 30</div>
-      </div>
-    </div>
-    <button class="text-sm text-brand-600 font-semibold hover:underline">View earnings history →</button>
   </div>
 
 </main>
