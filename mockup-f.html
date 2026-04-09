@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option F — Notification Feed</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{brand:{50:'#eef2ff',100:'#e0e7ff',500:'#6366f1',600:'#4f46e5',700:'#4338ca'}}}}}</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+body{font-family:'Inter',sans-serif}
+.expand-body{transition:max-height .25s ease,opacity .2s ease;max-height:0;opacity:0;overflow:hidden}
+.expand-body.open{max-height:800px;opacity:1}
+</style>
+</head>
+<body class="bg-white min-h-screen">
+
+<!-- Preview -->
+<div class="bg-yellow-50 border-b border-yellow-200 px-4 py-1.5 text-center">
+  <span class="text-[10px] font-bold text-yellow-600 uppercase tracking-widest">Option F · Notification Feed · Not Live</span>
+</div>
+
+<!-- Sticky header -->
+<header class="sticky top-[33px] z-10 bg-white/80 backdrop-blur-xl border-b border-gray-100">
+  <div class="max-w-xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div>
+      <h1 class="text-xl font-black text-gray-900 tracking-tight">Caleb Hammer</h1>
+    </div>
+    <div class="flex items-center gap-3 text-xs text-gray-400">
+      <span class="font-semibold text-gray-900">$284K</span> lifetime
+      <span class="text-gray-200">|</span>
+      <span class="font-semibold text-green-600">$27.5K</span> incoming
+    </div>
+  </div>
+</header>
+
+<main class="max-w-xl mx-auto px-6 py-6">
+
+  <!-- Feed-style list -->
+  <div class="space-y-0">
+
+    <!-- ─── ACTION ITEM: SoFi ─── -->
+    <div class="border-b border-gray-100 py-5">
+      <div class="flex gap-4">
+        <div class="flex-shrink-0 mt-0.5">
+          <div class="w-10 h-10 rounded-2xl bg-green-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-base font-extrabold text-gray-900">SoFi</span>
+              <span class="text-xs font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">Ready to Post</span>
+            </div>
+            <span class="text-base font-extrabold text-green-600">$12,000</span>
+          </div>
+          <p class="text-sm text-gray-500 mt-1">Your dedicated video is approved. Post by <span class="font-semibold text-gray-700">Apr 18</span>.</p>
+          <div class="flex items-center gap-3 mt-3">
+            <button onclick="toggleExpand('sofi')" class="px-4 py-2 bg-green-600 text-white text-sm font-bold rounded-xl hover:bg-green-700 transition-colors">View Post Details</button>
+            <span class="text-xs text-gray-400">Payout: Apr 30</span>
+          </div>
+          <!-- Expandable detail -->
+          <div id="expand-sofi" class="expand-body">
+            <div class="mt-4 pt-4 border-t border-gray-100 space-y-4">
+              <div>
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Caption Text</div>
+                <div class="bg-gray-50 rounded-xl p-3.5 text-sm text-gray-800 border border-gray-100">Thanks to SoFi for sponsoring this video. Sign up at https://sofi.com/caleb and get a $25 bonus. #ad #sponsored</div>
+                <div class="text-[10px] text-red-500 font-medium mt-1">Copy exactly as shown</div>
+              </div>
+              <div>
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Pinned Comment</div>
+                <div class="bg-gray-50 rounded-xl p-3.5 text-sm text-gray-800 border border-gray-100">Get $25 when you sign up → https://sofi.com/caleb</div>
+                <div class="text-[10px] text-red-500 font-medium mt-1">Copy exactly as shown</div>
+              </div>
+              <div>
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Tracking Link</div>
+                <code class="text-sm text-gray-700">https://sofi.com/caleb</code>
+              </div>
+              <div class="flex gap-6">
+                <div><span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Agent</span><div class="text-sm text-gray-700 mt-0.5">Charlie</div></div>
+                <div><span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">PS</span><div class="text-sm text-gray-700 mt-0.5">Geli</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ACTION ITEM: NordVPN ─── -->
+    <div class="border-b border-gray-100 py-5">
+      <div class="flex gap-4">
+        <div class="flex-shrink-0 mt-0.5">
+          <div class="w-10 h-10 rounded-2xl bg-orange-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          </div>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-base font-extrabold text-gray-900">NordVPN</span>
+              <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-full">3 days left</span>
+            </div>
+            <span class="text-base font-extrabold text-gray-900">$8,000</span>
+          </div>
+          <p class="text-sm text-gray-500 mt-1">Submit your script for this YouTube integration. Upload by <span class="font-semibold text-gray-700">May 15</span>.</p>
+          <div class="flex items-center gap-3 mt-3">
+            <button onclick="toggleExpand('nordvpn')" class="px-4 py-2 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700 transition-colors">Submit Script</button>
+            <a href="#" class="text-xs text-brand-600 font-semibold hover:underline">View talking points</a>
+          </div>
+          <div id="expand-nordvpn" class="expand-body">
+            <div class="mt-4 pt-4 border-t border-gray-100 space-y-4">
+              <div>
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Talking Points</div>
+                <a href="#" class="text-sm text-brand-600 font-medium hover:underline">Open Talking Points Doc →</a>
+              </div>
+              <div>
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Caption Text</div>
+                <div class="bg-gray-50 rounded-xl p-3.5 text-sm text-gray-800 border border-gray-100">Go to https://nordvpn.com/caleb to get the best deal on NordVPN. Risk-free with 30-day money-back guarantee. #ad</div>
+              </div>
+              <div>
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Pinned Comment</div>
+                <div class="bg-gray-50 rounded-xl p-3.5 text-sm text-gray-800 border border-gray-100">Get the deal → https://nordvpn.com/caleb</div>
+              </div>
+              <div>
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Ad Placement</div>
+                <div class="text-sm text-gray-700">Mid-roll (60-90 seconds)</div>
+              </div>
+              <div>
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Brand Assets</div>
+                <a href="#" class="text-sm text-brand-600 hover:underline block">Logo Pack</a>
+                <a href="#" class="text-sm text-brand-600 hover:underline block">B-roll Footage</a>
+              </div>
+              <div>
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Requirements</div>
+                <div class="text-sm text-gray-700">Must mention "30-day money-back guarantee". No competitor VPNs.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ACTION ITEM: Betterment ─── -->
+    <div class="border-b border-gray-100 py-5">
+      <div class="flex gap-4">
+        <div class="flex-shrink-0 mt-0.5">
+          <div class="w-10 h-10 rounded-2xl bg-blue-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          </div>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-base font-extrabold text-gray-900">Betterment</span>
+              <span class="text-xs font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">Video due</span>
+            </div>
+            <span class="text-base font-extrabold text-gray-900">$6,500</span>
+          </div>
+          <p class="text-sm text-gray-500 mt-1">Upload your video for this YouTube integration. Upload by <span class="font-semibold text-gray-700">May 20</span>.</p>
+          <div class="bg-amber-50 rounded-xl px-3.5 py-2 mt-2 border border-amber-100">
+            <p class="text-xs text-amber-700"><span class="font-bold">Brand:</span> "Swap CTA to mention referral bonus"</p>
+          </div>
+          <div class="flex items-center gap-3 mt-3">
+            <button class="px-4 py-2 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700 transition-colors">Upload Video</button>
+            <span class="text-xs text-gray-400">Script approved Apr 4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── DIVIDER ─── -->
+    <div class="py-4">
+      <div class="text-[10px] font-bold text-gray-300 uppercase tracking-widest">Waiting — nothing needed from you</div>
+    </div>
+
+    <!-- In progress items (compact) -->
+    <div class="border-b border-gray-50 py-3.5 flex items-center gap-4 opacity-50">
+      <div class="w-10 h-10 rounded-2xl bg-purple-50 flex items-center justify-center flex-shrink-0">
+        <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div class="flex-1 flex items-center justify-between">
+        <div>
+          <span class="text-sm font-semibold text-gray-700">Rocket Money</span>
+          <span class="text-xs text-gray-400 ml-2">$7,500</span>
+        </div>
+        <span class="text-xs text-purple-500">Brand reviewing script</span>
+      </div>
+    </div>
+
+    <div class="border-b border-gray-50 py-3.5 flex items-center gap-4 opacity-50">
+      <div class="w-10 h-10 rounded-2xl bg-purple-50 flex items-center justify-center flex-shrink-0">
+        <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div class="flex-1 flex items-center justify-between">
+        <div>
+          <span class="text-sm font-semibold text-gray-700">Wealthfront</span>
+          <span class="text-xs text-gray-400 ml-2">$2,500</span>
+        </div>
+        <span class="text-xs text-purple-500">Brand reviewing content</span>
+      </div>
+    </div>
+
+    <div class="border-b border-gray-50 py-3.5 flex items-center gap-4 opacity-40">
+      <div class="w-10 h-10 rounded-2xl bg-gray-50 flex items-center justify-center flex-shrink-0">
+        <svg class="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div class="flex-1 flex items-center justify-between">
+        <div>
+          <span class="text-sm font-semibold text-gray-700">Shopify</span>
+          <span class="text-xs text-gray-400 ml-2">$4,000</span>
+        </div>
+        <span class="text-xs text-gray-400">Waiting on brand</span>
+      </div>
+    </div>
+
+    <!-- ─── PAYMENTS ─── -->
+    <div class="py-4">
+      <div class="text-[10px] font-bold text-gray-300 uppercase tracking-widest">Upcoming Payments</div>
+    </div>
+
+    <div class="border-b border-gray-50 py-3 flex items-center gap-4">
+      <div class="w-10 h-10 rounded-2xl bg-emerald-50 flex items-center justify-center flex-shrink-0 text-emerald-500 font-black text-xs">$</div>
+      <div class="flex-1 flex items-center justify-between">
+        <div><span class="text-sm font-semibold text-gray-900">SoFi</span> <span class="text-xs text-gray-400">· Apr 30</span></div>
+        <span class="text-sm font-bold text-emerald-600">+$12,000</span>
+      </div>
+    </div>
+    <div class="border-b border-gray-50 py-3 flex items-center gap-4">
+      <div class="w-10 h-10 rounded-2xl bg-emerald-50 flex items-center justify-center flex-shrink-0 text-emerald-500 font-black text-xs">$</div>
+      <div class="flex-1 flex items-center justify-between">
+        <div><span class="text-sm font-semibold text-gray-900">Rocket Money</span> <span class="text-xs text-gray-400">· May 15</span></div>
+        <span class="text-sm font-bold text-emerald-600">+$7,500</span>
+      </div>
+    </div>
+    <div class="py-3 flex items-center gap-4">
+      <div class="w-10 h-10 rounded-2xl bg-emerald-50 flex items-center justify-center flex-shrink-0 text-emerald-500 font-black text-xs">$</div>
+      <div class="flex-1 flex items-center justify-between">
+        <div><span class="text-sm font-semibold text-gray-900">NordVPN</span> <span class="text-xs text-gray-400">· May 30</span></div>
+        <span class="text-sm font-bold text-emerald-600">+$8,000</span>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+function toggleExpand(id) {
+  document.getElementById('expand-'+id).classList.toggle('open');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option E — Two-Column App</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{brand:{50:'#eef2ff',100:'#e0e7ff',500:'#6366f1',600:'#4f46e5',700:'#4338ca'}}}}}</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+body{font-family:'Inter',sans-serif}
+.item{cursor:pointer;transition:all .15s}
+.item:hover{background:#f9fafb}
+.item.selected{background:#eef2ff;border-color:#c7d2fe}
+</style>
+</head>
+<body class="bg-white min-h-screen">
+
+<!-- Preview -->
+<div class="bg-yellow-50 border-b border-yellow-200 px-4 py-1.5 text-center">
+  <span class="text-[10px] font-bold text-yellow-600 uppercase tracking-widest">Option E · Two-Column App · Not Live</span>
+</div>
+
+<div class="flex h-[calc(100vh-33px)]">
+
+  <!-- LEFT PANEL -->
+  <div class="w-[360px] flex-shrink-0 border-r border-gray-200 flex flex-col bg-gray-50/50">
+
+    <!-- Profile -->
+    <div class="px-5 py-5 border-b border-gray-200">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-lg font-black text-gray-900">Caleb Hammer</h1>
+          <p class="text-xs text-gray-400 mt-0.5">Creators Agency</p>
+        </div>
+        <div class="text-right">
+          <div class="text-sm font-black text-gray-900">$284K</div>
+          <div class="text-[10px] text-gray-400">lifetime</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrollable list -->
+    <div class="flex-1 overflow-y-auto">
+
+      <div class="px-4 pt-4 pb-2">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-red-500"></span>
+          <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Your To-Do</span>
+        </div>
+      </div>
+
+      <div onclick="select(this,'sofi')" class="item selected mx-3 rounded-xl border border-transparent px-4 py-3.5 mb-1">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-bold text-gray-900">SoFi</span>
+          <span class="text-sm font-extrabold text-green-600">$12,000</span>
+        </div>
+        <div class="flex items-center justify-between mt-1.5">
+          <span class="text-xs text-gray-400">Dedicated Video · YouTube</span>
+          <span class="text-[10px] font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">Post it</span>
+        </div>
+      </div>
+
+      <div onclick="select(this,'nordvpn')" class="item mx-3 rounded-xl border border-transparent px-4 py-3.5 mb-1">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-bold text-gray-900">NordVPN</span>
+          <span class="text-sm font-extrabold text-gray-900">$8,000</span>
+        </div>
+        <div class="flex items-center justify-between mt-1.5">
+          <span class="text-xs text-gray-400">YouTube · May 15</span>
+          <span class="text-[10px] font-bold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-full">Script · 3d</span>
+        </div>
+      </div>
+
+      <div onclick="select(this,'betterment')" class="item mx-3 rounded-xl border border-transparent px-4 py-3.5 mb-1">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-bold text-gray-900">Betterment</span>
+          <span class="text-sm font-extrabold text-gray-900">$6,500</span>
+        </div>
+        <div class="flex items-center justify-between mt-1.5">
+          <span class="text-xs text-gray-400">YouTube · May 20</span>
+          <span class="text-[10px] font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">Video</span>
+        </div>
+      </div>
+
+      <div class="px-4 pt-5 pb-2">
+        <span class="text-[10px] font-bold text-gray-300 uppercase tracking-widest">With Brand</span>
+      </div>
+
+      <div class="mx-3 px-4 py-3 mb-1 opacity-50">
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-gray-700">Rocket Money</span>
+          <span class="text-xs text-purple-500">Script review</span>
+        </div>
+      </div>
+      <div class="mx-3 px-4 py-3 mb-1 opacity-50">
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-gray-700">Wealthfront</span>
+          <span class="text-xs text-purple-500">Content review</span>
+        </div>
+      </div>
+      <div class="mx-3 px-4 py-3 mb-1 opacity-40">
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-gray-700">Shopify</span>
+          <span class="text-xs text-gray-400">Waiting on brand</span>
+        </div>
+      </div>
+
+      <!-- Payments -->
+      <div class="px-4 pt-5 pb-2">
+        <span class="text-[10px] font-bold text-gray-300 uppercase tracking-widest">Payments</span>
+      </div>
+      <div class="mx-3 mb-6">
+        <div class="bg-emerald-50 rounded-xl border border-emerald-200 px-4 py-3">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-bold text-emerald-800">3 payments incoming</span>
+            <span class="text-base font-black text-emerald-700">$27,500</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL: Detail for selected item -->
+  <div class="flex-1 overflow-y-auto">
+
+    <!-- SoFi detail (default selected) -->
+    <div id="detail-sofi" class="p-8 max-w-xl">
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-1">
+          <h2 class="text-2xl font-black text-gray-900">SoFi</h2>
+          <span class="text-xs font-bold text-green-700 bg-green-100 px-2.5 py-1 rounded-full">Ready to Post</span>
+        </div>
+        <p class="text-sm text-gray-400">Dedicated Video · YouTube · Scheduled Apr 18</p>
+      </div>
+
+      <div class="bg-green-50 border border-green-200 rounded-2xl p-5 mb-6">
+        <div class="text-sm font-bold text-green-800 mb-1">Your video is approved!</div>
+        <div class="text-xs text-green-700">Post by Apr 18. Copy the caption and pinned comment exactly as shown below.</div>
+      </div>
+
+      <div class="space-y-5 mb-8">
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Caption Text</div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm text-gray-800 leading-relaxed">Thanks to SoFi for sponsoring this video. Sign up at https://sofi.com/caleb and get a $25 bonus. #ad #sponsored</div>
+          <div class="text-[10px] text-red-500 font-medium mt-1.5">Copy exactly — has been edited for compliance</div>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Pinned Comment</div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm text-gray-800">Get $25 when you sign up → https://sofi.com/caleb</div>
+          <div class="text-[10px] text-red-500 font-medium mt-1.5">Copy exactly — has been edited for compliance</div>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Tracking Link</div>
+          <code class="text-sm bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 block text-gray-700">https://sofi.com/caleb</code>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mb-8">
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Deal Value</div>
+          <div class="text-xl font-black text-gray-900">$12,000</div>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Payout</div>
+          <div class="text-xl font-black text-emerald-600">Apr 30</div>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Agent</div>
+          <div class="text-sm text-gray-700">Charlie</div>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">PS Contact</div>
+          <div class="text-sm text-gray-700">Geli</div>
+        </div>
+      </div>
+
+      <!-- Submission History -->
+      <div>
+        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">History</div>
+        <div class="space-y-2">
+          <div class="flex items-center gap-3 text-sm">
+            <span class="text-[10px] font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full w-20 text-center">Approved</span>
+            <span class="text-gray-700">Video Draft — Round 2</span>
+            <span class="text-xs text-gray-400 ml-auto">Apr 5</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <span class="text-[10px] font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded-full w-20 text-center">Revision</span>
+            <span class="text-gray-700">Video Draft — Round 1</span>
+            <span class="text-xs text-gray-400 ml-auto">Mar 29</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <span class="text-[10px] font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full w-20 text-center">Approved</span>
+            <span class="text-gray-700">Script — Round 1</span>
+            <span class="text-xs text-gray-400 ml-auto">Mar 22</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NordVPN detail (hidden) -->
+    <div id="detail-nordvpn" class="p-8 max-w-xl" style="display:none">
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-1">
+          <h2 class="text-2xl font-black text-gray-900">NordVPN</h2>
+          <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2.5 py-1 rounded-full">Script Due in 3 Days</span>
+        </div>
+        <p class="text-sm text-gray-400">YouTube Integration · Upload by May 15</p>
+      </div>
+
+      <button class="w-full py-4 bg-brand-600 text-white text-base font-bold rounded-2xl hover:bg-brand-700 transition-colors mb-6">
+        Submit Script →
+      </button>
+
+      <div class="space-y-5 mb-8">
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Talking Points</div>
+          <a href="#" class="text-sm text-brand-600 font-medium hover:underline flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            Open Talking Points Doc
+          </a>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Tracking Link</div>
+          <code class="text-sm bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 block text-gray-700 break-all">https://nordvpn.com/caleb?utm_source=youtube</code>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Caption Text</div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm text-gray-800 leading-relaxed">Go to https://nordvpn.com/caleb to get the best deal on NordVPN. Risk-free with 30-day money-back guarantee. #ad #sponsored</div>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Pinned Comment</div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm text-gray-800">Get the deal here → https://nordvpn.com/caleb</div>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Ad Placement</div>
+          <div class="text-sm text-gray-700">Mid-roll (60-90 seconds)</div>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Brand Assets</div>
+          <div class="space-y-1">
+            <a href="#" class="text-sm text-brand-600 hover:underline block">Brand Logo Pack</a>
+            <a href="#" class="text-sm text-brand-600 hover:underline block">B-roll Footage</a>
+          </div>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Other Requirements</div>
+          <div class="text-sm text-gray-700">Must mention "risk-free 30-day money-back guarantee". Do not mention competitor VPN services.</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Value</div>
+          <div class="text-xl font-black text-gray-900">$8,000</div>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Payout</div>
+          <div class="text-xl font-black text-gray-900">Jun 15</div>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Agent</div>
+          <div class="text-sm text-gray-700">Charlie</div>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">PS Contact</div>
+          <div class="text-sm text-gray-700">Geli</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Betterment detail (hidden) -->
+    <div id="detail-betterment" class="p-8 max-w-xl" style="display:none">
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-1">
+          <h2 class="text-2xl font-black text-gray-900">Betterment</h2>
+          <span class="text-xs font-bold text-blue-700 bg-blue-100 px-2.5 py-1 rounded-full">Upload Video</span>
+        </div>
+        <p class="text-sm text-gray-400">YouTube Integration · Upload by May 20</p>
+      </div>
+
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-4">
+        <p class="text-sm text-amber-800"><span class="font-bold">Brand note:</span> "Swap CTA to mention referral bonus"</p>
+      </div>
+
+      <button class="w-full py-4 bg-brand-600 text-white text-base font-bold rounded-2xl hover:bg-brand-700 transition-colors mb-6">
+        Upload Video →
+      </button>
+
+      <div class="space-y-5 mb-8">
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Talking Points</div>
+          <a href="#" class="text-sm text-brand-600 font-medium hover:underline">Open Talking Points Doc</a>
+        </div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Tracking Link</div>
+          <code class="text-sm bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 block text-gray-700">https://betterment.com/caleb</code>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">History</div>
+        <div class="flex items-center gap-3 text-sm">
+          <span class="text-[10px] font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full w-20 text-center">Approved</span>
+          <span class="text-gray-700">Script — Round 1</span>
+          <span class="text-xs text-gray-400 ml-auto">Apr 4</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function select(el, id) {
+  document.querySelectorAll('.item').forEach(i => i.classList.remove('selected'));
+  el.classList.add('selected');
+  ['sofi','nordvpn','betterment'].forEach(d => {
+    document.getElementById('detail-'+d).style.display = d===id ? 'block' : 'none';
+  });
+}
+</script>
+</body>
+</html>
