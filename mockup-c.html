@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creator Dashboard Mockup — Option C</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: {50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3'}
+      }
+    }
+  }
+}
+</script>
+<style>
+  * { box-sizing: border-box; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+  .fade-in { animation: fadeIn 0.25s ease-out; }
+  @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+  .tooltip { position:relative; }
+  .tooltip:hover::after { content:attr(data-tip); position:absolute; bottom:calc(100% + 6px); left:50%; transform:translateX(-50%); background:#1f2937; color:white; font-size:11px; padding:4px 8px; border-radius:6px; white-space:nowrap; z-index:50; }
+</style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+<!-- Header Banner -->
+<div class="sticky top-0 z-[100] bg-white border-b border-gray-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <span class="text-sm font-bold text-gray-700">Creator Dashboard Mockup — Option C</span>
+      <span class="text-[10px] bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full font-bold uppercase">Preview Mode — Not Live</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- OPTION C: TIMELINE SPLIT VIEW -->
+<div id="m3" class="fade-in">
+<div class="min-h-screen bg-gray-50 flex flex-col">
+  <header class="bg-white border-b border-gray-200">
+    <div class="px-6 py-4 flex items-center justify-between">
+      <div>
+        <h1 class="text-xl font-bold text-gray-900">Caleb Hammer</h1>
+        <p class="text-sm text-gray-500">Creator Dashboard</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-200">Creators Agency</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-1 overflow-hidden" style="height:calc(100vh - 65px)">
+
+    <!-- LEFT: Deliverable List + Stats -->
+    <div class="w-[420px] flex-shrink-0 border-r border-gray-200 bg-white flex flex-col overflow-y-auto">
+
+      <!-- Stats strip -->
+      <div class="grid grid-cols-3 border-b border-gray-100">
+        <div class="p-3 text-center border-r border-gray-100">
+          <div class="text-lg font-black text-red-600">3</div>
+          <div class="text-[10px] text-gray-400 font-semibold uppercase">Your Turn</div>
+        </div>
+        <div class="p-3 text-center border-r border-gray-100">
+          <div class="text-lg font-black text-gray-900">$284K</div>
+          <div class="text-[10px] text-gray-400 font-semibold uppercase">Lifetime</div>
+        </div>
+        <div class="p-3 text-center">
+          <div class="text-lg font-black text-green-600">$27.5K</div>
+          <div class="text-[10px] text-gray-400 font-semibold uppercase">Incoming</div>
+        </div>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="flex border-b border-gray-100 px-3 pt-2 gap-1">
+        <button class="text-xs font-semibold px-3 py-2 rounded-t-lg bg-brand-50 text-brand-700 border border-b-0 border-brand-200">All (7)</button>
+        <button class="text-xs font-medium px-3 py-2 text-gray-400 hover:text-gray-600">Your Turn (3)</button>
+        <button class="text-xs font-medium px-3 py-2 text-gray-400 hover:text-gray-600">With Brand (3)</button>
+        <button class="text-xs font-medium px-3 py-2 text-gray-400 hover:text-gray-600">Done (2)</button>
+      </div>
+
+      <!-- Deliverable list -->
+      <div class="flex-1 overflow-y-auto">
+
+        <!-- Section: YOUR TURN -->
+        <div class="px-3 pt-3 pb-1"><span class="text-[10px] font-bold text-red-500 uppercase tracking-wider flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-red-500 pulse-dot"></span>Your Turn</span></div>
+
+        <div id="c-item-sofi" onclick="selectC('sofi')" class="px-3 py-3 mx-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors border-l-3 border-l-green-500" style="border-left:3px solid #22c55e">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-semibold text-gray-900">SoFi</span>
+            <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Post It</span>
+          </div>
+          <div class="text-xs text-gray-500 mt-0.5">Dedicated Video · YouTube · Apr 18</div>
+          <div class="flex items-center justify-between mt-1">
+            <span class="text-xs text-gray-400">6/7 steps</span>
+            <span class="text-xs font-bold text-gray-900">$12,000</span>
+          </div>
+        </div>
+
+        <div id="c-item-nordvpn" onclick="selectC('nordvpn')" class="px-3 py-3 mx-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors bg-brand-50 ring-1 ring-brand-200" style="border-left:3px solid #eab308">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-semibold text-gray-900">NordVPN</span>
+            <span class="text-xs font-bold bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">Script Due</span>
+          </div>
+          <div class="text-xs text-gray-500 mt-0.5">YouTube Integration · May 15</div>
+          <div class="flex items-center justify-between mt-1">
+            <span class="text-xs text-orange-600 font-medium">3 days left</span>
+            <span class="text-xs font-bold text-gray-900">$8,000</span>
+          </div>
+        </div>
+
+        <div id="c-item-betterment" onclick="selectC('betterment')" class="px-3 py-3 mx-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" style="border-left:3px solid #3b82f6">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-semibold text-gray-900">Betterment</span>
+            <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Video Due</span>
+          </div>
+          <div class="text-xs text-gray-500 mt-0.5">YouTube Integration · May 20</div>
+          <div class="flex items-center justify-between mt-1">
+            <span class="text-xs text-gray-400">4/7 steps</span>
+            <span class="text-xs font-bold text-gray-900">$6,500</span>
+          </div>
+        </div>
+
+        <!-- Section: WITH BRAND -->
+        <div class="px-3 pt-4 pb-1"><span class="text-[10px] font-bold text-purple-500 uppercase tracking-wider">With Brand</span></div>
+
+        <div id="c-item-rocketmoney" onclick="selectC('rocketmoney')" class="px-3 py-3 mx-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors opacity-70" style="border-left:3px solid #a855f7">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-semibold text-gray-900">Rocket Money</span>
+            <span class="text-xs font-medium bg-purple-100 text-purple-600 px-2 py-0.5 rounded-full">Script Review</span>
+          </div>
+          <div class="text-xs text-gray-500 mt-0.5">YouTube Integration · May 25</div>
+          <div class="flex items-center justify-between mt-1">
+            <span class="text-xs text-gray-400">Brand reviewing · day 2</span>
+            <span class="text-xs font-bold text-gray-900">$7,500</span>
+          </div>
+        </div>
+
+        <div class="px-3 py-3 mx-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors opacity-70" style="border-left:3px solid #a855f7">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-semibold text-gray-900">Wealthfront</span>
+            <span class="text-xs font-medium bg-purple-100 text-purple-600 px-2 py-0.5 rounded-full">Content Review</span>
+          </div>
+          <div class="text-xs text-gray-500 mt-0.5">IG Story · May 8</div>
+          <div class="flex items-center justify-between mt-1">
+            <span class="text-xs text-gray-400">Brand reviewing · day 3</span>
+            <span class="text-xs font-bold text-gray-900">$2,500</span>
+          </div>
+        </div>
+
+        <div class="px-3 py-3 mx-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors opacity-50" style="border-left:3px solid #9ca3af">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-semibold text-gray-900">Shopify</span>
+            <span class="text-xs font-medium bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">Talking Points</span>
+          </div>
+          <div class="text-xs text-gray-500 mt-0.5">TikTok · Jun 1</div>
+          <div class="flex items-center justify-between mt-1">
+            <span class="text-xs text-gray-400">Waiting on brand</span>
+            <span class="text-xs font-bold text-gray-900">$4,000</span>
+          </div>
+        </div>
+
+        <!-- Section: PAYMENTS -->
+        <div class="px-3 pt-4 pb-1"><span class="text-[10px] font-bold text-green-600 uppercase tracking-wider">Upcoming Payments</span></div>
+        <div class="px-3 py-2 mx-2 space-y-2 mb-4">
+          <div class="flex items-center justify-between bg-green-50 rounded-lg px-3 py-2">
+            <div><div class="text-xs font-semibold text-gray-900">SoFi</div><div class="text-[10px] text-gray-400">Apr 30</div></div>
+            <span class="text-sm font-bold text-green-600">+$12,000</span>
+          </div>
+          <div class="flex items-center justify-between bg-green-50 rounded-lg px-3 py-2">
+            <div><div class="text-xs font-semibold text-gray-900">Rocket Money</div><div class="text-[10px] text-gray-400">May 15</div></div>
+            <span class="text-sm font-bold text-green-600">+$7,500</span>
+          </div>
+          <div class="flex items-center justify-between bg-green-50 rounded-lg px-3 py-2">
+            <div><div class="text-xs font-semibold text-gray-900">NordVPN</div><div class="text-[10px] text-gray-400">May 30</div></div>
+            <span class="text-sm font-bold text-green-600">+$8,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Detail Panel (always visible) -->
+    <div class="flex-1 overflow-y-auto bg-gray-50 p-8">
+
+      <!-- Default: NordVPN selected -->
+      <div class="max-w-2xl mx-auto space-y-6">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-lg font-bold text-gray-900">NordVPN — YouTube Integration</h2>
+            <div class="text-sm text-gray-500 mt-0.5">Upload by May 15, 2026 · Payout: Jun 15</div>
+          </div>
+          <div class="text-right">
+            <div class="text-2xl font-black text-gray-900">$8,000</div>
+          </div>
+        </div>
+
+        <!-- Stage Progress -->
+        <div class="bg-white rounded-xl border border-gray-200 p-5">
+          <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Workflow Progress</h3>
+          <div class="flex items-center gap-1">
+            <div class="flex-1 text-center">
+              <div class="h-2 rounded-full bg-brand-500 mb-1.5"></div>
+              <div class="text-[9px] text-brand-600 font-medium">Talking Pts</div>
+              <div class="text-[9px] text-gray-400">Done</div>
+            </div>
+            <div class="flex-1 text-center">
+              <div class="h-2 rounded-full bg-yellow-400 mb-1.5 ring-2 ring-yellow-200"></div>
+              <div class="text-[9px] text-yellow-700 font-bold">Script</div>
+              <div class="text-[9px] text-yellow-600 font-medium">YOUR TURN</div>
+            </div>
+            <div class="flex-1 text-center">
+              <div class="h-2 rounded-full bg-gray-200 mb-1.5"></div>
+              <div class="text-[9px] text-gray-400">Script OK</div>
+            </div>
+            <div class="flex-1 text-center">
+              <div class="h-2 rounded-full bg-gray-200 mb-1.5"></div>
+              <div class="text-[9px] text-gray-400">Video</div>
+            </div>
+            <div class="flex-1 text-center">
+              <div class="h-2 rounded-full bg-gray-200 mb-1.5"></div>
+              <div class="text-[9px] text-gray-400">Video OK</div>
+            </div>
+            <div class="flex-1 text-center">
+              <div class="h-2 rounded-full bg-gray-200 mb-1.5"></div>
+              <div class="text-[9px] text-gray-400">Post</div>
+            </div>
+            <div class="flex-1 text-center">
+              <div class="h-2 rounded-full bg-gray-200 mb-1.5"></div>
+              <div class="text-[9px] text-gray-400">Complete</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action banner -->
+        <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-yellow-100 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          </div>
+          <div class="flex-1">
+            <div class="text-sm font-bold text-yellow-800">Submit Your Script</div>
+            <div class="text-xs text-yellow-700 mt-0.5">Review the talking points, then submit your script via Google Docs link. Make sure sharing is set to "anyone with the link can comment."</div>
+          </div>
+          <button class="px-5 py-2.5 bg-brand-600 text-white text-sm font-semibold rounded-lg hover:bg-brand-700 flex-shrink-0 shadow-sm">Submit Script →</button>
+        </div>
+
+        <!-- Brand Requirements -->
+        <div class="bg-white rounded-xl border border-gray-200 p-5">
+          <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Brand Requirements</h3>
+          <div class="grid grid-cols-2 gap-x-6 gap-y-4">
+            <div>
+              <div class="text-xs font-semibold text-gray-500 mb-1">Talking Points</div>
+              <a href="#" class="text-sm text-brand-600 hover:underline flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>View Talking Points Doc</a>
+            </div>
+            <div>
+              <div class="text-xs font-semibold text-gray-500 mb-1">Ad Placement</div>
+              <div class="text-sm text-gray-900">Mid-roll (60-90 seconds)</div>
+            </div>
+            <div class="col-span-2">
+              <div class="text-xs font-semibold text-gray-500 mb-1">Tracking Link</div>
+              <code class="text-xs bg-gray-100 px-2.5 py-1.5 rounded-lg text-gray-700 block">https://nordvpn.com/caleb?utm_source=youtube&utm_medium=sponsorship</code>
+            </div>
+            <div class="col-span-2">
+              <div class="text-xs font-semibold text-gray-500 mb-1">Caption / Description Text</div>
+              <div class="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg border border-gray-100">Go to https://nordvpn.com/caleb to get the best deal on NordVPN. It's risk-free with Nord's 30-day money-back guarantee. #ad #sponsored</div>
+            </div>
+            <div class="col-span-2">
+              <div class="text-xs font-semibold text-gray-500 mb-1">Pinned Comment</div>
+              <div class="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg border border-gray-100">Get the deal here → https://nordvpn.com/caleb</div>
+            </div>
+            <div>
+              <div class="text-xs font-semibold text-gray-500 mb-1">Brand Assets</div>
+              <div class="space-y-1">
+                <a href="#" class="text-xs text-brand-600 hover:underline block">Brand Logo Pack</a>
+                <a href="#" class="text-xs text-brand-600 hover:underline block">B-roll Footage</a>
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-semibold text-gray-500 mb-1">Other Requirements</div>
+              <div class="text-xs text-gray-700">Must mention "risk-free 30-day money-back guarantee". Do not mention competitor VPN services.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submission History -->
+        <div class="bg-white rounded-xl border border-gray-200 p-5">
+          <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Submission History</h3>
+          <div class="text-sm text-gray-400 italic">No submissions yet. Submit your script to start the workflow.</div>
+        </div>
+
+        <!-- Deal + Team Info -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white rounded-xl border border-gray-200 p-5">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Deal Details</h3>
+            <div class="space-y-2.5">
+              <div class="flex justify-between text-sm"><span class="text-gray-500">Platform</span><span class="text-gray-900 font-medium">YouTube</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-500">Content Type</span><span class="text-gray-900 font-medium">Integration</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-500">Upload Date</span><span class="text-gray-900 font-medium">May 15, 2026</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-500">Payout Date</span><span class="text-gray-900 font-medium">Jun 15, 2026</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-500">Deal Value</span><span class="text-gray-900 font-bold">$8,000</span></div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl border border-gray-200 p-5">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Your Team</h3>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-700 text-xs font-bold">CH</div>
+                <div>
+                  <div class="text-sm font-medium text-gray-900">Charlie</div>
+                  <div class="text-xs text-gray-400">Talent Agent · charlie@creatorsagency.co</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 text-xs font-bold">GE</div>
+                <div>
+                  <div class="text-sm font-medium text-gray-900">Geli</div>
+                  <div class="text-xs text-gray-400">Partnership Success · geli@creatorsagency.co</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+// Option C: Split view selection
+function selectC(brand) {
+  // Would update right panel — in mockup just visual feedback on left
+}
+</script>
+
+</body>
+</html>
