@@ -46,16 +46,24 @@ body{font-family:'Inter',sans-serif}
 
   <!-- ═══ ACTION ITEMS LIST ═══ -->
   <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
-    <div class="px-6 py-3 border-b border-gray-100 flex items-center gap-3">
-      <span class="w-2 h-2 rounded-full bg-red-500"></span>
-      <h2 class="text-sm font-bold text-gray-900">Action Needed</h2>
-      <span class="text-[10px] font-bold bg-red-100 text-red-600 px-2 py-0.5 rounded-full">3 items</span>
+    <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="w-2 h-2 rounded-full bg-red-500"></span>
+        <h2 class="text-sm font-bold text-gray-900">Action Needed</h2>
+        <span class="text-[10px] font-bold bg-red-100 text-red-600 px-2 py-0.5 rounded-full">3 items</span>
+      </div>
+      <div class="flex items-center gap-1.5 text-[10px] text-gray-400">
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"/></svg>
+        Sorted by urgency
+      </div>
     </div>
 
-    <!-- ACTION 1: SoFi — Ready to Post -->
+    <!-- ACTION 1: SoFi — Ready to Post (OVERDUE) -->
     <div class="border-b border-gray-100">
       <div onclick="toggle('a1')" class="action-row px-6 py-4 flex items-center gap-5">
-        <div class="w-3 h-3 rounded-full bg-green-500 flex-shrink-0"></div>
+        <div class="flex items-center gap-2 flex-shrink-0 w-16">
+          <span class="text-[9px] font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">OVERDUE</span>
+        </div>
         <div class="flex-1 min-w-0">
           <div class="flex items-center gap-2">
             <span class="text-sm font-bold text-gray-900">SoFi</span>
@@ -64,8 +72,7 @@ body{font-family:'Inter',sans-serif}
           </div>
           <div class="text-xs text-green-600 font-semibold mt-0.5">Video approved — ready to post</div>
         </div>
-        <span class="text-xs font-bold text-red-500">Apr 18</span>
-        <span class="text-sm font-black text-gray-900 w-20 text-right">$12,000</span>
+        <span class="text-xs font-bold text-red-500">Due Apr 18</span>
         <svg id="chev-a1" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
       </div>
       <div id="a1" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
@@ -146,26 +153,30 @@ body{font-family:'Inter',sans-serif}
               <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Charlie</span></div>
               <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Geli</span></div>
             </div>
-            <button class="px-6 py-3 bg-green-600 text-white text-sm font-bold rounded-xl hover:bg-green-700">View Caption & Post →</button>
+            <button class="px-6 py-3 bg-green-600 text-white text-sm font-bold rounded-xl hover:bg-green-700 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              Go to Form — View Caption & Post
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ACTION 2: NordVPN — Submit Script -->
+    <!-- ACTION 2: NordVPN — Submit Script (Due this week) -->
     <div class="border-b border-gray-100">
       <div onclick="toggle('a2')" class="action-row px-6 py-4 flex items-center gap-5">
-        <div class="w-3 h-3 rounded-full bg-orange-400 flex-shrink-0"></div>
+        <div class="flex items-center gap-2 flex-shrink-0 w-16">
+          <span class="text-[9px] font-bold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-full">3 DAYS</span>
+        </div>
         <div class="flex-1 min-w-0">
           <div class="flex items-center gap-2">
             <span class="text-sm font-bold text-gray-900">NordVPN</span>
             <span class="text-xs text-gray-400">·</span>
             <span class="text-xs text-gray-500">Integration · YouTube</span>
           </div>
-          <div class="text-xs text-orange-600 font-semibold mt-0.5">Submit your script · 3 days left</div>
+          <div class="text-xs text-orange-600 font-semibold mt-0.5">Submit your script</div>
         </div>
-        <span class="text-xs font-bold text-orange-500">May 15</span>
-        <span class="text-sm font-black text-gray-900 w-20 text-right">$8,000</span>
+        <span class="text-xs font-bold text-orange-500">Due May 15</span>
         <svg id="chev-a2" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
       </div>
       <div id="a2" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
@@ -257,16 +268,21 @@ body{font-family:'Inter',sans-serif}
               <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Geli</span></div>
               <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">Jun 15 · $8,000</span></div>
             </div>
-            <button class="px-6 py-3 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700">Submit Script →</button>
+            <button class="px-6 py-3 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              Go to Form — Submit Script
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ACTION 3: Betterment — Upload Video -->
+    <!-- ACTION 3: Betterment — Upload Video (Due later) -->
     <div>
       <div onclick="toggle('a3')" class="action-row px-6 py-4 flex items-center gap-5">
-        <div class="w-3 h-3 rounded-full bg-blue-400 flex-shrink-0"></div>
+        <div class="flex items-center gap-2 flex-shrink-0 w-16">
+          <span class="text-[9px] font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">40 DAYS</span>
+        </div>
         <div class="flex-1 min-w-0">
           <div class="flex items-center gap-2">
             <span class="text-sm font-bold text-gray-900">Betterment</span>
@@ -275,8 +291,7 @@ body{font-family:'Inter',sans-serif}
           </div>
           <div class="text-xs text-blue-600 font-semibold mt-0.5">Upload video draft · Script approved</div>
         </div>
-        <span class="text-xs text-gray-400">May 20</span>
-        <span class="text-sm font-black text-gray-900 w-20 text-right">$6,500</span>
+        <span class="text-xs text-gray-400">Due May 20</span>
         <svg id="chev-a3" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
       </div>
       <div id="a3" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
@@ -351,7 +366,10 @@ body{font-family:'Inter',sans-serif}
               <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Mark Javier</span></div>
               <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">Jun 20 · $6,500</span></div>
             </div>
-            <button class="px-6 py-3 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700">Upload Video →</button>
+            <button class="px-6 py-3 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              Go to Form — Upload Video
+            </button>
           </div>
         </div>
       </div>
@@ -359,12 +377,17 @@ body{font-family:'Inter',sans-serif}
 
   </div>
 
-  <!-- ═══ OTHER DEALS (not action needed) ═══ -->
+  <!-- ═══ OTHER DEALS (collapsible) ═══ -->
   <div class="bg-white rounded-xl border border-gray-200">
-    <div class="px-6 py-3 border-b border-gray-100 flex items-center gap-3">
-      <h2 class="text-sm font-bold text-gray-900">Other Active Deals</h2>
-      <span class="text-xs text-gray-400">Nothing needed from you</span>
+    <div onclick="toggleSection('other-deals')" class="px-6 py-3 border-b border-gray-100 flex items-center justify-between cursor-pointer hover:bg-gray-50">
+      <div class="flex items-center gap-3">
+        <h2 class="text-sm font-bold text-gray-900">Other Active Deals</h2>
+        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">4 deals</span>
+        <span class="text-xs text-gray-400">· Nothing needed from you</span>
+      </div>
+      <svg id="chev-other-deals" class="chevron open w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
     </div>
+    <div id="other-deals" class="expand open">
     <table class="w-full">
       <thead>
         <tr class="border-b border-gray-100">
@@ -416,30 +439,148 @@ body{font-family:'Inter',sans-serif}
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 
-  <!-- Revenue strip -->
-  <div class="bg-white rounded-xl border border-gray-200 px-6 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-8">
-      <div>
-        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Lifetime</div>
-        <div class="text-xl font-black text-gray-900">$284,320</div>
-        <div class="text-xs text-gray-400">142 deals</div>
+  <!-- ═══ REVENUE & PAYMENTS ═══ -->
+  <div class="bg-white rounded-xl border border-gray-200">
+    <div onclick="toggleSection('revenue')" class="px-6 py-3 border-b border-gray-100 flex items-center justify-between cursor-pointer hover:bg-gray-50">
+      <div class="flex items-center gap-3">
+        <h2 class="text-sm font-bold text-gray-900">Revenue & Payments</h2>
       </div>
-      <div class="w-px h-10 bg-gray-200"></div>
-      <div>
-        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Incoming</div>
-        <div class="text-xl font-black text-green-600">$27,500</div>
-        <div class="text-xs text-gray-400">SoFi Apr 30 · Rocket Money May 15 · NordVPN May 30</div>
+      <svg id="chev-revenue" class="chevron open w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+    </div>
+    <div id="revenue" class="expand open px-6">
+      <div class="grid grid-cols-12 gap-8">
+        <!-- Left: Summary + Payments -->
+        <div class="col-span-4 space-y-5">
+          <div>
+            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Lifetime Revenue</div>
+            <div class="text-2xl font-black text-gray-900">$284,320</div>
+            <div class="text-xs text-gray-400">142 paid deals</div>
+          </div>
+          <div>
+            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Pipeline Value</div>
+            <div class="text-2xl font-black text-brand-600">$43,500</div>
+            <div class="text-xs text-gray-400">7 active deals</div>
+          </div>
+          <div>
+            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Upcoming Payments</div>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <div><span class="text-xs font-semibold text-gray-900">SoFi</span> <span class="text-[10px] text-gray-400">· Apr 30</span></div>
+                <span class="text-xs font-bold text-green-600">+$12,000</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div><span class="text-xs font-semibold text-gray-900">Rocket Money</span> <span class="text-[10px] text-gray-400">· May 15</span></div>
+                <span class="text-xs font-bold text-green-600">+$7,500</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div><span class="text-xs font-semibold text-gray-900">NordVPN</span> <span class="text-[10px] text-gray-400">· May 30</span></div>
+                <span class="text-xs font-bold text-green-600">+$8,000</span>
+              </div>
+              <div class="pt-2 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs font-bold text-gray-700">Total incoming</span>
+                <span class="text-sm font-black text-green-600">$27,500</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right: Earnings Chart -->
+        <div class="col-span-8">
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Monthly Earnings (Last 12 Months)</div>
+          <div class="flex items-end gap-1.5 h-40">
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <div class="w-full bg-brand-200 rounded-t" style="height:30%"></div>
+              <span class="text-[9px] text-gray-400">May</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <div class="w-full bg-brand-200 rounded-t" style="height:45%"></div>
+              <span class="text-[9px] text-gray-400">Jun</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <div class="w-full bg-brand-300 rounded-t" style="height:60%"></div>
+              <span class="text-[9px] text-gray-400">Jul</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <div class="w-full bg-brand-200 rounded-t" style="height:40%"></div>
+              <span class="text-[9px] text-gray-400">Aug</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <div class="w-full bg-brand-400 rounded-t" style="height:80%"></div>
+              <span class="text-[9px] text-gray-400">Sep</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <div class="w-full bg-brand-300 rounded-t" style="height:55%"></div>
+              <span class="text-[9px] text-gray-400">Oct</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <div class="w-full bg-brand-200 rounded-t" style="height:35%"></div>
+              <span class="text-[9px] text-gray-400">Nov</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <div class="w-full bg-brand-500 rounded-t" style="height:100%"></div>
+              <span class="text-[9px] text-gray-400">Dec</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <div class="w-full bg-brand-300 rounded-t" style="height:70%"></div>
+              <span class="text-[9px] text-gray-400">Jan</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <div class="w-full bg-brand-200 rounded-t" style="height:50%"></div>
+              <span class="text-[9px] text-gray-400">Feb</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <div class="w-full bg-brand-400 rounded-t" style="height:82%"></div>
+              <span class="text-[9px] text-gray-400">Mar</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1">
+              <div class="w-full bg-brand-500 rounded-t ring-2 ring-brand-300" style="height:65%"></div>
+              <span class="text-[9px] text-brand-600 font-bold">Apr</span>
+            </div>
+          </div>
+          <!-- Payment timeline strip -->
+          <div class="mt-6 pt-4 border-t border-gray-100">
+            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Payment Timeline</div>
+            <div class="relative h-8">
+              <div class="absolute inset-x-0 top-3 h-1 bg-gray-200 rounded-full"></div>
+              <!-- Today marker -->
+              <div class="absolute top-0" style="left:0%">
+                <div class="w-2.5 h-2.5 rounded-full bg-brand-600 ring-2 ring-brand-200 mt-1.5"></div>
+                <div class="text-[8px] text-brand-600 font-bold mt-1 -ml-1">Today</div>
+              </div>
+              <!-- SoFi -->
+              <div class="absolute top-0" style="left:25%">
+                <div class="w-2.5 h-2.5 rounded-full bg-green-500 ring-2 ring-green-200 mt-1.5"></div>
+                <div class="text-[8px] text-gray-500 mt-1 -ml-2">SoFi<br>Apr 30</div>
+              </div>
+              <!-- Rocket Money -->
+              <div class="absolute top-0" style="left:50%">
+                <div class="w-2.5 h-2.5 rounded-full bg-green-500 ring-2 ring-green-200 mt-1.5"></div>
+                <div class="text-[8px] text-gray-500 mt-1 -ml-5">Rocket $<br>May 15</div>
+              </div>
+              <!-- NordVPN -->
+              <div class="absolute top-0" style="left:75%">
+                <div class="w-2.5 h-2.5 rounded-full bg-green-500 ring-2 ring-green-200 mt-1.5"></div>
+                <div class="text-[8px] text-gray-500 mt-1 -ml-3">NordVPN<br>May 30</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <button class="text-xs text-brand-600 font-semibold hover:underline">View full earnings history →</button>
   </div>
 
 </main>
 
 <script>
 function toggle(id) {
+  const el = document.getElementById(id);
+  const chev = document.getElementById('chev-'+id);
+  el.classList.toggle('open');
+  if(chev) chev.classList.toggle('open');
+}
+function toggleSection(id) {
   const el = document.getElementById(id);
   const chev = document.getElementById('chev-'+id);
   el.classList.toggle('open');
