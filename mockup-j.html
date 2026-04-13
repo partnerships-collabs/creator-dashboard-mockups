@@ -10,19 +10,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 body{font-family:'Inter',sans-serif}
 .expand{transition:max-height .3s ease,opacity .2s ease,padding .2s ease;max-height:0;opacity:0;overflow:hidden;padding-top:0;padding-bottom:0}
-.expand.open{max-height:1200px;opacity:1;padding-top:20px;padding-bottom:20px}
+.expand.open{max-height:600px;opacity:1;padding-top:16px;padding-bottom:20px}
 .action-row{cursor:pointer;transition:background .1s}
 .action-row:hover{background:#f9fafb}
 .chevron{transition:transform .2s}
 .chevron.open{transform:rotate(180deg)}
-.stage-step{position:relative}
-.stage-step .dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;z-index:1}
-.stage-step .line{position:absolute;top:28px;left:13px;width:2px;height:calc(100% - 20px);z-index:0}
 .scroll-box{overflow-y:auto;scrollbar-width:thin;scrollbar-color:#e5e7eb transparent}
 .scroll-box::-webkit-scrollbar{width:4px}
 .scroll-box::-webkit-scrollbar-thumb{background:#e5e7eb;border-radius:2px}
-.bar-chart-bar{transition:opacity .15s}
-.bar-chart-bar:hover{opacity:.75}
 </style>
 </head>
 <body class="bg-gray-100 min-h-screen">
@@ -32,7 +27,7 @@ body{font-family:'Inter',sans-serif}
 </div>
 
 <header class="bg-white border-b border-gray-200">
-  <div class="max-w-6xl mx-auto px-8 py-3 flex items-center justify-between">
+  <div class="max-w-5xl mx-auto px-8 py-3 flex items-center justify-between">
     <div class="flex items-center gap-4">
       <h1 class="text-base font-black text-gray-900">Caleb Hammer</h1>
       <span class="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-brand-50 text-brand-600 border border-brand-200">Creator Dashboard</span>
@@ -40,11 +35,7 @@ body{font-family:'Inter',sans-serif}
   </div>
 </header>
 
-<main class="max-w-6xl mx-auto px-8 py-6">
-<div class="grid grid-cols-12 gap-5 items-start">
-
-<!-- ═══ LEFT COLUMN ═══ -->
-<div class="col-span-7 space-y-4">
+<main class="max-w-5xl mx-auto px-8 py-6 space-y-4">
 
   <!-- ═══ ACTION NEEDED ═══ -->
   <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
@@ -55,424 +46,303 @@ body{font-family:'Inter',sans-serif}
       </div>
       <span class="text-[10px] text-gray-400">Sorted by due date</span>
     </div>
-    <div class="scroll-box" style="max-height:360px">
 
-      <!-- 1. SoFi — OVERDUE -->
-      <div class="border-b border-gray-100">
-        <div onclick="toggle('sofi')" class="action-row border-l-4 border-l-red-500 px-6 py-4 flex items-center gap-4">
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">SoFi</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">Dedicated Video · YouTube</span>
-            </div>
-            <div class="text-xs text-green-700 font-semibold mt-0.5">Video approved — ready to post</div>
+    <!-- 1. SoFi — OVERDUE -->
+    <div class="border-b border-gray-100">
+      <div onclick="toggle('sofi')" class="action-row border-l-4 border-l-red-500 px-6 py-4 flex items-center gap-4">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-gray-900">SoFi</span>
+            <span class="text-xs text-gray-400">·</span>
+            <span class="text-xs text-gray-500">Dedicated Video · YouTube</span>
           </div>
-          <span class="text-xs font-bold text-red-600 flex-shrink-0">Overdue · Apr 8</span>
-          <svg id="chev-sofi" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <div class="text-xs text-green-700 font-semibold mt-0.5">Video approved — ready to post</div>
         </div>
-        <div id="sofi" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Talking Points</div><div class="text-[10px] text-gray-400">Received from brand</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script</div><div class="text-[10px] text-gray-400">Submitted Mar 20</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script Approved</div><div class="text-[10px] text-gray-400">Approved Mar 22</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Video Draft</div><div class="text-[10px] text-gray-400">Submitted Mar 28 · Revision · Resubmitted Apr 3</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Video Approved</div><div class="text-[10px] text-gray-400">Approved Apr 5</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-red-500 text-white ring-4 ring-red-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-red-700">Post Video</div><div class="text-[10px] text-red-600 font-medium">Was due Apr 8</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">7</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-5">
-              <div class="bg-red-50 border border-red-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-red-800">Post this video — it's overdue</div>
-                <div class="text-xs text-red-700 mt-1">Your video was approved and was due Apr 8. Copy the caption and pinned comment exactly as shown and upload now.</div>
-              </div>
-              <div class="grid grid-cols-2 gap-5">
-                <div>
-                  <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Caption / Description Text</div>
-                  <div class="bg-white border border-gray-200 rounded-lg p-3 text-xs text-gray-800">Thanks to SoFi for sponsoring this video. Sign up at https://sofi.com/caleb and get a $25 bonus. #ad #sponsored</div>
-                  <div class="text-[10px] text-red-500 font-medium mt-1">Copy exactly — edited for compliance</div>
-                </div>
-                <div>
-                  <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Pinned Comment</div>
-                  <div class="bg-white border border-gray-200 rounded-lg p-3 text-xs text-gray-800">Get $25 when you sign up → https://sofi.com/caleb</div>
-                  <div class="text-[10px] text-red-500 font-medium mt-1">Copy exactly — edited for compliance</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-3 gap-5">
-                <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Tracking Link</div><code class="text-xs text-gray-700">https://sofi.com/caleb</code></div>
-                <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Ad Placement</div><div class="text-xs text-gray-700">Dedicated (full video)</div></div>
-                <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Payout</div><div class="text-xs font-bold text-green-600">$12,000 · Apr 30</div></div>
-              </div>
-              <div class="flex gap-6 pt-1">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Charlie</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Geli</span></div>
-              </div>
-              <button class="px-6 py-3 bg-red-600 text-white text-sm font-bold rounded-xl hover:bg-red-700 flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                Go to Form — View Caption & Post
-              </button>
-            </div>
-          </div>
-        </div>
+        <span class="text-xs font-bold text-red-600 flex-shrink-0">Overdue · Apr 8</span>
+        <svg id="chev-sofi" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
       </div>
-
-      <!-- 2. NordVPN — Apr 13 -->
-      <div class="border-b border-gray-100">
-        <div onclick="toggle('nordvpn')" class="action-row border-l-4 border-l-orange-400 px-6 py-4 flex items-center gap-4">
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">NordVPN</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">Integration · YouTube</span>
-            </div>
-            <div class="text-xs text-orange-600 font-semibold mt-0.5">Submit your script</div>
-          </div>
-          <span class="text-xs font-semibold text-orange-500 flex-shrink-0">Apr 13</span>
-          <svg id="chev-nordvpn" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      <div id="sofi" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
+        <!-- Horizontal stepper: all 5 done, step 6 is NOW (overdue) -->
+        <div class="flex items-start">
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Brief</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video OK</div></div>
+          <div class="h-0.5 bg-red-400 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-red-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-red-100">NOW</div><div class="text-[8px] text-red-600 mt-1 text-center leading-tight font-bold">Post</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">7</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
         </div>
-        <div id="nordvpn" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Talking Points</div><div class="text-[10px] text-gray-400">Received from brand</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-yellow-400 text-white ring-4 ring-yellow-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-yellow-700">Submit Script</div><div class="text-[10px] text-orange-600 font-medium">Due Apr 13</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">3</div><div><div class="text-xs text-gray-400">Script Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">4</div><div><div class="text-xs text-gray-400">Video Draft</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">5</div><div><div class="text-xs text-gray-400">Video Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">6</div><div><div class="text-xs text-gray-400">Post</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">7</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-5">
-              <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-yellow-800">Submit your script</div>
-                <div class="text-xs text-yellow-700 mt-1">Review the talking points, then submit your script as a Google Docs link. Make sure sharing is set to "anyone with the link can comment."</div>
-              </div>
-              <div class="grid grid-cols-2 gap-5">
-                <div>
-                  <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Talking Points</div>
-                  <a href="#" class="text-xs text-brand-600 font-semibold hover:underline flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>Open Talking Points Doc</a>
-                </div>
-                <div>
-                  <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Ad Placement</div>
-                  <div class="text-xs text-gray-700">Mid-roll (60–90 seconds)</div>
-                </div>
-              </div>
-              <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Tracking Link</div><code class="text-xs bg-white border border-gray-200 rounded-lg px-3 py-2 block text-gray-700">https://nordvpn.com/caleb?utm_source=youtube</code></div>
-              <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Other Requirements</div><div class="text-xs text-gray-700">Must mention "risk-free 30-day money-back guarantee". Do not mention competitor VPN services.</div></div>
-              <div class="flex gap-6 pt-1">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Charlie</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Geli</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">Jun 15 · $8,000</span></div>
-              </div>
-              <button class="px-6 py-3 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700 flex items-center gap-2"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>Go to Form — Submit Script</button>
-            </div>
-          </div>
+        <div class="mt-4 bg-red-50 border border-red-200 rounded-xl p-4">
+          <div class="text-sm font-bold text-red-800">Post this video — it's overdue</div>
+          <div class="text-xs text-red-700 mt-1">Your video was approved Apr 5 and was due Apr 8. Open the form to get your caption and post now.</div>
         </div>
+        <button class="mt-3 px-5 py-2.5 bg-red-600 text-white text-sm font-bold rounded-xl hover:bg-red-700 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Go to Form — View Caption &amp; Post
+        </button>
       </div>
-
-      <!-- 3. Marcus by Goldman — Apr 15 -->
-      <div class="border-b border-gray-100">
-        <div onclick="toggle('marcus')" class="action-row border-l-4 border-l-orange-400 px-6 py-4 flex items-center gap-4">
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">Marcus by Goldman</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">Integration · YouTube</span>
-            </div>
-            <div class="text-xs text-green-700 font-semibold mt-0.5">Video approved — ready to post</div>
-          </div>
-          <span class="text-xs font-semibold text-orange-500 flex-shrink-0">Apr 15</span>
-          <svg id="chev-marcus" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </div>
-        <div id="marcus" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Talking Points</div><div class="text-[10px] text-gray-400">Received</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script</div><div class="text-[10px] text-gray-400">Submitted Mar 18</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script Approved</div><div class="text-[10px] text-gray-400">Approved Mar 21</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Video Draft</div><div class="text-[10px] text-gray-400">Submitted Apr 1</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Video Approved</div><div class="text-[10px] text-gray-400">Approved Apr 8</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-green-500 text-white ring-4 ring-green-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-green-700">Post Video</div><div class="text-[10px] text-green-600 font-medium">Due Apr 15</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">7</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-5">
-              <div class="bg-green-50 border border-green-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-green-800">Your video is approved — post it!</div>
-                <div class="text-xs text-green-700 mt-1">Copy the caption and pinned comment exactly as shown below when you upload.</div>
-              </div>
-              <div class="grid grid-cols-2 gap-5">
-                <div>
-                  <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Caption / Description Text</div>
-                  <div class="bg-white border border-gray-200 rounded-lg p-3 text-xs text-gray-800">Marcus by Goldman Sachs is sponsoring today's video. Open a high-yield savings account at marcus.com/caleb. #ad #sponsored</div>
-                  <div class="text-[10px] text-red-500 font-medium mt-1">Copy exactly — edited for compliance</div>
-                </div>
-                <div>
-                  <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Pinned Comment</div>
-                  <div class="bg-white border border-gray-200 rounded-lg p-3 text-xs text-gray-800">Open your Marcus account → marcus.com/caleb</div>
-                  <div class="text-[10px] text-red-500 font-medium mt-1">Copy exactly — edited for compliance</div>
-                </div>
-              </div>
-              <div class="flex gap-6 pt-1">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Charlie</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Kaitlyn</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">May 15 · $9,000</span></div>
-              </div>
-              <button class="px-6 py-3 bg-green-600 text-white text-sm font-bold rounded-xl hover:bg-green-700 flex items-center gap-2"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>Go to Form — View Caption & Post</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4. Quicken Loans — Apr 17 -->
-      <div class="border-b border-gray-100">
-        <div onclick="toggle('quicken')" class="action-row border-l-4 border-l-orange-400 px-6 py-4 flex items-center gap-4">
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">Quicken Loans</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">Dedicated Video · YouTube</span>
-            </div>
-            <div class="text-xs text-orange-600 font-semibold mt-0.5">Submit your script</div>
-          </div>
-          <span class="text-xs font-semibold text-orange-500 flex-shrink-0">Apr 17</span>
-          <svg id="chev-quicken" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </div>
-        <div id="quicken" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Talking Points</div><div class="text-[10px] text-gray-400">Received</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-yellow-400 text-white ring-4 ring-yellow-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-yellow-700">Submit Script</div><div class="text-[10px] text-orange-600 font-medium">Due Apr 17</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">3</div><div><div class="text-xs text-gray-400">Script Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">4</div><div><div class="text-xs text-gray-400">Video Draft</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">5</div><div><div class="text-xs text-gray-400">Video Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">6</div><div><div class="text-xs text-gray-400">Post</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">7</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-5">
-              <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-yellow-800">Submit your script</div>
-                <div class="text-xs text-yellow-700 mt-1">Review the talking points and submit your script as a Google Doc. This is a dedicated video — the full video must be about Quicken Loans.</div>
-              </div>
-              <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Talking Points</div><a href="#" class="text-xs text-brand-600 font-semibold hover:underline flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>Open Talking Points Doc</a></div>
-              <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Other Requirements</div><div class="text-xs text-gray-700">Must include rate comparison segment. Cannot reference specific interest rate numbers — use "competitive rates" instead.</div></div>
-              <div class="flex gap-6 pt-1">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Henry</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Geli</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">Jun 30 · $15,000</span></div>
-              </div>
-              <button class="px-6 py-3 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700 flex items-center gap-2"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>Go to Form — Submit Script</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5. Acorns — Apr 25 -->
-      <div class="border-b border-gray-100">
-        <div onclick="toggle('acorns')" class="action-row border-l-4 border-l-gray-300 px-6 py-4 flex items-center gap-4">
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">Acorns</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">Integration · YouTube</span>
-            </div>
-            <div class="text-xs text-blue-600 font-semibold mt-0.5">Upload video draft</div>
-          </div>
-          <span class="text-xs text-gray-400 flex-shrink-0">Apr 25</span>
-          <svg id="chev-acorns" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </div>
-        <div id="acorns" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Talking Points</div><div class="text-[10px] text-gray-400">Received</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script</div><div class="text-[10px] text-gray-400">Submitted Mar 25</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script Approved</div><div class="text-[10px] text-gray-400">Approved Mar 28</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-blue-500 text-white ring-4 ring-blue-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-blue-700">Upload Video</div><div class="text-[10px] text-blue-600 font-medium">Due Apr 25</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">5</div><div><div class="text-xs text-gray-400">Video Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">6</div><div><div class="text-xs text-gray-400">Post</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">7</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-5">
-              <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-blue-800">Upload your video draft</div>
-                <div class="text-xs text-blue-700 mt-1">Script was approved with no changes. Upload the video to the submission form as an unlisted YouTube link or Google Drive file.</div>
-              </div>
-              <div class="grid grid-cols-2 gap-5">
-                <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Tracking Link</div><code class="text-xs text-gray-700">https://acorns.com/caleb</code></div>
-                <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Ad Placement</div><div class="text-xs text-gray-700">Pre-roll (first 60 seconds)</div></div>
-              </div>
-              <div class="flex gap-6 pt-1">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Annie</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Mark Javier</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">May 25 · $5,000</span></div>
-              </div>
-              <button class="px-6 py-3 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700 flex items-center gap-2"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>Go to Form — Upload Video</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6. Betterment — May 20 -->
-      <div>
-        <div onclick="toggle('betterment')" class="action-row border-l-4 border-l-gray-300 px-6 py-4 flex items-center gap-4">
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">Betterment</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">Integration · YouTube</span>
-            </div>
-            <div class="text-xs text-blue-600 font-semibold mt-0.5">Upload video draft · Script approved</div>
-          </div>
-          <span class="text-xs text-gray-400 flex-shrink-0">May 20</span>
-          <svg id="chev-betterment" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </div>
-        <div id="betterment" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Talking Points</div><div class="text-[10px] text-gray-400">Received</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script</div><div class="text-[10px] text-gray-400">Submitted Apr 1</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script Approved</div><div class="text-[10px] text-gray-400">Approved Apr 4</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-blue-500 text-white ring-4 ring-blue-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-blue-700">Upload Video</div><div class="text-[10px] text-blue-600 font-medium">Due May 20</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">5</div><div><div class="text-xs text-gray-400">Video Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">6</div><div><div class="text-xs text-gray-400">Post</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">7</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-5">
-              <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-blue-800">Upload your video draft</div>
-                <div class="text-xs text-blue-700 mt-1">Your script was approved. Check the script doc for any brand comments, then upload your video.</div>
-              </div>
-              <div class="bg-amber-50 border border-amber-200 rounded-xl p-3.5">
-                <div class="text-xs text-amber-800"><span class="font-bold">Brand note:</span> "Swap CTA to mention referral bonus program instead of standard sign-up offer"</div>
-              </div>
-              <div class="grid grid-cols-2 gap-5">
-                <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Talking Points</div><a href="#" class="text-xs text-brand-600 font-semibold hover:underline">Open Talking Points Doc</a></div>
-                <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Tracking Link</div><code class="text-xs text-gray-700">https://betterment.com/caleb</code></div>
-              </div>
-              <div class="flex gap-6 pt-1">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Charlie</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Mark Javier</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">Jun 20 · $6,500</span></div>
-              </div>
-              <button class="px-6 py-3 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700 flex items-center gap-2"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>Go to Form — Upload Video</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- end action scroll -->
-  </div>
-
-  <!-- ═══ WITH BRAND ═══ -->
-  <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
-    <div onclick="toggleWithBrand()" class="px-6 py-3 border-b border-gray-100 flex items-center gap-3 cursor-pointer hover:bg-gray-50">
-      <h2 class="text-sm font-bold text-gray-900">With Brand</h2>
-      <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">7 deals</span>
-      <span class="text-[10px] text-gray-400">— nothing needed from you</span>
-      <div class="flex-1"></div>
-      <svg id="chev-withbrand" class="w-4 h-4 text-gray-400 flex-shrink-0" style="transform:rotate(-90deg);transition:transform .2s" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
     </div>
-    <div id="withbrand-scroll" class="scroll-box hidden" style="max-height:280px">
+
+    <!-- 2. NordVPN — Apr 13 -->
+    <div class="border-b border-gray-100">
+      <div onclick="toggle('nordvpn')" class="action-row border-l-4 border-l-orange-400 px-6 py-4 flex items-center gap-4">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-gray-900">NordVPN</span>
+            <span class="text-xs text-gray-400">·</span>
+            <span class="text-xs text-gray-500">Integration · YouTube</span>
+          </div>
+          <div class="text-xs text-orange-600 font-semibold mt-0.5">Submit your script</div>
+        </div>
+        <span class="text-xs font-semibold text-orange-500 flex-shrink-0">Apr 13</span>
+        <svg id="chev-nordvpn" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div id="nordvpn" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
+        <!-- Step 1 done, step 2 NOW -->
+        <div class="flex items-start">
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Brief</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-yellow-400 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-yellow-100">NOW</div><div class="text-[8px] text-yellow-600 mt-1 text-center leading-tight font-bold">Script</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">3</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">4</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">5</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video OK</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">6</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">7</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
+        </div>
+        <div class="mt-4 bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+          <div class="text-sm font-bold text-yellow-800">Submit your script</div>
+          <div class="text-xs text-yellow-700 mt-1">Review the talking points and submit your script as a Google Doc. Make sure sharing is set to "anyone with the link can comment."</div>
+        </div>
+        <button class="mt-3 px-5 py-2.5 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Go to Form — Submit Script
+        </button>
+      </div>
+    </div>
+
+    <!-- 3. Marcus by Goldman — Apr 15 -->
+    <div class="border-b border-gray-100">
+      <div onclick="toggle('marcus')" class="action-row border-l-4 border-l-orange-400 px-6 py-4 flex items-center gap-4">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-gray-900">Marcus by Goldman</span>
+            <span class="text-xs text-gray-400">·</span>
+            <span class="text-xs text-gray-500">Integration · YouTube</span>
+          </div>
+          <div class="text-xs text-green-700 font-semibold mt-0.5">Video approved — ready to post</div>
+        </div>
+        <span class="text-xs font-semibold text-orange-500 flex-shrink-0">Apr 15</span>
+        <svg id="chev-marcus" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div id="marcus" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
+        <!-- Steps 1-5 done, step 6 NOW (green) -->
+        <div class="flex items-start">
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Brief</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video OK</div></div>
+          <div class="h-0.5 bg-green-400 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-green-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-green-100">NOW</div><div class="text-[8px] text-green-600 mt-1 text-center leading-tight font-bold">Post</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">7</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
+        </div>
+        <div class="mt-4 bg-green-50 border border-green-200 rounded-xl p-4">
+          <div class="text-sm font-bold text-green-800">Your video is approved — post it!</div>
+          <div class="text-xs text-green-700 mt-1">Approved Apr 8. Open the form to get your caption and post before Apr 15.</div>
+        </div>
+        <button class="mt-3 px-5 py-2.5 bg-green-600 text-white text-sm font-bold rounded-xl hover:bg-green-700 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Go to Form — View Caption &amp; Post
+        </button>
+      </div>
+    </div>
+
+    <!-- 4. Quicken Loans — Apr 17 -->
+    <div class="border-b border-gray-100">
+      <div onclick="toggle('quicken')" class="action-row border-l-4 border-l-orange-400 px-6 py-4 flex items-center gap-4">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-gray-900">Quicken Loans</span>
+            <span class="text-xs text-gray-400">·</span>
+            <span class="text-xs text-gray-500">Dedicated Video · YouTube</span>
+          </div>
+          <div class="text-xs text-orange-600 font-semibold mt-0.5">Submit your script</div>
+        </div>
+        <span class="text-xs font-semibold text-orange-500 flex-shrink-0">Apr 17</span>
+        <svg id="chev-quicken" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div id="quicken" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
+        <!-- Step 1 done, step 2 NOW -->
+        <div class="flex items-start">
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Brief</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-yellow-400 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-yellow-100">NOW</div><div class="text-[8px] text-yellow-600 mt-1 text-center leading-tight font-bold">Script</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">3</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">4</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">5</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video OK</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">6</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">7</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
+        </div>
+        <div class="mt-4 bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+          <div class="text-sm font-bold text-yellow-800">Submit your script</div>
+          <div class="text-xs text-yellow-700 mt-1">Review the talking points and submit as a Google Doc. This is a dedicated video — the full video must be about Quicken Loans.</div>
+        </div>
+        <button class="mt-3 px-5 py-2.5 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Go to Form — Submit Script
+        </button>
+      </div>
+    </div>
+
+    <!-- 5. Acorns — Apr 25 -->
+    <div class="border-b border-gray-100">
+      <div onclick="toggle('acorns')" class="action-row border-l-4 border-l-gray-300 px-6 py-4 flex items-center gap-4">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-gray-900">Acorns</span>
+            <span class="text-xs text-gray-400">·</span>
+            <span class="text-xs text-gray-500">Integration · YouTube</span>
+          </div>
+          <div class="text-xs text-blue-600 font-semibold mt-0.5">Upload video draft</div>
+        </div>
+        <span class="text-xs text-gray-400 flex-shrink-0">Apr 25</span>
+        <svg id="chev-acorns" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div id="acorns" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
+        <!-- Steps 1-3 done, step 4 NOW -->
+        <div class="flex items-start">
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Brief</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-blue-100">NOW</div><div class="text-[8px] text-blue-600 mt-1 text-center leading-tight font-bold">Video</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">5</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video OK</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">6</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">7</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
+        </div>
+        <div class="mt-4 bg-blue-50 border border-blue-200 rounded-xl p-4">
+          <div class="text-sm font-bold text-blue-800">Upload your video draft</div>
+          <div class="text-xs text-blue-700 mt-1">Script was approved with no changes. Upload as an unlisted YouTube link or Google Drive file.</div>
+        </div>
+        <button class="mt-3 px-5 py-2.5 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Go to Form — Upload Video
+        </button>
+      </div>
+    </div>
+
+    <!-- 6. Betterment — May 20 -->
+    <div>
+      <div onclick="toggle('betterment')" class="action-row border-l-4 border-l-gray-300 px-6 py-4 flex items-center gap-4">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-gray-900">Betterment</span>
+            <span class="text-xs text-gray-400">·</span>
+            <span class="text-xs text-gray-500">Integration · YouTube</span>
+          </div>
+          <div class="text-xs text-blue-600 font-semibold mt-0.5">Upload video draft · script approved</div>
+        </div>
+        <span class="text-xs text-gray-400 flex-shrink-0">May 20</span>
+        <svg id="chev-betterment" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div id="betterment" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
+        <!-- Steps 1-3 done, step 4 NOW -->
+        <div class="flex items-start">
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Brief</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+          <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-blue-100">NOW</div><div class="text-[8px] text-blue-600 mt-1 text-center leading-tight font-bold">Video</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">5</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video OK</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">6</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+          <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+          <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">7</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
+        </div>
+        <div class="mt-3 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2.5">
+          <div class="text-xs text-amber-800"><span class="font-bold">Brand note:</span> "Swap CTA to mention referral bonus program instead of standard sign-up offer"</div>
+        </div>
+        <div class="mt-2 bg-blue-50 border border-blue-200 rounded-xl p-4">
+          <div class="text-sm font-bold text-blue-800">Upload your video draft</div>
+          <div class="text-xs text-blue-700 mt-1">Script approved Apr 4. Check the note above, then upload as an unlisted YouTube link or Google Drive file.</div>
+        </div>
+        <button class="mt-3 px-5 py-2.5 bg-brand-600 text-white text-sm font-bold rounded-xl hover:bg-brand-700 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Go to Form — Upload Video
+        </button>
+      </div>
+    </div>
+
+  </div><!-- end action needed -->
+
+  <!-- ═══ NO ACTION NEEDED ═══ -->
+  <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+    <div onclick="toggleNoAction()" class="px-6 py-3 border-b border-gray-100 flex items-center gap-3 cursor-pointer hover:bg-gray-50">
+      <h2 class="text-sm font-bold text-gray-900">No Action Needed</h2>
+      <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">7 deals</span>
+      <span class="text-[10px] text-gray-400">— waiting on brands or in review</span>
+      <div class="flex-1"></div>
+      <svg id="chev-noaction" class="w-4 h-4 text-gray-400 flex-shrink-0" style="transform:rotate(-90deg);transition:transform .2s" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+    </div>
+    <div id="noaction-scroll" class="scroll-box hidden" style="max-height:320px">
 
       <!-- Personal Capital — reviewing video draft, day 1 -->
       <div class="border-b border-gray-100">
         <div onclick="toggle('b1')" class="action-row px-6 py-3.5 flex items-center gap-4 opacity-60 hover:opacity-100">
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">Personal Capital</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">Integration · YouTube</span>
-            </div>
+            <div class="flex items-center gap-2"><span class="text-sm font-bold text-gray-900">Personal Capital</span><span class="text-xs text-gray-400">·</span><span class="text-xs text-gray-500">Integration · YouTube</span></div>
             <div class="text-xs text-purple-500 mt-0.5">Brand reviewing video draft · day 1</div>
           </div>
           <span class="text-xs text-gray-400 flex-shrink-0">May 12</span>
           <svg id="chev-b1" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </div>
         <div id="b1" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Talking Points</div><div class="text-[10px] text-gray-400">Received</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script</div><div class="text-[10px] text-gray-400">Submitted Apr 1</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script Approved</div><div class="text-[10px] text-gray-400">Approved Apr 3</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Video Draft</div><div class="text-[10px] text-gray-400">Submitted Apr 9</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-purple-500 text-white ring-4 ring-purple-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-purple-700">Video Approval</div><div class="text-[10px] text-purple-500">Brand reviewing (day 1)</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">6</div><div><div class="text-xs text-gray-400">Post</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">7</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-4">
-              <div class="bg-purple-50 border border-purple-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-purple-800">Waiting on brand approval</div>
-                <div class="text-xs text-purple-700 mt-1">You submitted your video draft on Apr 9. Personal Capital is reviewing — typically takes 3–5 business days. We'll notify you when they respond.</div>
-              </div>
-              <div class="flex gap-6">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Annie</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Ren</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">Jun 12 · $6,000</span></div>
-              </div>
-            </div>
+          <div class="flex items-start">
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Brief</div></div>
+            <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+            <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+            <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+            <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-purple-100">NOW</div><div class="text-[8px] text-purple-600 mt-1 text-center leading-tight font-bold">Video OK</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">6</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">7</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
           </div>
-        </div>
-      </div>
-
-      <!-- Rocket Money — reviewing script, day 2 -->
-      <div class="border-b border-gray-100">
-        <div onclick="toggle('b2')" class="action-row px-6 py-3.5 flex items-center gap-4 opacity-60 hover:opacity-100">
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">Rocket Money</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">Integration · YouTube</span>
-            </div>
-            <div class="text-xs text-purple-500 mt-0.5">Brand reviewing script · day 2</div>
-          </div>
-          <span class="text-xs text-gray-400 flex-shrink-0">May 25</span>
-          <svg id="chev-b2" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </div>
-        <div id="b2" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Talking Points</div><div class="text-[10px] text-gray-400">Received</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script</div><div class="text-[10px] text-gray-400">Submitted Apr 7</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-purple-500 text-white ring-4 ring-purple-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-purple-700">Script Approval</div><div class="text-[10px] text-purple-500">Brand reviewing (day 2)</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">4</div><div><div class="text-xs text-gray-400">Video Draft</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">5</div><div><div class="text-xs text-gray-400">Video Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">6</div><div><div class="text-xs text-gray-400">Post</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">7</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-4">
-              <div class="bg-purple-50 border border-purple-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-purple-800">Waiting on brand approval</div>
-                <div class="text-xs text-purple-700 mt-1">You submitted your script on Apr 7. The brand is reviewing — nothing needed from you right now. We'll notify you when they respond.</div>
-              </div>
-              <div class="flex gap-6">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Charlie</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Ren</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">Jun 25 · $7,500</span></div>
-              </div>
-            </div>
+          <div class="mt-4 bg-purple-50 border border-purple-200 rounded-xl p-3.5">
+            <div class="text-xs text-purple-700">Brand is reviewing your video draft (day 1 of ~3–5). We'll notify you when they respond.</div>
           </div>
         </div>
       </div>
@@ -481,41 +351,62 @@ body{font-family:'Inter',sans-serif}
       <div class="border-b border-gray-100">
         <div onclick="toggle('b3')" class="action-row px-6 py-3.5 flex items-center gap-4 opacity-60 hover:opacity-100">
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">Wealthfront</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">IG Story · Instagram</span>
-            </div>
+            <div class="flex items-center gap-2"><span class="text-sm font-bold text-gray-900">Wealthfront</span><span class="text-xs text-gray-400">·</span><span class="text-xs text-gray-500">IG Story · Instagram</span></div>
             <div class="text-xs text-purple-500 mt-0.5">Brand reviewing content · day 3</div>
           </div>
           <span class="text-xs text-gray-400 flex-shrink-0">May 8</span>
           <svg id="chev-b3" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </div>
         <div id="b3" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Talking Points</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script</div><div class="text-[10px] text-gray-400">Submitted Apr 3</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script Approved</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Content Draft</div><div class="text-[10px] text-gray-400">Submitted Apr 6</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-purple-500 text-white ring-4 ring-purple-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-purple-700">Content Approval</div><div class="text-[10px] text-purple-500">Brand reviewing (day 3)</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">6</div><div><div class="text-xs text-gray-400">Post</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">7</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-4">
-              <div class="bg-purple-50 border border-purple-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-purple-800">Waiting on brand approval</div>
-                <div class="text-xs text-purple-700 mt-1">You submitted your IG Story content on Apr 6. The brand is reviewing — we'll notify you when they respond.</div>
-              </div>
-              <div class="flex gap-6">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Henry</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Tina</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">Jun 8 · $2,500</span></div>
-              </div>
-            </div>
+          <div class="flex items-start">
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Brief</div></div>
+            <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+            <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+            <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Content</div></div>
+            <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-purple-100">NOW</div><div class="text-[8px] text-purple-600 mt-1 text-center leading-tight font-bold">Review</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">6</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">7</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
+          </div>
+          <div class="mt-4 bg-purple-50 border border-purple-200 rounded-xl p-3.5">
+            <div class="text-xs text-purple-700">Submitted Apr 6. Wealthfront is reviewing your IG Story content (day 3). We'll notify you when they respond.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rocket Money — reviewing script, day 2 -->
+      <div class="border-b border-gray-100">
+        <div onclick="toggle('b2')" class="action-row px-6 py-3.5 flex items-center gap-4 opacity-60 hover:opacity-100">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2"><span class="text-sm font-bold text-gray-900">Rocket Money</span><span class="text-xs text-gray-400">·</span><span class="text-xs text-gray-500">Integration · YouTube</span></div>
+            <div class="text-xs text-purple-500 mt-0.5">Brand reviewing script · day 2</div>
+          </div>
+          <span class="text-xs text-gray-400 flex-shrink-0">May 25</span>
+          <svg id="chev-b2" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div id="b2" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
+          <div class="flex items-start">
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Brief</div></div>
+            <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+            <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-purple-100">NOW</div><div class="text-[8px] text-purple-600 mt-1 text-center leading-tight font-bold">Script OK</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">4</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">5</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video OK</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">6</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">7</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
+          </div>
+          <div class="mt-4 bg-purple-50 border border-purple-200 rounded-xl p-3.5">
+            <div class="text-xs text-purple-700">Submitted Apr 7. Brand is reviewing your script (day 2). We'll notify you when they respond.</div>
           </div>
         </div>
       </div>
@@ -524,82 +415,58 @@ body{font-family:'Inter',sans-serif}
       <div class="border-b border-gray-100">
         <div onclick="toggle('b4')" class="action-row px-6 py-3.5 flex items-center gap-4 opacity-60 hover:opacity-100">
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">LendingClub</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">IG Story · Instagram</span>
-            </div>
+            <div class="flex items-center gap-2"><span class="text-sm font-bold text-gray-900">LendingClub</span><span class="text-xs text-gray-400">·</span><span class="text-xs text-gray-500">IG Story · Instagram</span></div>
             <div class="text-xs text-purple-500 mt-0.5">Brand reviewing script · day 4</div>
           </div>
           <span class="text-xs text-gray-400 flex-shrink-0">May 30</span>
           <svg id="chev-b4" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </div>
         <div id="b4" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Talking Points</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-brand-500"></div><div class="dot bg-brand-500 text-white">✓</div><div><div class="text-xs font-semibold text-gray-700">Script</div><div class="text-[10px] text-gray-400">Submitted Apr 6</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-purple-500 text-white ring-4 ring-purple-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-purple-700">Script Approval</div><div class="text-[10px] text-purple-500">Brand reviewing (day 4)</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">4</div><div><div class="text-xs text-gray-400">Content Draft</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">5</div><div><div class="text-xs text-gray-400">Content Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">6</div><div><div class="text-xs text-gray-400">Post</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">7</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-4">
-              <div class="bg-purple-50 border border-purple-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-purple-800">Waiting on brand approval</div>
-                <div class="text-xs text-purple-700 mt-1">You submitted your script on Apr 6. LendingClub is reviewing (day 4). We'll notify you as soon as they respond.</div>
-              </div>
-              <div class="flex gap-6">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Charlie</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Mark Javier</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">Jun 30 · $3,500</span></div>
-              </div>
-            </div>
+          <div class="flex items-start">
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Brief</div></div>
+            <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+            <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-purple-100">NOW</div><div class="text-[8px] text-purple-600 mt-1 text-center leading-tight font-bold">Script OK</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">4</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Content</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">5</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Content OK</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">6</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">7</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
+          </div>
+          <div class="mt-4 bg-purple-50 border border-purple-200 rounded-xl p-3.5">
+            <div class="text-xs text-purple-700">Submitted Apr 6. LendingClub is reviewing (day 4). We'll notify you as soon as they respond.</div>
           </div>
         </div>
       </div>
 
-      <!-- Credit Karma — waiting on talking points -->
+      <!-- Credit Karma — waiting on talking points (newsletter, fewer steps) -->
       <div class="border-b border-gray-100">
         <div onclick="toggle('b5')" class="action-row px-6 py-3.5 flex items-center gap-4 opacity-40 hover:opacity-70">
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">Credit Karma</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">Newsletter</span>
-            </div>
+            <div class="flex items-center gap-2"><span class="text-sm font-bold text-gray-900">Credit Karma</span><span class="text-xs text-gray-400">·</span><span class="text-xs text-gray-500">Newsletter</span></div>
             <div class="text-xs text-gray-500 mt-0.5">Waiting on talking points from brand</div>
           </div>
           <span class="text-xs text-gray-400 flex-shrink-0">May 10</span>
           <svg id="chev-b5" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </div>
         <div id="b5" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-300 text-white ring-4 ring-gray-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-gray-600">Talking Points</div><div class="text-[10px] text-gray-400">Waiting on brand</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">2</div><div><div class="text-xs text-gray-400">Newsletter Copy</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">3</div><div><div class="text-xs text-gray-400">Copy Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">4</div><div><div class="text-xs text-gray-400">Post</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">5</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-4">
-              <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-gray-700">Waiting on brand</div>
-                <div class="text-xs text-gray-500 mt-1">The brand hasn't sent the talking points yet. Once they do, you'll be notified.</div>
-              </div>
-              <div class="flex gap-6">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Charlie</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Ren</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">Jun 10 · $3,000</span></div>
-              </div>
-            </div>
+          <div class="flex items-start">
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-300 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-gray-100">NOW</div><div class="text-[8px] text-gray-500 mt-1 text-center leading-tight font-bold">Brief</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">2</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Copy</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">3</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Copy OK</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">4</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">5</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
+          </div>
+          <div class="mt-4 bg-gray-50 border border-gray-200 rounded-xl p-3.5">
+            <div class="text-xs text-gray-600">Waiting on Credit Karma to send the talking points. Once received you'll be notified.</div>
           </div>
         </div>
       </div>
@@ -608,41 +475,30 @@ body{font-family:'Inter',sans-serif}
       <div class="border-b border-gray-100">
         <div onclick="toggle('b6')" class="action-row px-6 py-3.5 flex items-center gap-4 opacity-40 hover:opacity-70">
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">Shopify</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">Integration · TikTok</span>
-            </div>
+            <div class="flex items-center gap-2"><span class="text-sm font-bold text-gray-900">Shopify</span><span class="text-xs text-gray-400">·</span><span class="text-xs text-gray-500">Integration · TikTok</span></div>
             <div class="text-xs text-gray-500 mt-0.5">Waiting on talking points from brand</div>
           </div>
           <span class="text-xs text-gray-400 flex-shrink-0">Jun 1</span>
           <svg id="chev-b6" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </div>
         <div id="b6" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-300 text-white ring-4 ring-gray-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-gray-600">Talking Points</div><div class="text-[10px] text-gray-400">Waiting on brand</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">2</div><div><div class="text-xs text-gray-400">Script</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">3</div><div><div class="text-xs text-gray-400">Script Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">4</div><div><div class="text-xs text-gray-400">Video Draft</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">5</div><div><div class="text-xs text-gray-400">Video Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">6</div><div><div class="text-xs text-gray-400">Post</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">7</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-4">
-              <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-gray-700">Waiting on brand</div>
-                <div class="text-xs text-gray-500 mt-1">The brand hasn't sent the talking points yet. Once they do, you'll be notified and this will move to your action items.</div>
-              </div>
-              <div class="flex gap-6">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Annie</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Kaitlyn</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">Jul 1 · $4,000</span></div>
-              </div>
-            </div>
+          <div class="flex items-start">
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-300 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-gray-100">NOW</div><div class="text-[8px] text-gray-500 mt-1 text-center leading-tight font-bold">Brief</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">2</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">3</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">4</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">5</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video OK</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">6</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">7</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
+          </div>
+          <div class="mt-4 bg-gray-50 border border-gray-200 rounded-xl p-3.5">
+            <div class="text-xs text-gray-600">Waiting on Shopify to send the talking points. Once received this will move to your action items.</div>
           </div>
         </div>
       </div>
@@ -651,182 +507,138 @@ body{font-family:'Inter',sans-serif}
       <div>
         <div onclick="toggle('b7')" class="action-row px-6 py-3.5 flex items-center gap-4 opacity-40 hover:opacity-70">
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-gray-900">Robinhood</span>
-              <span class="text-xs text-gray-400">·</span>
-              <span class="text-xs text-gray-500">Dedicated Video · YouTube</span>
-            </div>
+            <div class="flex items-center gap-2"><span class="text-sm font-bold text-gray-900">Robinhood</span><span class="text-xs text-gray-400">·</span><span class="text-xs text-gray-500">Dedicated Video · YouTube</span></div>
             <div class="text-xs text-gray-500 mt-0.5">Waiting on talking points from brand</div>
           </div>
           <span class="text-xs text-gray-400 flex-shrink-0">Jun 15</span>
           <svg id="chev-b7" class="chevron w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </div>
         <div id="b7" class="expand border-t border-gray-100 bg-gray-50/50 px-6">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-3">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Workflow Stage</div>
-              <div class="space-y-0">
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-300 text-white ring-4 ring-gray-100 text-[9px]">NOW</div><div><div class="text-xs font-bold text-gray-600">Talking Points</div><div class="text-[10px] text-gray-400">Waiting on brand</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">2</div><div><div class="text-xs text-gray-400">Script</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">3</div><div><div class="text-xs text-gray-400">Script Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">4</div><div><div class="text-xs text-gray-400">Video Draft</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">5</div><div><div class="text-xs text-gray-400">Video Approval</div></div></div>
-                <div class="stage-step flex gap-3 pb-4 relative"><div class="line bg-gray-200"></div><div class="dot bg-gray-200 text-gray-400">6</div><div><div class="text-xs text-gray-400">Post</div></div></div>
-                <div class="stage-step flex gap-3"><div class="dot bg-gray-200 text-gray-400">7</div><div><div class="text-xs text-gray-400">Complete</div></div></div>
-              </div>
-            </div>
-            <div class="col-span-9 space-y-4">
-              <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
-                <div class="text-sm font-bold text-gray-700">Waiting on brand</div>
-                <div class="text-xs text-gray-500 mt-1">Robinhood hasn't sent the talking points yet. Once received you'll be notified and this moves to your action items.</div>
-              </div>
-              <div class="flex gap-6">
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Agent:</span> <span class="text-xs text-gray-700">Henry</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">PS:</span> <span class="text-xs text-gray-700">Tina</span></div>
-                <div><span class="text-[10px] font-bold text-gray-400 uppercase">Payout:</span> <span class="text-xs text-gray-700">Jul 15 · $11,000</span></div>
-              </div>
-            </div>
+          <div class="flex items-start">
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-300 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-gray-100">NOW</div><div class="text-[8px] text-gray-500 mt-1 text-center leading-tight font-bold">Brief</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">2</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">3</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">4</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">5</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video OK</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">6</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+            <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+            <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">7</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Done</div></div>
+          </div>
+          <div class="mt-4 bg-gray-50 border border-gray-200 rounded-xl p-3.5">
+            <div class="text-xs text-gray-600">Waiting on Robinhood to send talking points. Once received this moves to your action items.</div>
           </div>
         </div>
       </div>
 
-    </div><!-- end with-brand scroll -->
+    </div><!-- end noaction scroll -->
   </div>
-
-</div><!-- end left col -->
-
-<!-- ═══ RIGHT COLUMN — REVENUE SIDEBAR ═══ -->
-<div class="col-span-5">
-<div class="sticky top-6 space-y-4">
 
   <!-- ═══ REVENUE & PAYMENTS ═══ -->
   <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
-    <div class="px-5 py-3 border-b border-gray-100 flex items-center justify-between">
-      <div class="flex items-center gap-2">
+    <div onclick="toggleSection('revenue')" class="px-6 py-3 border-b border-gray-100 flex items-center justify-between cursor-pointer hover:bg-gray-50">
+      <div class="flex items-center gap-3">
         <h2 class="text-sm font-bold text-gray-900">Revenue & Payments</h2>
         <span class="text-[10px] text-gray-400">via Monday.com</span>
       </div>
+      <svg id="chev-revenue" class="chevron open w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
     </div>
-    <div class="px-5 py-4 space-y-4">
+    <div id="revenue" class="expand open px-6">
 
       <!-- 3 key stats -->
-      <div class="grid grid-cols-3 gap-3">
-        <div class="bg-gray-50 rounded-lg px-3 py-2.5">
-          <div class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-0.5">Lifetime</div>
-          <div class="text-base font-black text-gray-900">$284k</div>
-          <div class="text-[10px] text-gray-400">142 deals</div>
+      <div class="grid grid-cols-3 gap-4 pb-5 border-b border-gray-100">
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Lifetime Earned</div>
+          <div class="text-xl font-black text-gray-900">$284,320</div>
+          <div class="text-[11px] text-gray-400">142 paid deals</div>
         </div>
-        <div class="bg-brand-50 rounded-lg px-3 py-2.5">
-          <div class="text-[9px] font-bold text-brand-400 uppercase tracking-widest mb-0.5">Pipeline</div>
-          <div class="text-base font-black text-brand-700">$59k</div>
-          <div class="text-[10px] text-brand-400">6 active</div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Active Pipeline</div>
+          <div class="text-xl font-black text-brand-600">$59,000</div>
+          <div class="text-[11px] text-gray-400">6 deals in progress</div>
         </div>
-        <div class="bg-orange-50 rounded-lg px-3 py-2.5">
-          <div class="text-[9px] font-bold text-orange-400 uppercase tracking-widest mb-0.5">Invoiced</div>
-          <div class="text-base font-black text-orange-600">$21k</div>
-          <div class="text-[10px] text-orange-400">2 pending</div>
-        </div>
-      </div>
-
-      <!-- Monthly earnings bar chart -->
-      <div>
-        <div class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Monthly Earnings — Last 12 Months</div>
-        <div class="flex items-end gap-1 h-28">
-          <div class="bar-chart-bar flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-200 rounded-sm" style="height:28%"></div><span class="text-[8px] text-gray-400">May</span></div>
-          <div class="bar-chart-bar flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-200 rounded-sm" style="height:42%"></div><span class="text-[8px] text-gray-400">Jun</span></div>
-          <div class="bar-chart-bar flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-300 rounded-sm" style="height:58%"></div><span class="text-[8px] text-gray-400">Jul</span></div>
-          <div class="bar-chart-bar flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-200 rounded-sm" style="height:38%"></div><span class="text-[8px] text-gray-400">Aug</span></div>
-          <div class="bar-chart-bar flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-400 rounded-sm" style="height:76%"></div><span class="text-[8px] text-gray-400">Sep</span></div>
-          <div class="bar-chart-bar flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-300 rounded-sm" style="height:52%"></div><span class="text-[8px] text-gray-400">Oct</span></div>
-          <div class="bar-chart-bar flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-200 rounded-sm" style="height:33%"></div><span class="text-[8px] text-gray-400">Nov</span></div>
-          <div class="bar-chart-bar flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-500 rounded-sm" style="height:100%"></div><span class="text-[8px] text-gray-400">Dec</span></div>
-          <div class="bar-chart-bar flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-300 rounded-sm" style="height:67%"></div><span class="text-[8px] text-gray-400">Jan</span></div>
-          <div class="bar-chart-bar flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-200 rounded-sm" style="height:48%"></div><span class="text-[8px] text-gray-400">Feb</span></div>
-          <div class="bar-chart-bar flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-400 rounded-sm" style="height:80%"></div><span class="text-[8px] text-gray-400">Mar</span></div>
-          <div class="bar-chart-bar flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-500 rounded-sm ring-2 ring-brand-300" style="height:62%"></div><span class="text-[8px] text-brand-600 font-bold">Apr</span></div>
+        <div>
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Invoiced / Awaiting</div>
+          <div class="text-xl font-black text-orange-500">$21,000</div>
+          <div class="text-[11px] text-gray-400">2 invoices outstanding</div>
         </div>
       </div>
 
-      <!-- Upcoming payments timeline -->
-      <div class="border-t border-gray-100 pt-4">
-        <div class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">Upcoming Payments</div>
-        <div class="space-y-2">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <div class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></div>
-              <span class="text-xs text-gray-800 font-semibold">SoFi</span>
-              <span class="text-[10px] text-orange-600 font-medium">Invoiced</span>
-            </div>
-            <div class="text-xs text-gray-600">$12,000 · Apr 30</div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <div class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></div>
-              <span class="text-xs text-gray-800 font-semibold">Marcus</span>
-              <span class="text-[10px] text-orange-600 font-medium">Invoiced</span>
-            </div>
-            <div class="text-xs text-gray-600">$9,000 · May 15</div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <div class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></div>
-              <span class="text-xs text-gray-700">Acorns</span>
-              <span class="text-[10px] text-gray-400">Contracted</span>
-            </div>
-            <div class="text-xs text-gray-400">$5,000 · Est. May 25</div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <div class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></div>
-              <span class="text-xs text-gray-700">NordVPN</span>
-              <span class="text-[10px] text-gray-400">Contracted</span>
-            </div>
-            <div class="text-xs text-gray-400">$8,000 · Est. Jun 15</div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <div class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></div>
-              <span class="text-xs text-gray-700">Betterment</span>
-              <span class="text-[10px] text-gray-400">Contracted</span>
-            </div>
-            <div class="text-xs text-gray-400">$6,500 · Est. Jun 20</div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <div class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></div>
-              <span class="text-xs text-gray-700">Quicken Loans</span>
-              <span class="text-[10px] text-gray-400">Contracted</span>
-            </div>
-            <div class="text-xs text-gray-400">$15,000 · Est. Jun 30</div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <div class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></div>
-              <span class="text-xs text-gray-700">Robinhood</span>
-              <span class="text-[10px] text-gray-400">Contracted</span>
-            </div>
-            <div class="text-xs text-gray-400">$11,000 · Est. Jul 15</div>
-          </div>
-          <div class="flex items-center justify-between pt-2 border-t border-gray-100 mt-1">
-            <span class="text-xs font-bold text-gray-700">Total pipeline</span>
-            <span class="text-sm font-black text-gray-900">$66,500</span>
+      <!-- Two-column: chart + payment list -->
+      <div class="pt-5 grid grid-cols-2 gap-8">
+
+        <!-- Left: monthly bar chart -->
+        <div>
+          <div class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Monthly Earnings — Last 12 Months</div>
+          <div class="flex items-end gap-1 h-28">
+            <div class="flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-200 rounded-sm" style="height:28%"></div><span class="text-[8px] text-gray-400">May</span></div>
+            <div class="flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-200 rounded-sm" style="height:42%"></div><span class="text-[8px] text-gray-400">Jun</span></div>
+            <div class="flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-300 rounded-sm" style="height:58%"></div><span class="text-[8px] text-gray-400">Jul</span></div>
+            <div class="flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-200 rounded-sm" style="height:38%"></div><span class="text-[8px] text-gray-400">Aug</span></div>
+            <div class="flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-400 rounded-sm" style="height:76%"></div><span class="text-[8px] text-gray-400">Sep</span></div>
+            <div class="flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-300 rounded-sm" style="height:52%"></div><span class="text-[8px] text-gray-400">Oct</span></div>
+            <div class="flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-200 rounded-sm" style="height:33%"></div><span class="text-[8px] text-gray-400">Nov</span></div>
+            <div class="flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-500 rounded-sm" style="height:100%"></div><span class="text-[8px] text-gray-400">Dec</span></div>
+            <div class="flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-300 rounded-sm" style="height:67%"></div><span class="text-[8px] text-gray-400">Jan</span></div>
+            <div class="flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-200 rounded-sm" style="height:48%"></div><span class="text-[8px] text-gray-400">Feb</span></div>
+            <div class="flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-400 rounded-sm" style="height:80%"></div><span class="text-[8px] text-gray-400">Mar</span></div>
+            <div class="flex-1 flex flex-col items-center gap-0.5"><div class="w-full bg-brand-500 rounded-sm ring-2 ring-brand-300" style="height:62%"></div><span class="text-[8px] text-brand-600 font-bold">Apr</span></div>
           </div>
         </div>
-      </div>
 
+        <!-- Right: upcoming payments -->
+        <div>
+          <div class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">Upcoming Payments</div>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></div><span class="text-xs font-semibold text-gray-800">SoFi</span><span class="text-[10px] text-orange-600 font-medium">Invoiced</span></div>
+              <div class="text-xs text-gray-600">$12,000 · Apr 30</div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></div><span class="text-xs font-semibold text-gray-800">Marcus</span><span class="text-[10px] text-orange-600 font-medium">Invoiced</span></div>
+              <div class="text-xs text-gray-600">$9,000 · May 15</div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></div><span class="text-xs text-gray-700">Acorns</span><span class="text-[10px] text-gray-400">Contracted</span></div>
+              <div class="text-xs text-gray-400">$5,000 · Est. May 25</div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></div><span class="text-xs text-gray-700">NordVPN</span><span class="text-[10px] text-gray-400">Contracted</span></div>
+              <div class="text-xs text-gray-400">$8,000 · Est. Jun 15</div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></div><span class="text-xs text-gray-700">Betterment</span><span class="text-[10px] text-gray-400">Contracted</span></div>
+              <div class="text-xs text-gray-400">$6,500 · Est. Jun 20</div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></div><span class="text-xs text-gray-700">Quicken Loans</span><span class="text-[10px] text-gray-400">Contracted</span></div>
+              <div class="text-xs text-gray-400">$15,000 · Est. Jun 30</div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></div><span class="text-xs text-gray-700">Robinhood</span><span class="text-[10px] text-gray-400">Contracted</span></div>
+              <div class="text-xs text-gray-400">$11,000 · Est. Jul 15</div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+              <span class="text-xs font-bold text-gray-700">Total pipeline</span>
+              <span class="text-sm font-black text-gray-900">$66,500</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
-</div><!-- end sticky wrapper -->
-</div><!-- end right col -->
-
-</div><!-- end grid -->
 </main>
 
 <script>
-function toggleWithBrand() {
-  const el = document.getElementById('withbrand-scroll');
-  const chev = document.getElementById('chev-withbrand');
+function toggleNoAction() {
+  const el = document.getElementById('noaction-scroll');
+  const chev = document.getElementById('chev-noaction');
   const isNowHidden = !el.classList.toggle('hidden');
   chev.style.transform = isNowHidden ? 'rotate(-90deg)' : 'rotate(0deg)';
 }
