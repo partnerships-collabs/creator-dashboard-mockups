@@ -46,6 +46,18 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
 
 <main class="max-w-5xl mx-auto px-8 py-6 space-y-6">
 
+  <!-- ═══ EXPORT TOOLBAR ═══ -->
+  <div class="flex justify-end gap-2 mb-4 no-print">
+    <a href="report-sofi.html" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-600 text-brand-600 text-xs font-semibold hover:bg-brand-50 transition-colors">
+      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+      Export PDF Report
+    </a>
+    <button onclick="downloadCSV()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-600 text-brand-600 text-xs font-semibold hover:bg-brand-50 transition-colors bg-white">
+      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v11"/></svg>
+      Export CSV
+    </button>
+  </div>
+
   <!-- ═══ STATS ROW ═══ -->
   <div class="grid grid-cols-4 gap-4">
     <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
@@ -407,6 +419,37 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
 </main>
 
 <script>
+function downloadCSV() {
+  const rows = [
+    ['Creator','Video','Live Date','Views','Likes','Comments','Deal Value'],
+    ['Caleb Hammer','Caleb Hammer Exposed','Sep 18 2023',3526571,99812,9977,12500],
+    ['Caleb Hammer',"I'm DONE With This Model",'Sep 8 2023',2160578,31925,7210,14000],
+    ['Enes Yilmazer','Inside a Scandinavian Inspired LA Mansion','Aug 15 2023',1857758,32935,1059,20000],
+    ['Caleb Hammer','$100K+ Student Loans','Jun 16 2023',749218,12964,2297,12500],
+    ['Caleb Hammer',"She's Hiding $200K of Student Loans",'Dec 4 2023',523394,11312,1905,16250],
+    ['Caleb Hammer','$64K in Car Debt at 20','Apr 3 2023',495544,10452,2859,14000],
+    ['Taylor Bell','NYC $16M Manhattan Apartment Tour','Apr 4 2023',267199,5556,589,13000],
+    ['BiggerPockets','Building an ADU From Scratch','Aug 26 2023',128818,197,5,12000],
+    ['BiggerPockets','I Tried House Flipping During a Market Crash','Sep 30 2023',41233,276,24,8125],
+    ['Arvabelle','Profitable Business Ideas for the Next 10 Years','Apr 9 2022',6429,203,23,8000],
+  ];
+  const csv = rows.map(r =>
+    r.map(v => (typeof v === 'string' && (v.includes(',') || v.includes('"'))
+      ? '"' + v.replace(/"/g,'""') + '"'
+      : v
+    )).join(',')
+  ).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'sofi-campaign-report.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 function toggleSection(id, chevId) {
   const el = document.getElementById(id);
   const chev = document.getElementById(chevId);

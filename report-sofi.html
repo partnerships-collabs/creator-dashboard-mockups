@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoFi × Creators Agency — Campaign Performance Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f3f4f6;
+    color: #111827;
+  }
+
+  /* ── Toolbar ── */
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .toolbar span {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-right: auto;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    border: none;
+  }
+  .btn-primary {
+    background: #4F46E5;
+    color: #fff;
+  }
+  .btn-primary:hover { background: #4338ca; }
+  .btn-outline {
+    background: #fff;
+    color: #4F46E5;
+    border: 1.5px solid #4F46E5;
+  }
+  .btn-outline:hover { background: #eef2ff; }
+
+  /* ── Pages wrapper ── */
+  .pages {
+    padding: 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* ── Single page ── */
+  .page {
+    width: 1100px;
+    min-height: 620px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    position: relative;
+    page-break-after: always;
+  }
+
+  /* ══════════════════════════════════
+     PAGE 1 — COVER
+  ══════════════════════════════════ */
+  .page-cover {
+    display: flex;
+    padding: 0;
+  }
+  .cover-left {
+    flex: 1;
+    padding: 60px 64px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cover-agency {
+    font-size: 14px;
+    font-weight: 800;
+    color: #4F46E5;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .cover-body h1 {
+    font-size: 52px;
+    font-weight: 900;
+    color: #111827;
+    line-height: 1.05;
+    margin-bottom: 12px;
+  }
+  .cover-body h2 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #6b7280;
+    line-height: 1.3;
+  }
+  .cover-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .cover-date {
+    font-size: 13px;
+    color: #9ca3af;
+    font-weight: 500;
+  }
+  .cover-domain {
+    font-size: 13px;
+    color: #9ca3af;
+    font-weight: 500;
+  }
+  .cover-right {
+    width: 340px;
+    flex-shrink: 0;
+    background: linear-gradient(145deg, #4F46E5 0%, #7c3aed 55%, #4F46E5 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 48px 40px;
+  }
+  .cover-right::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .cover-right::after {
+    content: '';
+    position: absolute;
+    bottom: 40px;
+    left: -40px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .cover-right-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .cover-right-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.4;
+  }
+
+  /* ══════════════════════════════════
+     PAGE 2 — VIEWS HERO
+  ══════════════════════════════════ */
+  .page-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 80px;
+  }
+  .hero-eyebrow {
+    font-size: 16px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 32px;
+    max-width: 480px;
+    line-height: 1.5;
+  }
+  .hero-number {
+    font-size: 140px;
+    font-weight: 900;
+    color: #4F46E5;
+    line-height: 1;
+    letter-spacing: -4px;
+  }
+  .hero-unit {
+    font-size: 36px;
+    font-weight: 800;
+    color: #374151;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 8px;
+    margin-left: 4px;
+  }
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 500;
+    color: #9ca3af;
+    margin-top: 28px;
+  }
+  .hero-footnote {
+    font-size: 11px;
+    color: #d1d5db;
+    font-weight: 500;
+    position: absolute;
+    bottom: 32px;
+    left: 80px;
+    letter-spacing: 0.03em;
+  }
+
+  /* accent bar top */
+  .page-accent-top {
+    height: 5px;
+    background: linear-gradient(90deg, #4F46E5, #7c3aed);
+  }
+
+  /* ══════════════════════════════════
+     PAGE 3 — ENGAGEMENT
+  ══════════════════════════════════ */
+  .page-engagement {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+  }
+  .eng-header {
+    font-size: 18px;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 6px;
+  }
+  .eng-sub {
+    font-size: 14px;
+    color: #9ca3af;
+    margin-bottom: 52px;
+  }
+  .eng-cols {
+    display: flex;
+    gap: 80px;
+    align-items: flex-end;
+  }
+  .eng-stat .eng-num {
+    font-size: 100px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -3px;
+  }
+  .eng-stat .eng-num.indigo { color: #4F46E5; }
+  .eng-stat .eng-num.dark { color: #111827; }
+  .eng-stat .eng-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: #6b7280;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+  .eng-divider {
+    width: 1px;
+    height: 140px;
+    background: #e5e7eb;
+    align-self: center;
+  }
+
+  /* ══════════════════════════════════
+     PAGE 4 — AFFILIATE HERO
+  ══════════════════════════════════ */
+  .page-affiliate-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 80px;
+  }
+  .aff-subline {
+    font-size: 18px;
+    font-weight: 600;
+    color: #374151;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .aff-subline::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 3px;
+    background: #4F46E5;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ══════════════════════════════════
+     PAGE 5 — CONVERSION BREAKDOWN
+  ══════════════════════════════════ */
+  .page-breakdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+  }
+  .breakdown-header {
+    font-size: 20px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 44px;
+  }
+  .breakdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .stat-box {
+    border: 1.5px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .stat-box .sb-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .stat-box .sb-num {
+    font-size: 52px;
+    font-weight: 900;
+    color: #4F46E5;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  /* ══════════════════════════════════
+     PAGE 6 — TOP VIDEOS TABLE
+  ══════════════════════════════════ */
+  .page-table {
+    padding: 48px 56px;
+  }
+  .table-header {
+    font-size: 20px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 24px;
+  }
+  .perf-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  .perf-table thead tr {
+    background: #4F46E5;
+  }
+  .perf-table thead th {
+    padding: 11px 14px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+  .perf-table thead th:last-child { text-align: center; }
+  .perf-table tbody tr:nth-child(even) {
+    background: #f9fafb;
+  }
+  .perf-table tbody tr:nth-child(odd) {
+    background: #fff;
+  }
+  .perf-table tbody td {
+    padding: 10px 14px;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: middle;
+  }
+  .perf-table tbody td.num {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .perf-table tbody td.creator { font-weight: 700; color: #111827; }
+  .perf-table tbody td.title { color: #4b5563; max-width: 220px; }
+  .live-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 99px;
+    background: #ecfdf5;
+    color: #059669;
+    font-size: 10px;
+    font-weight: 700;
+    border: 1px solid #a7f3d0;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .live-link:hover { background: #d1fae5; }
+
+  /* ══════════════════════════════════
+     PAGE 7 — AFFILIATE PARTNERS
+  ══════════════════════════════════ */
+  .page-partners {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 80px;
+  }
+  .partners-header {
+    font-size: 20px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 40px;
+  }
+  .creator-cards {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .creator-card {
+    flex: 1;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .creator-card .cc-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4F46E5, #7c3aed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 900;
+    color: #fff;
+    margin: 0 auto 14px;
+  }
+  .creator-card .cc-name {
+    font-size: 15px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  .creator-card .cc-platform {
+    font-size: 11px;
+    color: #9ca3af;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .badge-active {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #ecfdf5;
+    color: #059669;
+    border-radius: 99px;
+    font-size: 10px;
+    font-weight: 700;
+    border: 1px solid #a7f3d0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .partners-note {
+    font-size: 13px;
+    color: #9ca3af;
+    font-weight: 500;
+  }
+
+  /* ══════════════════════════════════
+     PAGE 8 — CLOSING
+  ══════════════════════════════════ */
+  .page-closing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 80px 0;
+    flex: 1;
+  }
+  .closing-thank {
+    font-size: 48px;
+    font-weight: 900;
+    color: #111827;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .closing-contact {
+    font-size: 15px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 60px;
+  }
+  .closing-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(90deg, #4F46E5, #7c3aed);
+  }
+
+  /* ══════════════════════════════════
+     PRINT STYLES
+  ══════════════════════════════════ */
+  @media print {
+    .no-print { display: none !important; }
+    body { margin: 0; background: #fff; }
+    .pages { padding: 0; gap: 0; }
+    .page {
+      border-radius: 0;
+      box-shadow: none;
+      page-break-after: always;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Toolbar (no-print) ── -->
+<div class="toolbar no-print">
+  <span>SoFi × Creators Agency — Campaign Performance Report · April 2026</span>
+  <button class="btn btn-outline" onclick="downloadCSV()">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v11"/></svg>
+    Download CSV
+  </button>
+  <button class="btn btn-primary" onclick="window.print()">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+    Print / Save as PDF
+  </button>
+</div>
+
+<div class="pages">
+
+  <!-- ═══════════════════════════════════
+       PAGE 1 — COVER
+  ═══════════════════════════════════ -->
+  <div class="page page-cover">
+    <div class="cover-left">
+      <div class="cover-agency">Creators Agency</div>
+      <div class="cover-body">
+        <h1>SoFi ×<br>Creators Agency</h1>
+        <h2>Campaign Performance Report</h2>
+      </div>
+      <div class="cover-footer">
+        <div class="cover-date">Data collected April 17, 2026</div>
+        <div class="cover-domain">creatorsagency.co</div>
+      </div>
+    </div>
+    <div class="cover-right">
+      <div class="cover-right-label">Partnership</div>
+      <div class="cover-right-text">YouTube integrations,<br>affiliate conversions &amp;<br>financial product growth</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       PAGE 2 — VIEWS HERO
+  ═══════════════════════════════════ -->
+  <div class="page page-hero" style="position:relative;">
+    <div class="page-accent-top"></div>
+    <div style="padding:60px 80px 48px; display:flex; flex-direction:column; justify-content:center; flex:1;">
+      <div class="hero-eyebrow">Together, your campaigns have generated</div>
+      <div class="hero-number">12.9M</div>
+      <div class="hero-unit">Views</div>
+      <div class="hero-sub">across tracked YouTube campaigns</div>
+    </div>
+    <div class="hero-footnote">Data from YouTube Analytics · April 2026</div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       PAGE 3 — ENGAGEMENT
+  ═══════════════════════════════════ -->
+  <div class="page page-engagement" style="position:relative;">
+    <div class="page-accent-top"></div>
+    <div style="padding:60px 80px 48px;">
+      <div class="eng-header">Your audience is engaged</div>
+      <div class="eng-sub">across all YouTube integrations</div>
+      <div class="eng-cols">
+        <div class="eng-stat">
+          <div class="eng-num indigo">277K</div>
+          <div class="eng-label">Likes</div>
+        </div>
+        <div class="eng-divider"></div>
+        <div class="eng-stat">
+          <div class="eng-num dark">38K</div>
+          <div class="eng-label">Comments</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       PAGE 4 — AFFILIATE CONVERSIONS HERO
+  ═══════════════════════════════════ -->
+  <div class="page page-affiliate-hero" style="position:relative;">
+    <div class="page-accent-top"></div>
+    <div style="padding:60px 80px 48px;">
+      <div class="hero-eyebrow">Your affiliate program is working</div>
+      <div class="hero-number">11,245</div>
+      <div class="hero-unit">Conversions</div>
+      <div class="aff-subline">$118M in loans &amp; financial products originated</div>
+    </div>
+    <div class="hero-footnote">Via Impact affiliate program · 2026 YTD</div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       PAGE 5 — CONVERSION BREAKDOWN
+  ═══════════════════════════════════ -->
+  <div class="page page-breakdown" style="position:relative;">
+    <div class="page-accent-top"></div>
+    <div style="padding:60px 80px 48px;">
+      <div class="breakdown-header">What those conversions look like</div>
+      <div class="breakdown-grid">
+        <div class="stat-box">
+          <div class="sb-label">Enrollments</div>
+          <div class="sb-num">4,498</div>
+        </div>
+        <div class="stat-box">
+          <div class="sb-label">Card Activations</div>
+          <div class="sb-num">1,892</div>
+        </div>
+        <div class="stat-box">
+          <div class="sb-label">Direct Deposits</div>
+          <div class="sb-num">1,387</div>
+        </div>
+        <div class="stat-box">
+          <div class="sb-label">Loan Applications</div>
+          <div class="sb-num">849</div>
+        </div>
+      </div>
+      <div style="margin-top:28px; font-size:11px; color:#d1d5db; font-weight:500; letter-spacing:0.03em;">Source: Impact · 2026 YTD</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       PAGE 6 — TOP PERFORMING VIDEOS TABLE
+  ═══════════════════════════════════ -->
+  <div class="page page-table" style="position:relative;">
+    <div class="page-accent-top"></div>
+    <div style="margin-top:8px;">
+      <div class="table-header">Top performing campaigns</div>
+      <table class="perf-table">
+        <thead>
+          <tr>
+            <th>Creator</th>
+            <th>Video</th>
+            <th>Live Date</th>
+            <th style="text-align:right">Views</th>
+            <th style="text-align:right">Likes</th>
+            <th style="text-align:right">Comments</th>
+            <th style="text-align:right">Deal Value</th>
+            <th style="text-align:center">Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="creator">Caleb Hammer</td>
+            <td class="title">Caleb Hammer Exposed</td>
+            <td>Sep 18, 2023</td>
+            <td class="num">3,526,571</td>
+            <td class="num">99,812</td>
+            <td class="num">9,977</td>
+            <td class="num">$12,500</td>
+            <td style="text-align:center"><a class="live-link" href="https://youtu.be/ZmLXFt1D30o" target="_blank">Live ↗</a></td>
+          </tr>
+          <tr>
+            <td class="creator">Caleb Hammer</td>
+            <td class="title">I'm DONE With This Model</td>
+            <td>Sep 8, 2023</td>
+            <td class="num">2,160,578</td>
+            <td class="num">31,925</td>
+            <td class="num">7,210</td>
+            <td class="num">$14,000</td>
+            <td style="text-align:center"><a class="live-link" href="https://youtu.be/rApLKBuePfc" target="_blank">Live ↗</a></td>
+          </tr>
+          <tr>
+            <td class="creator">Enes Yilmazer</td>
+            <td class="title">Inside a Scandinavian Inspired LA Mansion</td>
+            <td>Aug 15, 2023</td>
+            <td class="num">1,857,758</td>
+            <td class="num">32,935</td>
+            <td class="num">1,059</td>
+            <td class="num">$20,000</td>
+            <td style="text-align:center"><a class="live-link" href="https://youtu.be/uhynik9xMdw" target="_blank">Live ↗</a></td>
+          </tr>
+          <tr>
+            <td class="creator">Caleb Hammer</td>
+            <td class="title">$100K+ Student Loans</td>
+            <td>Jun 16, 2023</td>
+            <td class="num">749,218</td>
+            <td class="num">12,964</td>
+            <td class="num">2,297</td>
+            <td class="num">$12,500</td>
+            <td style="text-align:center"><a class="live-link" href="https://youtu.be/IAzW73nu2Xw" target="_blank">Live ↗</a></td>
+          </tr>
+          <tr>
+            <td class="creator">Caleb Hammer</td>
+            <td class="title">She's Hiding $200K of Student Loans</td>
+            <td>Dec 4, 2023</td>
+            <td class="num">523,394</td>
+            <td class="num">11,312</td>
+            <td class="num">1,905</td>
+            <td class="num">$16,250</td>
+            <td style="text-align:center"><a class="live-link" href="https://youtu.be/1XKdschzLgk" target="_blank">Live ↗</a></td>
+          </tr>
+          <tr>
+            <td class="creator">Caleb Hammer</td>
+            <td class="title">$64K in Car Debt at 20</td>
+            <td>Apr 3, 2023</td>
+            <td class="num">495,544</td>
+            <td class="num">10,452</td>
+            <td class="num">2,859</td>
+            <td class="num">$14,000</td>
+            <td style="text-align:center"><a class="live-link" href="https://youtu.be/Fmd8u8Fbfew" target="_blank">Live ↗</a></td>
+          </tr>
+          <tr>
+            <td class="creator">Taylor Bell</td>
+            <td class="title">NYC $16M Manhattan Apartment Tour</td>
+            <td>Apr 4, 2023</td>
+            <td class="num">267,199</td>
+            <td class="num">5,556</td>
+            <td class="num">589</td>
+            <td class="num">$13,000</td>
+            <td style="text-align:center"><a class="live-link" href="https://youtu.be/ub4km72ho_8" target="_blank">Live ↗</a></td>
+          </tr>
+          <tr>
+            <td class="creator">BiggerPockets</td>
+            <td class="title">Building an ADU From Scratch</td>
+            <td>Aug 26, 2023</td>
+            <td class="num">128,818</td>
+            <td class="num">197</td>
+            <td class="num">5</td>
+            <td class="num">$12,000</td>
+            <td style="text-align:center"><a class="live-link" href="https://youtu.be/bbZJGeJOGBs" target="_blank">Live ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       PAGE 7 — ACTIVE AFFILIATE PARTNERS
+  ═══════════════════════════════════ -->
+  <div class="page page-partners" style="position:relative;">
+    <div class="page-accent-top"></div>
+    <div style="padding:60px 80px 48px;">
+      <div class="partners-header">Active affiliate partners</div>
+      <div class="creator-cards">
+        <div class="creator-card">
+          <div class="cc-avatar">CB</div>
+          <div class="cc-name">Cal Barton</div>
+          <div class="cc-platform">YouTube</div>
+          <span class="badge-active">Active</span>
+        </div>
+        <div class="creator-card">
+          <div class="cc-avatar">CH</div>
+          <div class="cc-name">Caleb Hammer</div>
+          <div class="cc-platform">YouTube</div>
+          <span class="badge-active">Active</span>
+        </div>
+        <div class="creator-card">
+          <div class="cc-avatar">GB</div>
+          <div class="cc-name">Gabe Bult</div>
+          <div class="cc-platform">YouTube</div>
+          <span class="badge-active">Active</span>
+        </div>
+      </div>
+      <div class="partners-note">Payouts processed monthly via Impact</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       PAGE 8 — CLOSING
+  ═══════════════════════════════════ -->
+  <div class="page" style="position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+    <div class="page-accent-top" style="position:absolute; top:0; left:0; right:0;"></div>
+    <div style="padding:80px;">
+      <div class="closing-thank">Thank you for<br>partnering with us.</div>
+      <div class="closing-contact">creatorsagency.co &nbsp;·&nbsp; partnerships@creatorsagency.co</div>
+    </div>
+    <div class="closing-bar"></div>
+  </div>
+
+</div><!-- .pages -->
+
+<script>
+function downloadCSV() {
+  const rows = [
+    ['Creator','Video','Live Date','Views','Likes','Comments','Deal Value'],
+    ['Caleb Hammer','Caleb Hammer Exposed','Sep 18 2023',3526571,99812,9977,12500],
+    ['Caleb Hammer',"I'm DONE With This Model",'Sep 8 2023',2160578,31925,7210,14000],
+    ['Enes Yilmazer','Inside a Scandinavian Inspired LA Mansion','Aug 15 2023',1857758,32935,1059,20000],
+    ['Caleb Hammer','$100K+ Student Loans','Jun 16 2023',749218,12964,2297,12500],
+    ['Caleb Hammer',"She's Hiding $200K of Student Loans",'Dec 4 2023',523394,11312,1905,16250],
+    ['Caleb Hammer','$64K in Car Debt at 20','Apr 3 2023',495544,10452,2859,14000],
+    ['Taylor Bell','NYC $16M Manhattan Apartment Tour','Apr 4 2023',267199,5556,589,13000],
+    ['BiggerPockets','Building an ADU From Scratch','Aug 26 2023',128818,197,5,12000],
+    ['BiggerPockets','I Tried House Flipping During a Market Crash','Sep 30 2023',41233,276,24,8125],
+    ['Arvabelle','Profitable Business Ideas for the Next 10 Years','Apr 9 2022',6429,203,23,8000],
+  ];
+
+  const csv = rows.map(r =>
+    r.map(v => (typeof v === 'string' && (v.includes(',') || v.includes('"'))
+      ? '"' + v.replace(/"/g,'""') + '"'
+      : v
+    )).join(',')
+  ).join('\n');
+
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'sofi-campaign-report.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>
