@@ -11,16 +11,12 @@
 
 :root {
   --accent: #F25656;
-  --accent-dim: rgba(242,86,86,0.12);
-  --accent-glow: rgba(242,86,86,0.25);
   --bg: #080808;
   --card: #111111;
-  --card2: #161616;
-  --border: rgba(255,255,255,0.08);
-  --border-accent: rgba(242,86,86,0.3);
+  --border: rgba(255,255,255,0.07);
   --text: #ffffff;
   --muted: #888888;
-  --dim: #555555;
+  --dim: #444444;
 }
 
 body {
@@ -31,312 +27,568 @@ body {
   print-color-adjust: exact;
 }
 
+@page { size: A4 landscape; margin: 0; }
+
 @media print {
-  body { background: var(--bg) !important; color: var(--text) !important; }
   .no-print { display: none !important; }
-  .page-break { page-break-before: always; }
-  @page { margin: 0; size: A4; }
+  .slide { page-break-before: always; height: 100vh; min-height: unset; overflow: hidden; }
+  .slide:first-child { page-break-before: auto; }
 }
 
-/* Layout */
-.page { max-width: 860px; margin: 0 auto; padding: 48px 40px; }
-
-/* Cover */
-.cover {
-  min-height: 280px;
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a0808 100%);
-  border-bottom: 1px solid var(--border);
-  padding: 48px 40px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-}
-.cover::before {
-  content: '';
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(242,86,86,0.15) 0%, transparent 70%);
-  pointer-events: none;
-}
-.cover-top { display: flex; align-items: center; justify-content: space-between; }
-.ca-brand { display: flex; align-items: center; gap: 10px; }
-.ca-mark {
-  width: 36px; height: 36px;
-  background: var(--accent);
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 900; font-size: 13px;
-  color: #fff; letter-spacing: -0.5px;
-}
-.ca-name {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800; font-size: 15px;
-  color: var(--text); letter-spacing: -0.3px;
-}
-.report-date { font-size: 11px; color: var(--muted); font-weight: 500; }
-.cover-main { margin-top: 36px; }
-.cover-for { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
-.cover-title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 48px; color: var(--text); letter-spacing: -1.5px; line-height: 1; }
-.cover-subtitle { font-size: 14px; color: var(--muted); margin-top: 10px; font-weight: 500; }
-.cover-stats { display: flex; gap: 32px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
-.cover-stat-value { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 28px; color: var(--accent); letter-spacing: -0.5px; }
-.cover-stat-label { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
-
-/* Sections */
-.section { margin-top: 40px; }
-.section-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 14px; }
-
-/* Cards */
-.card-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.card-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 18px;
-}
-.card-label { font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
-.card-value { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 26px; color: var(--text); letter-spacing: -0.5px; }
-.card-value.accent { color: var(--accent); }
-.card-sub { font-size: 10px; color: var(--dim); margin-top: 4px; font-weight: 500; }
-
-/* Campaign breakdown cards */
-.campaign-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
-.campaign-name { font-weight: 700; font-size: 13px; color: var(--text); }
-.campaign-period { font-size: 10px; color: var(--muted); margin-top: 2px; }
-.campaign-views { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 28px; color: var(--accent); margin-top: 10px; letter-spacing: -0.5px; }
-.campaign-views span { font-size: 13px; font-weight: 600; color: var(--muted); margin-left: 2px; }
-.campaign-detail { font-size: 10px; color: var(--dim); margin-top: 4px; }
-
-/* Top performers */
-.top5-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-.top5-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px;
-  display: flex; flex-direction: column;
-}
-.top5-rank { font-size: 9px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-.top5-views { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 22px; color: var(--text); letter-spacing: -0.3px; }
-.top5-views-label { font-size: 9px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 1px; margin-bottom: 8px; }
-.top5-title { font-size: 10px; color: #aaa; font-weight: 600; line-height: 1.4; flex: 1; }
-.top5-link { font-size: 9px; color: var(--accent); font-weight: 700; margin-top: 10px; text-decoration: none; }
-.top5-badge { display: inline-flex; align-items: center; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: 700; margin-bottom: 6px; }
-.badge-yt { background: rgba(255,0,0,0.12); color: #ff4444; }
-.badge-ig { background: rgba(168,85,247,0.12); color: #c084fc; }
-.badge-tt { background: rgba(255,255,255,0.08); color: #aaa; }
-.badge-fb { background: rgba(59,130,246,0.12); color: #60a5fa; }
-
-/* Table */
-.analytics-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 11px;
-}
-.analytics-table thead tr {
-  border-bottom: 1px solid var(--border);
-}
-.analytics-table th {
-  text-align: left;
-  padding: 10px 14px;
-  font-size: 9px;
-  font-weight: 700;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-.analytics-table th.right { text-align: right; }
-.analytics-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.04); }
-.analytics-table tbody tr:last-child { border-bottom: none; }
-.analytics-table td { padding: 9px 14px; color: #ccc; font-weight: 500; }
-.analytics-table td.title { color: var(--text); font-weight: 600; font-size: 11px; }
-.analytics-table td.right { text-align: right; }
-.analytics-table td.views { color: var(--text); font-weight: 700; font-family: 'Nunito', sans-serif; font-size: 13px; }
-.analytics-table tbody tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
-
-.table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
-
-/* Footer */
-.footer {
-  margin-top: 48px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between;
-}
-.footer-left { font-size: 10px; color: var(--dim); }
-.footer-ca { display: flex; align-items: center; gap: 7px; }
-.footer-ca-mark {
-  width: 22px; height: 22px;
-  background: var(--accent);
-  border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 900; font-size: 8px; color: #fff;
-}
-.footer-ca-name { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 11px; color: var(--muted); }
-
-/* Print button */
+/* ─── Print bar ─── */
 .print-bar {
-  background: #1a1a1a;
+  background: #111;
   border-bottom: 1px solid var(--border);
-  padding: 10px 40px;
+  padding: 12px 40px;
   display: flex; align-items: center; justify-content: space-between;
-  max-width: 860px; margin: 0 auto;
+  position: sticky; top: 0; z-index: 100;
 }
 .print-btn {
-  display: inline-flex; align-items: center; gap-8px;
+  display: inline-flex; align-items: center; gap: 6px;
   background: var(--accent); color: #fff;
   border: none; border-radius: 8px;
-  padding: 8px 18px; font-size: 12px; font-weight: 700;
+  padding: 9px 20px; font-size: 12px; font-weight: 700;
   cursor: pointer; font-family: 'Inter', sans-serif;
-  gap: 6px;
 }
 .print-btn:hover { background: #d94040; }
 .print-note { font-size: 11px; color: var(--muted); }
+
+/* ─── Slide base ─── */
+.slide {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+/* Radial glow decorations */
+.glow {
+  position: absolute; pointer-events: none;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242,86,86,0.09) 0%, transparent 65%);
+}
+.glow-tl { top: -250px; left: -150px; }
+.glow-br { bottom: -250px; right: -150px; }
+.glow-tr { top: -200px; right: -150px; }
+
+/* ─── Slide brand bar ─── */
+.slide-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 26px 56px;
+  flex-shrink: 0;
+}
+.slide-bar-left { display: flex; align-items: center; gap: 8px; }
+.ca-mark {
+  width: 28px; height: 28px;
+  background: var(--accent); border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 10px; color: #fff;
+}
+.ca-name { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 12px; color: var(--muted); }
+.slide-sep { color: var(--dim); margin: 0 4px; font-size: 12px; }
+.slide-client { font-size: 12px; font-weight: 600; color: var(--muted); }
+.slide-num { font-size: 11px; color: var(--dim); font-weight: 500; letter-spacing: 0.5px; }
+
+/* ─── SLIDE 1: COVER ─── */
+.cover {
+  flex-direction: row;
+  min-height: 100vh;
+}
+.cover-left {
+  flex: 1;
+  padding: 68px 64px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; z-index: 1;
+}
+.cover-right {
+  width: 44%;
+  background: linear-gradient(145deg, #140606 0%, #260b0b 60%, #1a0505 100%);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.cover-right-glow {
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(242,86,86,0.35) 0%, transparent 65%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+.cover-right-content {
+  position: relative; z-index: 1;
+  text-align: center;
+}
+.cover-right-num {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 108px; color: var(--accent);
+  letter-spacing: -4px; line-height: 1;
+}
+.cover-right-label {
+  font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.4);
+  text-transform: uppercase; letter-spacing: 3px; margin-top: 12px;
+}
+
+.cover-logo { display: flex; align-items: center; gap: 10px; }
+.cover-logo-mark {
+  width: 38px; height: 38px; background: var(--accent); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 14px; color: #fff;
+}
+.cover-logo-name { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 16px; }
+.cover-logo-date { font-size: 11px; color: var(--dim); margin-top: 2px; }
+
+.cover-eyebrow {
+  font-size: 11px; font-weight: 700; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 14px;
+}
+.cover-title {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 80px; letter-spacing: -3.5px; line-height: 0.92;
+  color: var(--text);
+}
+.cover-sub {
+  font-size: 14px; color: var(--muted); margin-top: 20px; line-height: 1.55; font-weight: 500;
+}
+.cover-stats {
+  display: flex; gap: 36px;
+  padding-top: 26px; margin-top: 26px;
+  border-top: 1px solid var(--border);
+}
+.cs-val {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 28px; color: var(--accent); letter-spacing: -0.5px;
+}
+.cs-lbl {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 1.5px; margin-top: 3px;
+}
+
+/* ─── HERO STAT SLIDES ─── */
+.hero-body {
+  flex: 1;
+  display: flex; align-items: center;
+  padding: 0 72px 56px;
+  gap: 72px;
+}
+.hero-left { flex: 1; }
+.hero-label {
+  font-size: 11px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 3px; margin-bottom: 14px;
+}
+.hero-number {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: clamp(88px, 13vw, 156px);
+  letter-spacing: -5px; line-height: 0.9;
+  color: var(--accent);
+}
+.hero-number.white { color: var(--text); }
+.hero-unit {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: clamp(28px, 4.5vw, 52px);
+  letter-spacing: -1px; color: var(--dim);
+  margin-top: 10px; text-transform: uppercase;
+}
+.hero-context {
+  font-size: 15px; color: rgba(255,255,255,0.45);
+  margin-top: 24px; line-height: 1.65; max-width: 420px; font-weight: 500;
+}
+.hero-right {
+  width: 340px;
+  display: flex; flex-direction: column; gap: 12px;
+  flex-shrink: 0;
+}
+.hero-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px 20px;
+}
+.hero-card-val {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 26px; color: var(--text); letter-spacing: -0.5px;
+}
+.hero-card-lbl {
+  font-size: 9px; color: var(--muted); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; margin-top: 2px;
+}
+
+/* ─── TOP 5 SLIDE ─── */
+.top5-body {
+  flex: 1;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 56px 56px;
+}
+.top5-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.top5-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 18px 16px;
+  display: flex; flex-direction: column;
+}
+.top5-rank {
+  font-size: 9px; font-weight: 800; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px;
+}
+.tbadge {
+  display: inline-flex; padding: 3px 8px; border-radius: 5px;
+  font-size: 9px; font-weight: 700; margin-bottom: 10px;
+}
+.badge-yt { background: rgba(255,0,0,0.12); color: #ff5555; }
+.badge-ig { background: rgba(168,85,247,0.12); color: #c084fc; }
+.badge-tt { background: rgba(255,255,255,0.07); color: #aaa; }
+.badge-fb { background: rgba(59,130,246,0.12); color: #60a5fa; }
+.top5-views {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 30px; color: var(--text); letter-spacing: -0.5px; line-height: 1;
+}
+.top5-views-lbl {
+  font-size: 8px; color: var(--muted); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-top: 2px; margin-bottom: 10px;
+}
+.top5-title { font-size: 10px; color: #aaa; font-weight: 600; line-height: 1.4; flex: 1; }
+.top5-link { font-size: 9px; color: var(--accent); font-weight: 700; text-decoration: none; margin-top: 12px; }
+
+/* ─── BREAKDOWN SLIDE ─── */
+.breakdown-body {
+  flex: 1;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 72px 56px;
+  gap: 20px;
+}
+.breakdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.breakdown-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px 28px;
+}
+.breakdown-name { font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 4px; }
+.breakdown-period { font-size: 10px; color: var(--muted); }
+.breakdown-views {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 52px; color: var(--accent);
+  letter-spacing: -1.5px; line-height: 1; margin-top: 14px;
+}
+.breakdown-views span { font-size: 18px; color: var(--dim); font-family: 'Inter', sans-serif; font-weight: 600; margin-left: 2px; }
+.breakdown-detail { font-size: 10px; color: var(--dim); margin-top: 6px; }
+
+/* ─── TABLE SLIDE ─── */
+.table-body {
+  flex: 1; padding: 0 48px 48px;
+  display: flex; flex-direction: column;
+}
+.table-wrap {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden; flex: 1;
+  overflow-y: auto;
+}
+.analytics-table { width: 100%; border-collapse: collapse; font-size: 10px; }
+.analytics-table thead tr { border-bottom: 1px solid var(--border); }
+.analytics-table th {
+  text-align: left; padding: 10px 14px;
+  font-size: 8px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 1.5px;
+}
+.analytics-table th.r { text-align: right; }
+.analytics-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.03); }
+.analytics-table td { padding: 7px 14px; color: #bbb; font-weight: 500; }
+.analytics-table td.tc { color: var(--text); font-weight: 600; }
+.analytics-table td.r { text-align: right; }
+.analytics-table td.vc { color: var(--text); font-weight: 700; font-family: 'Nunito', sans-serif; font-size: 12px; }
+.analytics-table tbody tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+
+/* ─── CLOSING SLIDE ─── */
+.slide-close {
+  display: flex; align-items: center; justify-content: center;
+}
+.close-inner { text-align: center; max-width: 520px; }
+.close-mark {
+  width: 64px; height: 64px; background: var(--accent); border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 24px; color: #fff;
+  margin: 0 auto 24px;
+}
+.close-divider {
+  width: 36px; height: 3px; background: var(--accent);
+  border-radius: 2px; margin: 0 auto 24px;
+}
+.close-title {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 52px; color: var(--text); letter-spacing: -2px; line-height: 1.05;
+  margin-bottom: 16px;
+}
+.close-sub {
+  font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 32px;
+}
+.close-contact {
+  display: inline-block;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 20px 32px; text-align: left;
+}
+.close-contact-row { font-size: 12px; color: #aaa; font-weight: 500; padding: 3px 0; }
+.close-contact-row strong { color: var(--text); }
+.close-contact-divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 10px 0; }
 </style>
 </head>
 <body>
 
-<!-- Print bar (hidden when printing) -->
+<!-- Print bar -->
 <div class="print-bar no-print">
-  <span class="print-note">Open in Chrome or Safari for best PDF quality. File → Print → Save as PDF.</span>
+  <span class="print-note">Chrome or Safari → File → Print → Landscape, No margins → Save as PDF</span>
   <button class="print-btn" onclick="window.print()">
     <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
     Save as PDF
   </button>
 </div>
 
-<!-- Cover -->
-<div class="cover">
-  <div class="cover-top">
-    <div class="ca-brand">
+<!-- ═══════════════════════════════
+     SLIDE 1 — COVER
+═══════════════════════════════ -->
+<div class="slide cover">
+  <div class="glow glow-tl"></div>
+  <div class="cover-left">
+    <div class="cover-logo">
+      <div class="cover-logo-mark">CA</div>
+      <div>
+        <div class="cover-logo-name">Creators Agency</div>
+        <div class="cover-logo-date">creatorsagency.co</div>
+      </div>
+    </div>
+    <div>
+      <div class="cover-eyebrow">Partnership Performance Report</div>
+      <div class="cover-title">Bizee</div>
+      <div class="cover-sub">Campaign analytics across all active creator partnerships<br>January 2025 – April 2026</div>
+      <div class="cover-stats">
+        <div>
+          <div class="cs-val">59.1M</div>
+          <div class="cs-lbl">Total Views</div>
+        </div>
+        <div>
+          <div class="cs-val">2.7M</div>
+          <div class="cs-lbl">Total Likes</div>
+        </div>
+        <div>
+          <div class="cs-val">51</div>
+          <div class="cs-lbl">Posts</div>
+        </div>
+        <div>
+          <div class="cs-val">4</div>
+          <div class="cs-lbl">Campaigns</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--dim)">April 2026</div>
+  </div>
+  <div class="cover-right">
+    <div class="cover-right-glow"></div>
+    <div class="cover-right-content">
+      <div class="cover-right-num">59.1M</div>
+      <div class="cover-right-label">Total Views</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     SLIDE 2 — VIEWS
+═══════════════════════════════ -->
+<div class="slide">
+  <div class="glow glow-tl"></div>
+  <div class="slide-bar">
+    <div class="slide-bar-left">
       <div class="ca-mark">CA</div>
       <div class="ca-name">Creators Agency</div>
+      <span class="slide-sep">×</span>
+      <span class="slide-client">Bizee</span>
     </div>
-    <div class="report-date">April 2026</div>
+    <div class="slide-num">01 / 07</div>
   </div>
-  <div class="cover-main">
-    <div class="cover-for">Partnership Performance Report</div>
-    <div class="cover-title">Bizee</div>
-    <div class="cover-subtitle">Campaign analytics across all active creator partnerships · Jan 2025 – Apr 2026</div>
-    <div class="cover-stats">
-      <div>
-        <div class="cover-stat-value">59.1M</div>
-        <div class="cover-stat-label">Total Views</div>
+  <div class="hero-body">
+    <div class="hero-left">
+      <div class="hero-label">Total Views</div>
+      <div class="hero-number">59.1M</div>
+      <div class="hero-unit">Views</div>
+      <div class="hero-context">Combined views across all 51 sponsored posts from January 2025 through April 2026 — spanning YouTube, Instagram, TikTok, and Facebook.</div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-val">47.6M</div>
+        <div class="hero-card-lbl">School of Hard Knocks</div>
       </div>
-      <div>
-        <div class="cover-stat-value">2.7M</div>
-        <div class="cover-stat-label">Total Likes</div>
+      <div class="hero-card">
+        <div class="hero-card-val">6.9M</div>
+        <div class="hero-card-lbl">UpFlip (2025)</div>
       </div>
-      <div>
-        <div class="cover-stat-value">51</div>
-        <div class="cover-stat-label">Posted Deliverables</div>
+      <div class="hero-card">
+        <div class="hero-card-val">4.1M</div>
+        <div class="hero-card-lbl">Iced Coffee Hour</div>
       </div>
-      <div>
-        <div class="cover-stat-value">4</div>
-        <div class="cover-stat-label">Campaigns</div>
+      <div class="hero-card">
+        <div class="hero-card-val">557K</div>
+        <div class="hero-card-lbl">UpFlip (2026, in progress)</div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="page">
-
-  <!-- Campaign Stats -->
-  <div class="section">
-    <div class="section-title">Campaign Overview</div>
-    <div class="card-grid-4">
-      <div class="card">
-        <div class="card-label">Total Views</div>
-        <div class="card-value accent">59.1M</div>
-        <div class="card-sub">All posted content</div>
+<!-- ═══════════════════════════════
+     SLIDE 3 — LIKES
+═══════════════════════════════ -->
+<div class="slide">
+  <div class="glow glow-br"></div>
+  <div class="slide-bar">
+    <div class="slide-bar-left">
+      <div class="ca-mark">CA</div>
+      <div class="ca-name">Creators Agency</div>
+      <span class="slide-sep">×</span>
+      <span class="slide-client">Bizee</span>
+    </div>
+    <div class="slide-num">02 / 07</div>
+  </div>
+  <div class="hero-body">
+    <div class="hero-left">
+      <div class="hero-label">Total Engagement</div>
+      <div class="hero-number white">2.7M</div>
+      <div class="hero-unit">Likes</div>
+      <div class="hero-context">School of Hard Knocks drove the majority of engagement — single posts exceeding 376K likes. Short-form content across Instagram and TikTok consistently outperformed benchmarks.</div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-val">42.6K</div>
+        <div class="hero-card-lbl">Total Comments</div>
       </div>
-      <div class="card">
-        <div class="card-label">Total Likes</div>
-        <div class="card-value">2.7M</div>
-        <div class="card-sub">All posted content</div>
+      <div class="hero-card">
+        <div class="hero-card-val">51</div>
+        <div class="hero-card-lbl">Posted Deliverables</div>
       </div>
-      <div class="card">
-        <div class="card-label">Total Comments</div>
-        <div class="card-value">42.6K</div>
-        <div class="card-sub">All posted content</div>
+      <div class="hero-card">
+        <div class="hero-card-val">3</div>
+        <div class="hero-card-lbl">Active Creator Partners</div>
       </div>
-      <div class="card">
-        <div class="card-label">Posted Deliverables</div>
-        <div class="card-value accent">51</div>
-        <div class="card-sub">Across 4 campaigns</div>
+      <div class="hero-card">
+        <div class="hero-card-val">5</div>
+        <div class="hero-card-lbl">Platforms</div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Campaign Breakdown -->
-  <div class="section">
-    <div class="section-title">Performance by Campaign</div>
-    <div class="card-grid-2">
-      <div class="campaign-card">
-        <div class="campaign-name">School of Hard Knocks</div>
-        <div class="campaign-period">Aug 2025 – Jul 2026 · 12-month campaign</div>
-        <div class="campaign-views">47.6M <span>views</span></div>
-        <div class="campaign-detail">17 posted · YouTube · TikTok · Instagram · Facebook</div>
+<!-- ═══════════════════════════════
+     SLIDE 4 — TOP 5 POSTS
+═══════════════════════════════ -->
+<div class="slide">
+  <div class="glow glow-tr"></div>
+  <div class="slide-bar">
+    <div class="slide-bar-left">
+      <div class="ca-mark">CA</div>
+      <div class="ca-name">Creators Agency</div>
+      <span class="slide-sep">×</span>
+      <span class="slide-client">Bizee</span>
+    </div>
+    <div class="slide-num">03 / 07</div>
+  </div>
+  <div class="top5-body">
+    <div class="hero-label" style="margin-bottom:20px">Top 5 Posts by Views</div>
+    <div class="top5-grid" id="top5-grid"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     SLIDE 5 — CAMPAIGN BREAKDOWN
+═══════════════════════════════ -->
+<div class="slide">
+  <div class="glow glow-tl"></div>
+  <div class="slide-bar">
+    <div class="slide-bar-left">
+      <div class="ca-mark">CA</div>
+      <div class="ca-name">Creators Agency</div>
+      <span class="slide-sep">×</span>
+      <span class="slide-client">Bizee</span>
+    </div>
+    <div class="slide-num">04 / 07</div>
+  </div>
+  <div class="breakdown-body">
+    <div class="hero-label">Performance by Campaign</div>
+    <div class="breakdown-grid">
+      <div class="breakdown-card">
+        <div class="breakdown-name">School of Hard Knocks</div>
+        <div class="breakdown-period">Aug 2025 – Jul 2026 · 12-month campaign · Multi-platform</div>
+        <div class="breakdown-views">47.6M <span>views</span></div>
+        <div class="breakdown-detail">17 posts · YouTube · TikTok · Instagram · Facebook</div>
       </div>
-      <div class="campaign-card">
-        <div class="campaign-name">Iced Coffee Hour</div>
-        <div class="campaign-period">Apr 2025 – ongoing</div>
-        <div class="campaign-views">4.1M <span>views</span></div>
-        <div class="campaign-detail">14 posted · YouTube Integration</div>
+      <div class="breakdown-card">
+        <div class="breakdown-name">Iced Coffee Hour</div>
+        <div class="breakdown-period">Apr 2025 – ongoing · YouTube Integration</div>
+        <div class="breakdown-views">4.1M <span>views</span></div>
+        <div class="breakdown-detail">14 posts · YouTube Integration</div>
       </div>
-      <div class="campaign-card">
-        <div class="campaign-name">UpFlip (2025)</div>
-        <div class="campaign-period">Jan – Dec 2025</div>
-        <div class="campaign-views">6.9M <span>views</span></div>
-        <div class="campaign-detail">14 posted · YouTube Integration</div>
+      <div class="breakdown-card">
+        <div class="breakdown-name">UpFlip (2025)</div>
+        <div class="breakdown-period">Jan – Dec 2025 · YouTube Integration</div>
+        <div class="breakdown-views">6.9M <span>views</span></div>
+        <div class="breakdown-detail">14 posts · YouTube Integration</div>
       </div>
-      <div class="campaign-card">
-        <div class="campaign-name">UpFlip (2026)</div>
-        <div class="campaign-period">Jan – Dec 2026 · in progress</div>
-        <div class="campaign-views">557K <span>views</span></div>
-        <div class="campaign-detail">6 posted so far · YouTube + Short Form</div>
+      <div class="breakdown-card">
+        <div class="breakdown-name">UpFlip (2026)</div>
+        <div class="breakdown-period">Jan – Dec 2026 · In progress</div>
+        <div class="breakdown-views">557K <span>views</span></div>
+        <div class="breakdown-detail">6 posts so far · YouTube + Short-form</div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Active Partnerships -->
-  <div class="section">
-    <div class="section-title">Active Partnerships</div>
-    <div class="card-grid-3">
-      <div class="card">
-        <div class="card-label">Active Creators</div>
-        <div class="card-value">3</div>
-        <div class="card-sub">SHK · UpFlip · ICH</div>
+<!-- ═══════════════════════════════
+     SLIDE 6 — ACTIVE PARTNERSHIPS
+═══════════════════════════════ -->
+<div class="slide">
+  <div class="glow glow-br"></div>
+  <div class="slide-bar">
+    <div class="slide-bar-left">
+      <div class="ca-mark">CA</div>
+      <div class="ca-name">Creators Agency</div>
+      <span class="slide-sep">×</span>
+      <span class="slide-client">Bizee</span>
+    </div>
+    <div class="slide-num">05 / 07</div>
+  </div>
+  <div class="hero-body">
+    <div class="hero-left">
+      <div class="hero-label">Looking Ahead</div>
+      <div class="hero-number">84</div>
+      <div class="hero-unit">Upcoming</div>
+      <div class="hero-context">Deliverables scheduled across April through December 2026 — with 3 active creator partnerships continuing across 5 platforms.</div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-val">3</div>
+        <div class="hero-card-lbl">Active Creators (SHK · UpFlip · ICH)</div>
       </div>
-      <div class="card">
-        <div class="card-label">Scheduled Deliverables</div>
-        <div class="card-value">84</div>
-        <div class="card-sub">Apr – Dec 2026</div>
+      <div class="hero-card">
+        <div class="hero-card-val">5</div>
+        <div class="hero-card-lbl">Platforms</div>
       </div>
-      <div class="card">
-        <div class="card-label">Platforms</div>
-        <div class="card-value">5</div>
-        <div class="card-sub">YouTube · TikTok · Instagram · Facebook · Blog</div>
+      <div class="hero-card">
+        <div class="hero-card-val">Apr – Dec</div>
+        <div class="hero-card-lbl">Remaining 2026</div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Top Performers -->
-  <div class="section">
-    <div class="section-title">Top 5 Posts by Views</div>
-    <div class="top5-grid" id="report-top5"></div>
+<!-- ═══════════════════════════════
+     SLIDE 7 — FULL DATA TABLE
+═══════════════════════════════ -->
+<div class="slide">
+  <div class="slide-bar">
+    <div class="slide-bar-left">
+      <div class="ca-mark">CA</div>
+      <div class="ca-name">Creators Agency</div>
+      <span class="slide-sep">×</span>
+      <span class="slide-client">Bizee</span>
+    </div>
+    <div class="slide-num">06 / 07</div>
   </div>
-
-  <!-- Full Analytics Table -->
-  <div class="section page-break">
-    <div class="section-title">All Posted Deliverables</div>
+  <div class="table-body">
+    <div class="hero-label" style="margin-bottom:14px">All 51 Posted Deliverables</div>
     <div class="table-wrap">
       <table class="analytics-table">
         <thead>
@@ -344,25 +596,38 @@ body {
             <th>Creator / Title</th>
             <th>Platform</th>
             <th>Live Date</th>
-            <th class="right">Views</th>
-            <th class="right">Likes</th>
-            <th class="right">Comments</th>
+            <th class="r">Views</th>
+            <th class="r">Likes</th>
+            <th class="r">Comments</th>
           </tr>
         </thead>
         <tbody id="report-tbody"></tbody>
       </table>
     </div>
   </div>
+</div>
 
-  <!-- Footer -->
-  <div class="footer">
-    <div class="footer-left">Prepared by Creators Agency · creatorsagency.co · kaitlyn@creatorsagency.co</div>
-    <div class="footer-ca">
-      <div class="footer-ca-mark">CA</div>
-      <div class="footer-ca-name">Creators Agency</div>
+<!-- ═══════════════════════════════
+     SLIDE 8 — CLOSING
+═══════════════════════════════ -->
+<div class="slide slide-close">
+  <div class="glow glow-tl"></div>
+  <div class="glow glow-br"></div>
+  <div class="close-inner">
+    <div class="close-mark">CA</div>
+    <div class="close-divider"></div>
+    <div class="close-title">Thank you,<br>Bizee.</div>
+    <div class="close-sub">We're proud to be your creator partnership team.<br>Questions? Reach out to your PS contact anytime.</div>
+    <div class="close-contact">
+      <div class="close-contact-row"><strong>Kaitlyn</strong> · Partnership Success</div>
+      <div class="close-contact-row">kaitlyn@creatorsagency.co</div>
+      <hr class="close-contact-divider">
+      <div class="close-contact-row"><strong>creatorsagency.co</strong></div>
     </div>
   </div>
-
+  <div style="position:absolute;bottom:28px;right:40px">
+    <div class="slide-num">07 / 07</div>
+  </div>
 </div>
 
 <script>
@@ -420,42 +685,33 @@ function fmtNum(n) {
   return n;
 }
 
-function getPlatformBadge(title, format) {
-  if (format === 'YouTube Integration') return '<span class="top5-badge badge-yt">YouTube</span>';
-  if (title.includes('TikTok')) return '<span class="top5-badge badge-tt">TikTok</span>';
-  if (title.includes('FB Reel') || title.includes('Facebook')) return '<span class="top5-badge badge-fb">Facebook</span>';
-  return '<span class="top5-badge badge-ig">Instagram</span>';
+function badge(title, format) {
+  if (format === 'YouTube Integration') return '<span class="tbadge badge-yt">YouTube</span>';
+  if (title.includes('TikTok')) return '<span class="tbadge badge-tt">TikTok</span>';
+  if (title.includes('FB Reel') || title.includes('Facebook')) return '<span class="tbadge badge-fb">Facebook</span>';
+  return '<span class="tbadge badge-ig">Instagram</span>';
 }
 
-function getTableBadge(title, format) {
-  if (format === 'YouTube Integration') return '<span style="display:inline-flex;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;background:rgba(255,0,0,0.1);color:#ff5555;">YouTube</span>';
-  if (title.includes('TikTok')) return '<span style="display:inline-flex;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;background:rgba(255,255,255,0.07);color:#aaa;">TikTok</span>';
-  if (title.includes('FB Reel') || title.includes('Facebook')) return '<span style="display:inline-flex;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;background:rgba(59,130,246,0.12);color:#60a5fa;">Facebook</span>';
-  return '<span style="display:inline-flex;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;background:rgba(168,85,247,0.12);color:#c084fc;">Instagram</span>';
-}
-
-// Top 5
 const top5 = [...ALL_ROWS].sort((a, b) => b[3] - a[3]).slice(0, 5);
-document.getElementById('report-top5').innerHTML = top5.map(([title, format, date, views, likes, comments, url], i) =>
+document.getElementById('top5-grid').innerHTML = top5.map(([title, format, date, views, likes, comments, url], i) =>
   `<div class="top5-card">
-    ${getPlatformBadge(title, format)}
+    ${badge(title, format)}
     <div class="top5-rank">#${i + 1} ranked</div>
     <div class="top5-views">${fmtNum(views)}</div>
-    <div class="top5-views-label">views</div>
+    <div class="top5-views-lbl">views</div>
     <div class="top5-title">${title}</div>
     <a class="top5-link" href="${url}" target="_blank">View post ↗</a>
   </div>`
 ).join('');
 
-// Full table
 document.getElementById('report-tbody').innerHTML = ALL_ROWS.map(([title, format, date, views, likes, comments, url]) =>
   `<tr>
-    <td class="title">${title}</td>
-    <td>${getTableBadge(title, format)}</td>
+    <td class="tc">${title}</td>
+    <td>${badge(title, format)}</td>
     <td>${date}</td>
-    <td class="right views">${fmtNum(views)}</td>
-    <td class="right">${fmtNum(likes)}</td>
-    <td class="right">${fmtNum(comments)}</td>
+    <td class="r vc">${fmtNum(views)}</td>
+    <td class="r">${fmtNum(likes)}</td>
+    <td class="r">${fmtNum(comments)}</td>
   </tr>`
 ).join('');
 </script>
