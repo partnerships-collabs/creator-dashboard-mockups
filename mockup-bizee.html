@@ -11,8 +11,8 @@
 body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -10%,rgba(34,197,94,0.08) 0%,transparent 55%),#f9fafb;min-height:100vh}
 .card-hover{transition:box-shadow .15s,transform .15s}
 .card-hover:hover{box-shadow:0 8px 24px -4px rgba(0,0,0,0.10);transform:translateY(-1px)}
-.expand{transition:max-height .3s ease,opacity .2s ease;max-height:0;opacity:0;overflow:hidden}
-.expand.open{max-height:2000px;opacity:1}
+.expand{transition:max-height .25s ease,opacity .2s ease;max-height:0;opacity:0;overflow:hidden}
+.expand.open{max-height:800px;opacity:1}
 .chevron{transition:transform .2s}
 .chevron.open{transform:rotate(180deg)}
 </style>
@@ -20,7 +20,7 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
 <body>
 
 <div class="bg-yellow-50/80 backdrop-blur-sm border-b border-yellow-200 px-4 py-1.5 text-center">
-  <span class="text-[10px] font-bold text-yellow-600 uppercase tracking-widest">Brand Dashboard Mockup · Not Live · Data pulled live from Monday.com · Apr 22, 2026</span>
+  <span class="text-[10px] font-bold text-yellow-600 uppercase tracking-widest">Brand Dashboard Mockup · Not Live · Data pulled from Monday.com · Apr 22, 2026</span>
 </div>
 
 <!-- Header -->
@@ -67,17 +67,17 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
 
     <div class="space-y-2">
 
-      <!-- School of Hard Knocks — April 30 talking points needed -->
+      <!-- SHK Month #7 — talking points needed, Apr 30 -->
       <div class="card-hover rounded-xl border-l-4 border-l-red-500 border border-red-100 bg-gradient-to-br from-red-50 to-rose-50 shadow-sm p-4 cursor-pointer" onclick="toggle('tp-shk-apr')">
         <div class="flex items-start justify-between gap-4">
           <div class="min-w-0">
             <div class="flex items-center gap-2 flex-wrap">
               <span class="text-sm font-bold text-gray-900">School of Hard Knocks</span>
               <span class="text-xs text-gray-400">×</span>
-              <span class="text-xs text-gray-600 font-medium">Month #7 — YouTube · TikTok · Instagram · IG Story</span>
+              <span class="text-xs text-gray-600 font-medium">Month #7 — 4 deliverables</span>
               <span class="px-2 py-0.5 rounded-md bg-red-100 text-red-700 text-[10px] font-bold uppercase tracking-wide">8 days away</span>
             </div>
-            <div class="mt-1 text-xs font-semibold text-red-600">Submit Talking Points — 4 deliverables go live Apr 30</div>
+            <div class="mt-1 text-xs font-semibold text-red-600">Submit Talking Points</div>
           </div>
           <div class="flex items-center gap-3 flex-shrink-0">
             <span class="text-xs text-red-600 font-bold">Apr 30</span>
@@ -85,30 +85,12 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
           </div>
         </div>
         <div id="tp-shk-apr" class="expand">
-          <div class="mt-4 pt-4 border-t border-red-100 space-y-3">
-            <p class="text-xs text-gray-500">Talking points are needed for all 4 deliverables in this month's package. CA will begin scripting once received.</p>
-            <div class="grid grid-cols-2 gap-2 text-xs">
-              <div class="bg-white rounded-lg border border-red-100 px-3 py-2 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
-                <span class="font-medium text-gray-700">YouTube Integration</span>
-              </div>
-              <div class="bg-white rounded-lg border border-red-100 px-3 py-2 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
-                <span class="font-medium text-gray-700">TikTok Short-form</span>
-              </div>
-              <div class="bg-white rounded-lg border border-red-100 px-3 py-2 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
-                <span class="font-medium text-gray-700">Instagram Short-form</span>
-              </div>
-              <div class="bg-white rounded-lg border border-red-100 px-3 py-2 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
-                <span class="font-medium text-gray-700">IG Story</span>
-              </div>
-            </div>
+          <div class="mt-4 pt-4 border-t border-red-100 flex items-center gap-3 flex-wrap">
             <a href="mailto:kaitlyn@creatorsagency.co?subject=Bizee Talking Points — SHK Month 7 (Apr 30)" class="inline-flex items-center gap-1.5 px-4 py-2 bg-brand-600 text-white text-sm font-bold rounded-lg hover:bg-brand-700 transition-colors">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-              Email Kaitlyn
+              Submit Talking Points
             </a>
+            <span class="text-xs text-gray-400">Covers YouTube · TikTok · Instagram · IG Story · go-live Apr 30</span>
           </div>
         </div>
       </div>
@@ -116,24 +98,24 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
     </div>
   </div>
 
-  <!-- ═══ IN PRODUCTION — NO ACTION NEEDED ═══ -->
+  <!-- ═══ IN PROGRESS — NO ACTION NEEDED ═══ -->
   <div>
     <div class="flex items-center gap-2 mb-3">
-      <h2 class="text-sm font-bold text-gray-900">In Production</h2>
-      <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">10 pieces</span>
-      <span class="text-[10px] text-gray-400">— no action needed from you</span>
+      <h2 class="text-sm font-bold text-gray-900">In Progress</h2>
+      <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">5 campaigns</span>
+      <span class="text-[10px] text-gray-400">— no action needed · sorted by go live date</span>
     </div>
 
     <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
 
-      <!-- SHK Month #5 -->
+      <!-- SHK Month #5 — Video Approved, posting soon -->
       <div class="border-b border-gray-50">
         <div class="px-5 py-3.5 flex items-center gap-4 cursor-pointer" onclick="toggle('ip-shk5')">
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-2">
               <span class="text-sm font-semibold text-gray-900">School of Hard Knocks</span>
               <span class="text-xs text-gray-400">×</span>
-              <span class="text-xs text-gray-500">Month #5 — 3 pieces</span>
+              <span class="text-xs text-gray-500">Month #5 — Long Form · Reels · IG Story</span>
             </div>
             <div class="text-xs text-gray-400 mt-0.5">Video approved — posting soon</div>
           </div>
@@ -141,22 +123,64 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
           <svg id="chev-ip-shk5" class="chevron w-4 h-4 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </div>
         <div id="ip-shk5" class="expand">
-          <div class="px-5 pb-4 pt-1 space-y-1.5 text-xs text-gray-600">
-            <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span>Long Form (YouTube Integration) — Video Approved</div>
-            <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span>Reels (Short Form) — Video Approved</div>
-            <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span>IG Story — Video Approved</div>
+          <div class="px-5 pb-5 pt-1 space-y-4">
+            <!-- Long Form stepper -->
+            <div>
+              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Long Form (YouTube Integration)</div>
+              <div class="flex items-start">
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Talking Points</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+                <div class="h-0.5 bg-green-400 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-green-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-green-100">TBD</div><div class="text-[8px] text-green-600 mt-1 text-center leading-tight font-bold">Post</div></div>
+              </div>
+            </div>
+            <!-- Reels stepper -->
+            <div>
+              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Reels (Short Form)</div>
+              <div class="flex items-start">
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Talking Points</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+                <div class="h-0.5 bg-green-400 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-green-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-green-100">TBD</div><div class="text-[8px] text-green-600 mt-1 text-center leading-tight font-bold">Post</div></div>
+              </div>
+            </div>
+            <!-- IG Story stepper -->
+            <div>
+              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">IG Story</div>
+              <div class="flex items-start">
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Talking Points</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+                <div class="h-0.5 bg-green-400 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-green-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-green-100">TBD</div><div class="text-[8px] text-green-600 mt-1 text-center leading-tight font-bold">Post</div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Iced Coffee Hour Month 11 -->
+      <!-- ICH Month #11 — Video Approved -->
       <div class="border-b border-gray-50">
         <div class="px-5 py-3.5 flex items-center gap-4 cursor-pointer" onclick="toggle('ip-ich11')">
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-2">
               <span class="text-sm font-semibold text-gray-900">Iced Coffee Hour</span>
               <span class="text-xs text-gray-400">×</span>
-              <span class="text-xs text-gray-500">Month #11 — YouTube Integration</span>
+              <span class="text-xs text-gray-500">Month #11 · YouTube Integration</span>
             </div>
             <div class="text-xs text-gray-400 mt-0.5">Video approved — posting soon</div>
           </div>
@@ -164,35 +188,154 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
           <svg id="chev-ip-ich11" class="chevron w-4 h-4 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </div>
         <div id="ip-ich11" class="expand">
-          <div class="px-5 pb-4 pt-1 text-xs text-gray-500">YouTube Integration — video has been approved, posting date TBD.</div>
+          <div class="px-5 pb-4 pt-1">
+            <div class="flex items-start">
+              <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Talking Points</div></div>
+              <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+              <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+              <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+              <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+              <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+              <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+              <div class="h-0.5 bg-green-400 flex-1 mt-3.5"></div>
+              <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-green-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-green-100">TBD</div><div class="text-[8px] text-green-600 mt-1 text-center leading-tight font-bold">Post</div></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- UpFlip — multiple pieces in various stages -->
-      <div>
-        <div class="px-5 py-3.5 flex items-center gap-4 cursor-pointer" onclick="toggle('ip-upflip-cur')">
+      <!-- UpFlip — Video Approved (Reel #2, Shoreline Sharkin) -->
+      <div class="border-b border-gray-50">
+        <div class="px-5 py-3.5 flex items-center gap-4 cursor-pointer" onclick="toggle('ip-upflip-va')">
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-2">
               <span class="text-sm font-semibold text-gray-900">UpFlip</span>
               <span class="text-xs text-gray-400">×</span>
-              <span class="text-xs text-gray-500">6 pieces — Feb/Mar content</span>
+              <span class="text-xs text-gray-500">Reel #2 · Shoreline Sharkin</span>
             </div>
-            <div class="text-xs text-gray-400 mt-0.5">Scripts approved &amp; videos in production</div>
+            <div class="text-xs text-gray-400 mt-0.5">Videos approved — posting soon</div>
           </div>
-          <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100 flex-shrink-0">In Progress</span>
-          <svg id="chev-ip-upflip-cur" class="chevron w-4 h-4 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-green-50 text-green-600 border border-green-100 flex-shrink-0">Video Approved</span>
+          <svg id="chev-ip-upflip-va" class="chevron w-4 h-4 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </div>
-        <div id="ip-upflip-cur" class="expand">
-          <div class="px-5 pb-4 pt-1 space-y-1.5 text-xs text-gray-600">
-            <div class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span>Davey Vending</span><span class="text-gray-400">Script Approved</span></div>
-            <div class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span>ATM Operations</span><span class="text-gray-400">Script Approved</span></div>
-            <div class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span>Reel #2</span><span class="text-gray-400">Video Approved</span></div>
-            <div class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span>Shoreline Sharkin</span><span class="text-gray-400">Video Approved</span></div>
-            <div class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-yellow-400"></span>Farm Compilation</span><span class="text-gray-400">Awaiting Script</span></div>
-            <div class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-yellow-400"></span>Keida Dervishi — Day in the Life</span><span class="text-gray-400">Awaiting Script</span></div>
-            <div class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-yellow-400"></span>Food Truck Compilation</span><span class="text-gray-400">Awaiting Script</span></div>
-            <div class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-yellow-400"></span>My Healthy Soap</span><span class="text-gray-400">Awaiting Script</span></div>
-            <div class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-yellow-400"></span>Mikael Sant — Day in the Life</span><span class="text-gray-400">Awaiting Script</span></div>
+        <div id="ip-upflip-va" class="expand">
+          <div class="px-5 pb-5 pt-1 space-y-4">
+            <div>
+              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Reel #2</div>
+              <div class="flex items-start">
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Talking Points</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+                <div class="h-0.5 bg-green-400 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-green-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-green-100">TBD</div><div class="text-[8px] text-green-600 mt-1 text-center leading-tight font-bold">Post</div></div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Shoreline Sharkin</div>
+              <div class="flex items-start">
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Talking Points</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+                <div class="h-0.5 bg-green-400 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-green-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-green-100">TBD</div><div class="text-[8px] text-green-600 mt-1 text-center leading-tight font-bold">Post</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- UpFlip — Script Approved / filming (Davey Vending, ATM Operations) -->
+      <div class="border-b border-gray-50">
+        <div class="px-5 py-3.5 flex items-center gap-4 cursor-pointer" onclick="toggle('ip-upflip-sa')">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900">UpFlip</span>
+              <span class="text-xs text-gray-400">×</span>
+              <span class="text-xs text-gray-500">Davey Vending · ATM Operations</span>
+            </div>
+            <div class="text-xs text-gray-400 mt-0.5">Script approved — video in production</div>
+          </div>
+          <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100 flex-shrink-0">Script OK</span>
+          <svg id="chev-ip-upflip-sa" class="chevron w-4 h-4 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div id="ip-upflip-sa" class="expand">
+          <div class="px-5 pb-5 pt-1 space-y-4">
+            <div>
+              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Davey Vending</div>
+              <div class="flex items-start">
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Talking Points</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+                <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-blue-100">NOW</div><div class="text-[8px] text-blue-600 mt-1 text-center leading-tight font-bold">Video</div></div>
+                <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">5</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">ATM Operations</div>
+              <div class="flex items-start">
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Talking Points</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script</div></div>
+                <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+                <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-blue-100">NOW</div><div class="text-[8px] text-blue-600 mt-1 text-center leading-tight font-bold">Video</div></div>
+                <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+                <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">5</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- UpFlip — Awaiting Script (5 pieces, CA scripting) -->
+      <div>
+        <div class="px-5 py-3.5 flex items-center gap-4 cursor-pointer" onclick="toggle('ip-upflip-scr')">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900">UpFlip</span>
+              <span class="text-xs text-gray-400">×</span>
+              <span class="text-xs text-gray-500">Farm Compilation · Keida Dervishi · Food Truck · My Healthy Soap · Mikael Sant</span>
+            </div>
+            <div class="text-xs text-gray-400 mt-0.5">Talking points received — scripts in progress</div>
+          </div>
+          <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-purple-50 text-purple-600 border border-purple-100 flex-shrink-0">Script</span>
+          <svg id="chev-ip-upflip-scr" class="chevron w-4 h-4 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div id="ip-upflip-scr" class="expand">
+          <div class="px-5 pb-4 pt-1 space-y-3">
+            <p class="text-[10px] text-gray-400 italic">All 5 episodes below share the same pipeline stage — CA is scripting each one now.</p>
+            <!-- One representative stepper -->
+            <div class="flex items-start">
+              <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] font-black">✓</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Talking Points</div></div>
+              <div class="h-0.5 bg-brand-500 flex-1 mt-3.5"></div>
+              <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-[8px] font-black ring-4 ring-purple-100">NOW</div><div class="text-[8px] text-purple-600 mt-1 text-center leading-tight font-bold">Script</div></div>
+              <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+              <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">3</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Script OK</div></div>
+              <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+              <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">4</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Video</div></div>
+              <div class="h-0.5 bg-gray-200 flex-1 mt-3.5"></div>
+              <div class="flex flex-col items-center flex-shrink-0 w-16"><div class="w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-[10px] font-bold">5</div><div class="text-[8px] text-gray-400 mt-1 text-center leading-tight">Post</div></div>
+            </div>
+            <div class="grid grid-cols-1 gap-1 text-xs text-gray-600 pt-1">
+              <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>Farm Compilation</div>
+              <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>Keida Dervishi — Day in the Life</div>
+              <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>Food Truck Compilation</div>
+              <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>My Healthy Soap</div>
+              <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>Mikael Sant — Day in the Life</div>
+            </div>
           </div>
         </div>
       </div>
@@ -210,7 +353,6 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
 
     <div class="space-y-2">
 
-      <!-- May 2026 -->
       <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
         <div class="px-5 py-3.5 flex items-center gap-4 cursor-pointer" onclick="toggle('sched-may')">
           <div class="flex-1 min-w-0">
@@ -225,23 +367,13 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
         </div>
         <div id="sched-may" class="expand">
           <div class="border-t border-gray-50 divide-y divide-gray-50 text-xs">
-            <div class="px-5 py-2.5 flex items-center justify-between">
-              <span class="font-medium text-gray-700">School of Hard Knocks — Month #8 (Campaign A)</span>
-              <span class="text-gray-400">YouTube · TikTok · Instagram · IG Story</span>
-            </div>
-            <div class="px-5 py-2.5 flex items-center justify-between">
-              <span class="font-medium text-gray-700">School of Hard Knocks — Month #10 (Campaign B)</span>
-              <span class="text-gray-400">YouTube · TikTok · Instagram · IG Story</span>
-            </div>
-            <div class="px-5 py-2.5 flex items-center justify-between">
-              <span class="font-medium text-gray-700">UpFlip — Month #5</span>
-              <span class="text-gray-400">YouTube Integration · YouTube Short · IG Reel · Facebook · TikTok</span>
-            </div>
+            <div class="px-5 py-2.5 flex items-center justify-between"><span class="font-medium text-gray-700">School of Hard Knocks — Month #8 (Campaign A)</span><span class="text-gray-400">YouTube · TikTok · Instagram · IG Story</span></div>
+            <div class="px-5 py-2.5 flex items-center justify-between"><span class="font-medium text-gray-700">School of Hard Knocks — Month #10 (Campaign B)</span><span class="text-gray-400">YouTube · TikTok · Instagram · IG Story</span></div>
+            <div class="px-5 py-2.5 flex items-center justify-between"><span class="font-medium text-gray-700">UpFlip — Month #5</span><span class="text-gray-400">YouTube Integration · YouTube Short · IG Reel · Facebook · TikTok</span></div>
           </div>
         </div>
       </div>
 
-      <!-- June 2026 -->
       <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
         <div class="px-5 py-3.5 flex items-center gap-4 cursor-pointer" onclick="toggle('sched-jun')">
           <div class="flex-1 min-w-0">
@@ -256,23 +388,13 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
         </div>
         <div id="sched-jun" class="expand">
           <div class="border-t border-gray-50 divide-y divide-gray-50 text-xs">
-            <div class="px-5 py-2.5 flex items-center justify-between">
-              <span class="font-medium text-gray-700">School of Hard Knocks — Month #9 (Campaign A)</span>
-              <span class="text-gray-400">YouTube · TikTok · Instagram · IG Story</span>
-            </div>
-            <div class="px-5 py-2.5 flex items-center justify-between">
-              <span class="font-medium text-gray-700">School of Hard Knocks — Month #11 (Campaign B)</span>
-              <span class="text-gray-400">YouTube · TikTok · Instagram · IG Story</span>
-            </div>
-            <div class="px-5 py-2.5 flex items-center justify-between">
-              <span class="font-medium text-gray-700">UpFlip — Month #6</span>
-              <span class="text-gray-400">YouTube Integration · YouTube Short · IG Reel · Facebook · TikTok</span>
-            </div>
+            <div class="px-5 py-2.5 flex items-center justify-between"><span class="font-medium text-gray-700">School of Hard Knocks — Month #9 (Campaign A)</span><span class="text-gray-400">YouTube · TikTok · Instagram · IG Story</span></div>
+            <div class="px-5 py-2.5 flex items-center justify-between"><span class="font-medium text-gray-700">School of Hard Knocks — Month #11 (Campaign B)</span><span class="text-gray-400">YouTube · TikTok · Instagram · IG Story</span></div>
+            <div class="px-5 py-2.5 flex items-center justify-between"><span class="font-medium text-gray-700">UpFlip — Month #6</span><span class="text-gray-400">YouTube Integration · YouTube Short · IG Reel · Facebook · TikTok</span></div>
           </div>
         </div>
       </div>
 
-      <!-- July 2026 -->
       <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
         <div class="px-5 py-3.5 flex items-center gap-4 cursor-pointer" onclick="toggle('sched-jul')">
           <div class="flex-1 min-w-0">
@@ -287,19 +409,12 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
         </div>
         <div id="sched-jul" class="expand">
           <div class="border-t border-gray-50 divide-y divide-gray-50 text-xs">
-            <div class="px-5 py-2.5 flex items-center justify-between">
-              <span class="font-medium text-gray-700">School of Hard Knocks — Month #12 (Final)</span>
-              <span class="text-gray-400">YouTube · TikTok · Instagram · IG Story</span>
-            </div>
-            <div class="px-5 py-2.5 flex items-center justify-between">
-              <span class="font-medium text-gray-700">UpFlip — Month #7</span>
-              <span class="text-gray-400">YouTube Integration · YouTube Short · IG Reel · Facebook · TikTok</span>
-            </div>
+            <div class="px-5 py-2.5 flex items-center justify-between"><span class="font-medium text-gray-700">School of Hard Knocks — Month #12 (Final)</span><span class="text-gray-400">YouTube · TikTok · Instagram · IG Story</span></div>
+            <div class="px-5 py-2.5 flex items-center justify-between"><span class="font-medium text-gray-700">UpFlip — Month #7</span><span class="text-gray-400">YouTube Integration · YouTube Short · IG Reel · Facebook · TikTok</span></div>
           </div>
         </div>
       </div>
 
-      <!-- Aug–Dec 2026 -->
       <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
         <div class="px-5 py-3.5 flex items-center gap-4 cursor-pointer" onclick="toggle('sched-q4')">
           <div class="flex-1 min-w-0">
@@ -307,7 +422,7 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
               <span class="text-sm font-semibold text-gray-900">Aug – Dec 2026</span>
               <span class="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-semibold">25 deliverables</span>
             </div>
-            <div class="text-xs text-gray-400 mt-0.5">UpFlip — 5 per month, 5 months remaining</div>
+            <div class="text-xs text-gray-400 mt-0.5">UpFlip — 5 deliverables per month · 5 months remaining</div>
           </div>
           <svg id="chev-sched-q4" class="chevron w-4 h-4 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </div>
@@ -330,9 +445,9 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
 <!-- ═══ TAB: ANALYTICS ═══ -->
 <div id="panel-analytics" class="space-y-6 hidden">
 
-  <!-- Summary Stats -->
+  <!-- Campaign Stats -->
   <div>
-    <h2 class="text-sm font-bold text-gray-900 mb-3">All-Time Performance</h2>
+    <h2 class="text-sm font-bold text-gray-900 mb-3">Campaign Stats</h2>
     <div class="grid grid-cols-4 gap-3">
       <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
         <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Total Views</div>
@@ -359,7 +474,7 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
 
   <!-- Campaign Breakdown -->
   <div>
-    <h2 class="text-sm font-bold text-gray-900 mb-3">By Campaign</h2>
+    <h2 class="text-sm font-bold text-gray-900 mb-3">Campaign Breakdown</h2>
     <div class="grid grid-cols-2 gap-3">
       <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
         <div class="flex items-center justify-between mb-2">
@@ -396,18 +511,46 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
     </div>
   </div>
 
-  <!-- Posted Campaign Table -->
+  <!-- Active Partnerships -->
+  <div>
+    <h2 class="text-sm font-bold text-gray-900 mb-3">Active Partnerships</h2>
+    <div class="grid grid-cols-3 gap-3">
+      <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Active Creators</div>
+        <div class="text-2xl font-black text-gray-900">3</div>
+        <div class="text-[11px] text-gray-400 mt-0.5">SHK · UpFlip · ICH</div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Scheduled Deliverables</div>
+        <div class="text-2xl font-black text-gray-900">84</div>
+        <div class="text-[11px] text-gray-400 mt-0.5">Apr – Dec 2026</div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Platforms</div>
+        <div class="text-2xl font-black text-gray-900">5</div>
+        <div class="text-[11px] text-gray-400 mt-0.5">YouTube · TikTok · Instagram · Facebook · Blog</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Past Campaigns -->
   <div>
     <div class="flex items-center justify-between mb-3">
       <div class="flex items-center gap-2">
         <h2 class="text-sm font-bold text-gray-900">Campaign Analytics</h2>
         <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">51 posted deliverables</span>
-        <span class="text-[10px] text-gray-400">Sorted by date · most recent first</span>
+        <span class="text-[10px] text-gray-400">All time · sorted by date</span>
       </div>
-      <button onclick="downloadCSV()" class="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs font-semibold text-gray-700 hover:border-brand-300 hover:text-brand-700 shadow-sm transition-colors">
-        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-        Export CSV
-      </button>
+      <div class="flex items-center gap-2 no-print">
+        <a href="report-bizee.html" target="_blank" class="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-600 border border-brand-600 rounded-lg text-xs font-semibold text-white hover:bg-brand-700 shadow-sm transition-colors">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          View PDF Report
+        </a>
+        <button onclick="downloadCSV()" class="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs font-semibold text-gray-700 hover:border-brand-300 hover:text-brand-700 shadow-sm transition-colors">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Export CSV
+        </button>
+      </div>
     </div>
     <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
       <table class="w-full text-sm">
@@ -423,28 +566,31 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-50">
-          <!-- SHK #4 cluster - Dec/Jan -->
-          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — $100M Plumber (TikTok)</td><td class="px-5 py-3 text-gray-600">Short Form</td><td class="px-5 py-3 text-gray-500">Dec 17, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">2,600,000</td><td class="px-5 py-3 text-right text-gray-600">274,500</td><td class="px-5 py-3 text-right text-gray-600">1,134</td><td class="px-5 py-3"><a href="https://vt.tiktok.com/ZSPVrGfMj/" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — $100M Plumber (IG Reel)</td><td class="px-5 py-3 text-gray-600">Short Form</td><td class="px-5 py-3 text-gray-500">Dec 17, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">4,400,000</td><td class="px-5 py-3 text-right text-gray-600">282,000</td><td class="px-5 py-3 text-right text-gray-600">1,631</td><td class="px-5 py-3"><a href="https://www.instagram.com/reel/DSX9V6uidlS/" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
+          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — $100M Plumber (TikTok)</td><td class="px-5 py-3 text-gray-600">Short Form</td><td class="px-5 py-3 text-gray-500">Dec 17, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">2,600,000</td><td class="px-5 py-3 text-right text-gray-600">274,500</td><td class="px-5 py-3 text-right text-gray-600">1,134</td><td class="px-5 py-3"><a href="https://vt.tiktok.com/ZSPVrGfMj/" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — Millionaire Mansion Owners</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Dec 18, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">526,845</td><td class="px-5 py-3 text-right text-gray-600">14,000</td><td class="px-5 py-3 text-right text-gray-600">995</td><td class="px-5 py-3"><a href="https://youtu.be/Fe7v_SWuhY4?t=660" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
-          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">UpFlip — Deez Dogz</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Dec 8, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">1,158,248</td><td class="px-5 py-3 text-right text-gray-600">23,000</td><td class="px-5 py-3 text-right text-gray-600">2,009</td><td class="px-5 py-3"><a href="https://youtu.be/86ShXz5XQ6Q?t=606" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
-          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — $100M Man (TikTok)</td><td class="px-5 py-3 text-gray-600">Short Form</td><td class="px-5 py-3 text-gray-500">Nov 11, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">1,300,000</td><td class="px-5 py-3 text-right text-gray-600">110,700</td><td class="px-5 py-3 text-right text-gray-600">605</td><td class="px-5 py-3"><a href="https://vt.tiktok.com/ZSyt3TLwC/" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — $100M Man (IG Reel)</td><td class="px-5 py-3 text-gray-600">Short Form</td><td class="px-5 py-3 text-gray-500">Nov 11, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">7,000,000</td><td class="px-5 py-3 text-right text-gray-600">376,000</td><td class="px-5 py-3 text-right text-gray-600">2,678</td><td class="px-5 py-3"><a href="https://www.instagram.com/reel/DQ7WS-ria3q/" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
+          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — $100M Man (TikTok)</td><td class="px-5 py-3 text-gray-600">Short Form</td><td class="px-5 py-3 text-gray-500">Nov 11, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">1,300,000</td><td class="px-5 py-3 text-right text-gray-600">110,700</td><td class="px-5 py-3 text-right text-gray-600">605</td><td class="px-5 py-3"><a href="https://vt.tiktok.com/ZSyt3TLwC/" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — Dana White</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Nov 9, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">529,274</td><td class="px-5 py-3 text-right text-gray-600">15,000</td><td class="px-5 py-3 text-right text-gray-600">824</td><td class="px-5 py-3"><a href="https://youtu.be/ZdUmqGB-XpA?t=311" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">ICH #8 — Ryan Serhant</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Nov 9, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">459,304</td><td class="px-5 py-3 text-right text-gray-600">7,500</td><td class="px-5 py-3 text-right text-gray-600">1,123</td><td class="px-5 py-3"><a href="https://youtu.be/bd9Lf9xTDJU?t=1060" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
-          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">UpFlip — Augusta Lawn Care</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Nov 17, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">27,025</td><td class="px-5 py-3 text-right text-gray-600">508</td><td class="px-5 py-3 text-right text-gray-600">59</td><td class="px-5 py-3"><a href="https://youtu.be/3hKism5IUfc?t=415" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
-          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — Beverly Hills Mogul (FB Reel — Richest Men)</td><td class="px-5 py-3 text-gray-600">Short Form</td><td class="px-5 py-3 text-gray-500">Oct 31, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">4,300,000</td><td class="px-5 py-3 text-right text-gray-600">164,000</td><td class="px-5 py-3 text-right text-gray-600">1,000</td><td class="px-5 py-3"><a href="https://www.facebook.com/share/v/1Vj9PjQaSa/" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
-          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — Beverly Hills Mogul (FB Reel)</td><td class="px-5 py-3 text-gray-600">Short Form</td><td class="px-5 py-3 text-gray-500">Oct 23, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">3,300,000</td><td class="px-5 py-3 text-right text-gray-600">53,300</td><td class="px-5 py-3 text-right text-gray-600">1,000</td><td class="px-5 py-3"><a href="https://www.facebook.com/share/v/1DYCTr9toh/" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
+          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — Beverly Hills Mogul (FB Reel)</td><td class="px-5 py-3 text-gray-600">Short Form</td><td class="px-5 py-3 text-gray-500">Oct 31, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">4,300,000</td><td class="px-5 py-3 text-right text-gray-600">164,000</td><td class="px-5 py-3 text-right text-gray-600">1,000</td><td class="px-5 py-3"><a href="https://www.facebook.com/share/v/1Vj9PjQaSa/" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">ICH #7 — Andrei Jikh</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Oct 12, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">539,917</td><td class="px-5 py-3 text-right text-gray-600">11,000</td><td class="px-5 py-3 text-right text-gray-600">1,987</td><td class="px-5 py-3"><a href="https://youtu.be/bh-nb35ur60?t=927" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — Beverly Hills Mogul (TikTok)</td><td class="px-5 py-3 text-gray-600">Short Form</td><td class="px-5 py-3 text-gray-500">Oct 12, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">1,100,000</td><td class="px-5 py-3 text-right text-gray-600">86,800</td><td class="px-5 py-3 text-right text-gray-600">728</td><td class="px-5 py-3"><a href="https://vt.tiktok.com/ZSUQq5kT4/" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — Beverly Hills Mogul (IG Reel)</td><td class="px-5 py-3 text-gray-600">Short Form</td><td class="px-5 py-3 text-gray-500">Oct 12, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">5,400,000</td><td class="px-5 py-3 text-right text-gray-600">212,000</td><td class="px-5 py-3 text-right text-gray-600">2,970</td><td class="px-5 py-3"><a href="https://www.instagram.com/reel/DPt7xf8jQwu/" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — Billionaire Women</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Oct 2, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">2,502,065</td><td class="px-5 py-3 text-right text-gray-600">75,000</td><td class="px-5 py-3 text-right text-gray-600">3,542</td><td class="px-5 py-3"><a href="https://www.youtube.com/watch?v=2Q2JgVDvHV0&t=276s" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — Richest Men in Atlanta (IG Reel)</td><td class="px-5 py-3 text-gray-600">Short Form</td><td class="px-5 py-3 text-gray-500">Sep 24, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">13,800,000</td><td class="px-5 py-3 text-right text-gray-600">766,000</td><td class="px-5 py-3 text-right text-gray-600">4,227</td><td class="px-5 py-3"><a href="https://www.instagram.com/reel/DO89ykHiafq/" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">ICH #6 — Stable Ronaldo</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Sep 14, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">285,909</td><td class="px-5 py-3 text-right text-gray-600">9,100</td><td class="px-5 py-3 text-right text-gray-600">535</td><td class="px-5 py-3"><a href="https://youtu.be/DuXZQ0qtTF4?t=963" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
-          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">UpFlip — Junk Shot</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Sep 29, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">185,493</td><td class="px-5 py-3 text-right text-gray-600">3,500</td><td class="px-5 py-3 text-right text-gray-600">270</td><td class="px-5 py-3"><a href="https://youtu.be/v8pC-_RcCnQ?t=644" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">SHK — Tom Cruise</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Aug 25, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">881,174</td><td class="px-5 py-3 text-right text-gray-600">32,000</td><td class="px-5 py-3 text-right text-gray-600">2,628</td><td class="px-5 py-3"><a href="https://youtu.be/vMcZyzTNoIc?t=335" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
           <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">ICH #5 — The Money Guy Show</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Aug 10, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">632,189</td><td class="px-5 py-3 text-right text-gray-600">9,800</td><td class="px-5 py-3 text-right text-gray-600">1,108</td><td class="px-5 py-3"><a href="https://youtu.be/AtvcLcIkdZg?t=1018" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
-          <tr class="hover:bg-gray-50 opacity-50"><td class="px-5 py-3 font-semibold text-gray-500" colspan="7"><button class="text-xs text-brand-600 hover:underline font-semibold" onclick="this.closest('tr').previousElementSibling && showAll()">Show 31 more deliverables →</button></td></tr>
+          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">ICH #4 — Karlton Dennis</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Jul 13, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">333,901</td><td class="px-5 py-3 text-right text-gray-600">10,000</td><td class="px-5 py-3 text-right text-gray-600">1,172</td><td class="px-5 py-3"><a href="https://youtu.be/kfgTTCN_bbM?t=1039" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
+          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">UpFlip — James Windon</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Jul 14, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">1,557,518</td><td class="px-5 py-3 text-right text-gray-600">25,000</td><td class="px-5 py-3 text-right text-gray-600">931</td><td class="px-5 py-3"><a href="https://youtu.be/Gavc_4FGQ7k?t=652" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
+          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">ICH #3 — Ben Mallah</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Jun 1, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">644,438</td><td class="px-5 py-3 text-right text-gray-600">12,000</td><td class="px-5 py-3 text-right text-gray-600">1,391</td><td class="px-5 py-3"><a href="https://youtu.be/Y7ixY4Imfug?t=1083" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
+          <tr class="hover:bg-gray-50"><td class="px-5 py-3 font-semibold text-gray-900">UpFlip — Modern Amenities</td><td class="px-5 py-3 text-gray-600">YouTube Integration</td><td class="px-5 py-3 text-gray-500">Apr 21, 2025</td><td class="px-5 py-3 text-right font-semibold text-gray-900">1,722,222</td><td class="px-5 py-3 text-right text-gray-600">40,000</td><td class="px-5 py-3 text-right text-gray-600">2,252</td><td class="px-5 py-3"><a href="https://youtu.be/zQf1ptrm7CA?t=657" target="_blank" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-semibold border border-green-100 hover:opacity-80">Live ↗</a></td></tr>
+          <tr class="hover:bg-gray-50 opacity-60">
+            <td class="px-5 py-3 font-semibold text-gray-900" colspan="7">
+              <button class="text-xs text-brand-600 hover:underline font-semibold">Show 31 more deliverables →</button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -456,12 +602,14 @@ body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse at 70% -1
 
 <script>
 const ALL_ROWS = [
-  ['SHK — $100M Plumber (TikTok)','Short Form','Dec 17 2025',2600000,274500,1134,'https://vt.tiktok.com/ZSPVrGfMj/'],
   ['SHK — $100M Plumber (IG Reel)','Short Form','Dec 17 2025',4400000,282000,1631,'https://www.instagram.com/reel/DSX9V6uidlS/'],
+  ['SHK — $100M Plumber (TikTok)','Short Form','Dec 17 2025',2600000,274500,1134,'https://vt.tiktok.com/ZSPVrGfMj/'],
   ['SHK — Millionaire Mansion Owners','YouTube Integration','Dec 18 2025',526845,14000,995,'https://youtu.be/Fe7v_SWuhY4?t=660'],
   ['UpFlip — Deez Dogz','YouTube Integration','Dec 8 2025',1158248,23000,2009,'https://youtu.be/86ShXz5XQ6Q?t=606'],
-  ['SHK — $100M Man (TikTok)','Short Form','Nov 11 2025',1300000,110700,605,'https://vt.tiktok.com/ZSyt3TLwC/'],
+  ['ICH #9 — Jeremy Padawer','YouTube Integration','Dec 21 2025',90145,1400,220,'https://www.youtube.com/watch?v=UXOq0Zcf5Qw&t=1046s'],
+  ['UpFlip — Meathead Movers','YouTube Integration','Dec 1 2025',22512,542,34,'https://youtu.be/aqFDMlANB60?t=625'],
   ['SHK — $100M Man (IG Reel)','Short Form','Nov 11 2025',7000000,376000,2678,'https://www.instagram.com/reel/DQ7WS-ria3q/'],
+  ['SHK — $100M Man (TikTok)','Short Form','Nov 11 2025',1300000,110700,605,'https://vt.tiktok.com/ZSyt3TLwC/'],
   ['SHK — Dana White','YouTube Integration','Nov 9 2025',529274,15000,824,'https://youtu.be/ZdUmqGB-XpA?t=311'],
   ['ICH #8 — Ryan Serhant','YouTube Integration','Nov 9 2025',459304,7500,1123,'https://youtu.be/bd9Lf9xTDJU?t=1060'],
   ['UpFlip — Augusta Lawn Care','YouTube Integration','Nov 17 2025',27025,508,59,'https://youtu.be/3hKism5IUfc?t=415'],
@@ -499,8 +647,6 @@ const ALL_ROWS = [
   ['UpFlip — Sneaker Hustle','YouTube Integration','Jan 19 2026',50451,461,75,'https://youtu.be/IxjHkWO-7-4?t=770'],
   ['UpFlip — Pelayo Tech','YouTube Integration','Jan 12 2026',451359,8600,562,'https://youtu.be/xTigixXmBMQ?t=606'],
   ['ICH #10 — VegasMatt','YouTube Integration','Jan 18 2026',323142,4000,630,'https://youtu.be/WPTgAwXjIyE?t=982'],
-  ['ICH #9 — Jeremy Padawer','YouTube Integration','Dec 21 2025',90145,1400,220,'https://www.youtube.com/watch?v=UXOq0Zcf5Qw&t=1046s'],
-  ['UpFlip — Meathead Movers','YouTube Integration','Dec 1 2025',22512,542,34,'https://youtu.be/aqFDMlANB60?t=625'],
 ];
 
 function downloadCSV() {
