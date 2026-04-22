@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bizee × Creators Agency — Campaign Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #F25656;
+  --accent-dim: rgba(242,86,86,0.12);
+  --accent-glow: rgba(242,86,86,0.25);
+  --bg: #080808;
+  --card: #111111;
+  --card2: #161616;
+  --border: rgba(255,255,255,0.08);
+  --border-accent: rgba(242,86,86,0.3);
+  --text: #ffffff;
+  --muted: #888888;
+  --dim: #555555;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@media print {
+  body { background: var(--bg) !important; color: var(--text) !important; }
+  .no-print { display: none !important; }
+  .page-break { page-break-before: always; }
+  @page { margin: 0; size: A4; }
+}
+
+/* Layout */
+.page { max-width: 860px; margin: 0 auto; padding: 48px 40px; }
+
+/* Cover */
+.cover {
+  min-height: 280px;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a0808 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(242,86,86,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cover-top { display: flex; align-items: center; justify-content: space-between; }
+.ca-brand { display: flex; align-items: center; gap: 10px; }
+.ca-mark {
+  width: 36px; height: 36px;
+  background: var(--accent);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900; font-size: 13px;
+  color: #fff; letter-spacing: -0.5px;
+}
+.ca-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800; font-size: 15px;
+  color: var(--text); letter-spacing: -0.3px;
+}
+.report-date { font-size: 11px; color: var(--muted); font-weight: 500; }
+.cover-main { margin-top: 36px; }
+.cover-for { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+.cover-title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 48px; color: var(--text); letter-spacing: -1.5px; line-height: 1; }
+.cover-subtitle { font-size: 14px; color: var(--muted); margin-top: 10px; font-weight: 500; }
+.cover-stats { display: flex; gap: 32px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
+.cover-stat-value { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 28px; color: var(--accent); letter-spacing: -0.5px; }
+.cover-stat-label { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+/* Sections */
+.section { margin-top: 40px; }
+.section-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 14px; }
+
+/* Cards */
+.card-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.card-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+}
+.card-label { font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+.card-value { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 26px; color: var(--text); letter-spacing: -0.5px; }
+.card-value.accent { color: var(--accent); }
+.card-sub { font-size: 10px; color: var(--dim); margin-top: 4px; font-weight: 500; }
+
+/* Campaign breakdown cards */
+.campaign-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+.campaign-name { font-weight: 700; font-size: 13px; color: var(--text); }
+.campaign-period { font-size: 10px; color: var(--muted); margin-top: 2px; }
+.campaign-views { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 28px; color: var(--accent); margin-top: 10px; letter-spacing: -0.5px; }
+.campaign-views span { font-size: 13px; font-weight: 600; color: var(--muted); margin-left: 2px; }
+.campaign-detail { font-size: 10px; color: var(--dim); margin-top: 4px; }
+
+/* Top performers */
+.top5-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.top5-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex; flex-direction: column;
+}
+.top5-rank { font-size: 9px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.top5-views { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 22px; color: var(--text); letter-spacing: -0.3px; }
+.top5-views-label { font-size: 9px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 1px; margin-bottom: 8px; }
+.top5-title { font-size: 10px; color: #aaa; font-weight: 600; line-height: 1.4; flex: 1; }
+.top5-link { font-size: 9px; color: var(--accent); font-weight: 700; margin-top: 10px; text-decoration: none; }
+.top5-badge { display: inline-flex; align-items: center; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: 700; margin-bottom: 6px; }
+.badge-yt { background: rgba(255,0,0,0.12); color: #ff4444; }
+.badge-ig { background: rgba(168,85,247,0.12); color: #c084fc; }
+.badge-tt { background: rgba(255,255,255,0.08); color: #aaa; }
+.badge-fb { background: rgba(59,130,246,0.12); color: #60a5fa; }
+
+/* Table */
+.analytics-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+.analytics-table thead tr {
+  border-bottom: 1px solid var(--border);
+}
+.analytics-table th {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.analytics-table th.right { text-align: right; }
+.analytics-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.04); }
+.analytics-table tbody tr:last-child { border-bottom: none; }
+.analytics-table td { padding: 9px 14px; color: #ccc; font-weight: 500; }
+.analytics-table td.title { color: var(--text); font-weight: 600; font-size: 11px; }
+.analytics-table td.right { text-align: right; }
+.analytics-table td.views { color: var(--text); font-weight: 700; font-family: 'Nunito', sans-serif; font-size: 13px; }
+.analytics-table tbody tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+
+.table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+
+/* Footer */
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-left { font-size: 10px; color: var(--dim); }
+.footer-ca { display: flex; align-items: center; gap: 7px; }
+.footer-ca-mark {
+  width: 22px; height: 22px;
+  background: var(--accent);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900; font-size: 8px; color: #fff;
+}
+.footer-ca-name { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 11px; color: var(--muted); }
+
+/* Print button */
+.print-bar {
+  background: #1a1a1a;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 860px; margin: 0 auto;
+}
+.print-btn {
+  display: inline-flex; align-items: center; gap-8px;
+  background: var(--accent); color: #fff;
+  border: none; border-radius: 8px;
+  padding: 8px 18px; font-size: 12px; font-weight: 700;
+  cursor: pointer; font-family: 'Inter', sans-serif;
+  gap: 6px;
+}
+.print-btn:hover { background: #d94040; }
+.print-note { font-size: 11px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- Print bar (hidden when printing) -->
+<div class="print-bar no-print">
+  <span class="print-note">Open in Chrome or Safari for best PDF quality. File → Print → Save as PDF.</span>
+  <button class="print-btn" onclick="window.print()">
+    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+    Save as PDF
+  </button>
+</div>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="ca-brand">
+      <div class="ca-mark">CA</div>
+      <div class="ca-name">Creators Agency</div>
+    </div>
+    <div class="report-date">April 2026</div>
+  </div>
+  <div class="cover-main">
+    <div class="cover-for">Partnership Performance Report</div>
+    <div class="cover-title">Bizee</div>
+    <div class="cover-subtitle">Campaign analytics across all active creator partnerships · Jan 2025 – Apr 2026</div>
+    <div class="cover-stats">
+      <div>
+        <div class="cover-stat-value">59.1M</div>
+        <div class="cover-stat-label">Total Views</div>
+      </div>
+      <div>
+        <div class="cover-stat-value">2.7M</div>
+        <div class="cover-stat-label">Total Likes</div>
+      </div>
+      <div>
+        <div class="cover-stat-value">51</div>
+        <div class="cover-stat-label">Posted Deliverables</div>
+      </div>
+      <div>
+        <div class="cover-stat-value">4</div>
+        <div class="cover-stat-label">Campaigns</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- Campaign Stats -->
+  <div class="section">
+    <div class="section-title">Campaign Overview</div>
+    <div class="card-grid-4">
+      <div class="card">
+        <div class="card-label">Total Views</div>
+        <div class="card-value accent">59.1M</div>
+        <div class="card-sub">All posted content</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Total Likes</div>
+        <div class="card-value">2.7M</div>
+        <div class="card-sub">All posted content</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Total Comments</div>
+        <div class="card-value">42.6K</div>
+        <div class="card-sub">All posted content</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Posted Deliverables</div>
+        <div class="card-value accent">51</div>
+        <div class="card-sub">Across 4 campaigns</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Campaign Breakdown -->
+  <div class="section">
+    <div class="section-title">Performance by Campaign</div>
+    <div class="card-grid-2">
+      <div class="campaign-card">
+        <div class="campaign-name">School of Hard Knocks</div>
+        <div class="campaign-period">Aug 2025 – Jul 2026 · 12-month campaign</div>
+        <div class="campaign-views">47.6M <span>views</span></div>
+        <div class="campaign-detail">17 posted · YouTube · TikTok · Instagram · Facebook</div>
+      </div>
+      <div class="campaign-card">
+        <div class="campaign-name">Iced Coffee Hour</div>
+        <div class="campaign-period">Apr 2025 – ongoing</div>
+        <div class="campaign-views">4.1M <span>views</span></div>
+        <div class="campaign-detail">14 posted · YouTube Integration</div>
+      </div>
+      <div class="campaign-card">
+        <div class="campaign-name">UpFlip (2025)</div>
+        <div class="campaign-period">Jan – Dec 2025</div>
+        <div class="campaign-views">6.9M <span>views</span></div>
+        <div class="campaign-detail">14 posted · YouTube Integration</div>
+      </div>
+      <div class="campaign-card">
+        <div class="campaign-name">UpFlip (2026)</div>
+        <div class="campaign-period">Jan – Dec 2026 · in progress</div>
+        <div class="campaign-views">557K <span>views</span></div>
+        <div class="campaign-detail">6 posted so far · YouTube + Short Form</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Active Partnerships -->
+  <div class="section">
+    <div class="section-title">Active Partnerships</div>
+    <div class="card-grid-3">
+      <div class="card">
+        <div class="card-label">Active Creators</div>
+        <div class="card-value">3</div>
+        <div class="card-sub">SHK · UpFlip · ICH</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Scheduled Deliverables</div>
+        <div class="card-value">84</div>
+        <div class="card-sub">Apr – Dec 2026</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Platforms</div>
+        <div class="card-value">5</div>
+        <div class="card-sub">YouTube · TikTok · Instagram · Facebook · Blog</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Performers -->
+  <div class="section">
+    <div class="section-title">Top 5 Posts by Views</div>
+    <div class="top5-grid" id="report-top5"></div>
+  </div>
+
+  <!-- Full Analytics Table -->
+  <div class="section page-break">
+    <div class="section-title">All Posted Deliverables</div>
+    <div class="table-wrap">
+      <table class="analytics-table">
+        <thead>
+          <tr>
+            <th>Creator / Title</th>
+            <th>Platform</th>
+            <th>Live Date</th>
+            <th class="right">Views</th>
+            <th class="right">Likes</th>
+            <th class="right">Comments</th>
+          </tr>
+        </thead>
+        <tbody id="report-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">Prepared by Creators Agency · creatorsagency.co · kaitlyn@creatorsagency.co</div>
+    <div class="footer-ca">
+      <div class="footer-ca-mark">CA</div>
+      <div class="footer-ca-name">Creators Agency</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const ALL_ROWS = [
+  ['SHK — $100M Plumber (IG Reel)','Short Form','Dec 17 2025',4400000,282000,1631,'https://www.instagram.com/reel/DSX9V6uidlS/'],
+  ['SHK — $100M Plumber (TikTok)','Short Form','Dec 17 2025',2600000,274500,1134,'https://vt.tiktok.com/ZSPVrGfMj/'],
+  ['SHK — Millionaire Mansion Owners','YouTube Integration','Dec 18 2025',526845,14000,995,'https://youtu.be/Fe7v_SWuhY4?t=660'],
+  ['UpFlip — Deez Dogz','YouTube Integration','Dec 8 2025',1158248,23000,2009,'https://youtu.be/86ShXz5XQ6Q?t=606'],
+  ['ICH #9 — Jeremy Padawer','YouTube Integration','Dec 21 2025',90145,1400,220,'https://www.youtube.com/watch?v=UXOq0Zcf5Qw&t=1046s'],
+  ['UpFlip — Meathead Movers','YouTube Integration','Dec 1 2025',22512,542,34,'https://youtu.be/aqFDMlANB60?t=625'],
+  ['SHK — $100M Man (IG Reel)','Short Form','Nov 11 2025',7000000,376000,2678,'https://www.instagram.com/reel/DQ7WS-ria3q/'],
+  ['SHK — $100M Man (TikTok)','Short Form','Nov 11 2025',1300000,110700,605,'https://vt.tiktok.com/ZSyt3TLwC/'],
+  ['SHK — Dana White','YouTube Integration','Nov 9 2025',529274,15000,824,'https://youtu.be/ZdUmqGB-XpA?t=311'],
+  ['ICH #8 — Ryan Serhant','YouTube Integration','Nov 9 2025',459304,7500,1123,'https://youtu.be/bd9Lf9xTDJU?t=1060'],
+  ['UpFlip — Augusta Lawn Care','YouTube Integration','Nov 17 2025',27025,508,59,'https://youtu.be/3hKism5IUfc?t=415'],
+  ['SHK — Beverly Hills Mogul (FB Reel #2)','Short Form','Oct 31 2025',4300000,164000,1000,'https://www.facebook.com/share/v/1Vj9PjQaSa/'],
+  ['SHK — Beverly Hills Mogul (FB Reel #1)','Short Form','Oct 23 2025',3300000,53300,1000,'https://www.facebook.com/share/v/1DYCTr9toh/'],
+  ['ICH #7 — Andrei Jikh','YouTube Integration','Oct 12 2025',539917,11000,1987,'https://youtu.be/bh-nb35ur60?t=927'],
+  ['SHK — Beverly Hills Mogul (TikTok)','Short Form','Oct 12 2025',1100000,86800,728,'https://vt.tiktok.com/ZSUQq5kT4/'],
+  ['SHK — Beverly Hills Mogul (IG Reel)','Short Form','Oct 12 2025',5400000,212000,2970,'https://www.instagram.com/reel/DPt7xf8jQwu/'],
+  ['SHK — Billionaire Women','YouTube Integration','Oct 2 2025',2502065,75000,3542,'https://www.youtube.com/watch?v=2Q2JgVDvHV0&t=276s'],
+  ['SHK — Richest Men in Atlanta (IG Reel)','Short Form','Sep 24 2025',13800000,766000,4227,'https://www.instagram.com/reel/DO89ykHiafq/'],
+  ['ICH #6 — Stable Ronaldo','YouTube Integration','Sep 14 2025',285909,9100,535,'https://youtu.be/DuXZQ0qtTF4?t=963'],
+  ['UpFlip — Junk Shot','YouTube Integration','Sep 29 2025',185493,3500,270,'https://youtu.be/v8pC-_RcCnQ?t=644'],
+  ['SHK — Tom Cruise','YouTube Integration','Aug 25 2025',881174,32000,2628,'https://youtu.be/vMcZyzTNoIc?t=335'],
+  ['ICH #5 — The Money Guy Show','YouTube Integration','Aug 10 2025',632189,9800,1108,'https://youtu.be/AtvcLcIkdZg?t=1018'],
+  ['UpFlip — Airbnb Empire','YouTube Integration','Aug 5 2025',79327,1600,107,'https://www.youtube.com/watch?v=bB_0_F7fLJw&t=640'],
+  ['UpFlip — Bonus 2: MaidThis','YouTube Integration','Jul 21 2025',49567,845,85,'https://youtu.be/PUIZGbefocg?t=581'],
+  ['ICH #4 (Bonus 4) — Karlton Dennis','YouTube Integration','Jul 22 2025',40438,696,31,'https://youtu.be/-67pGuVYh58?t=427'],
+  ['ICH #4 (Bonus 3) — Karlton Dennis','YouTube Integration','Jul 21 2025',14200,206,14,'https://youtu.be/wH4sNDr1PK4?t=431'],
+  ['ICH #4 (Bonus 2) — Karlton Dennis','YouTube Integration','Jul 21 2025',83671,1500,130,'https://youtu.be/es-dPtuNqeU?t=524'],
+  ['ICH #4 (Bonus 1) — Karlton Dennis','YouTube Integration','Jul 19 2025',19798,374,18,'https://youtu.be/dxSzQFwbomo?t=1036'],
+  ['ICH #4 — Karlton Dennis','YouTube Integration','Jul 13 2025',333901,10000,1172,'https://youtu.be/kfgTTCN_bbM?t=1039'],
+  ['UpFlip — James Windon','YouTube Integration','Jul 14 2025',1557518,25000,931,'https://youtu.be/Gavc_4FGQ7k?t=652'],
+  ['UpFlip — Bonus 1: Waterloo Turf','YouTube Integration','Jun 16 2025',58812,931,54,'https://youtu.be/PF42L335djk?t=584'],
+  ['UpFlip — Frank and Mary','YouTube Integration','Jun 9 2025',100763,2100,123,'https://youtu.be/-zjOOLXzJdU?t=722'],
+  ['ICH #3 — Ben Mallah','YouTube Integration','Jun 1 2025',644438,12000,1391,'https://youtu.be/Y7ixY4Imfug?t=1083'],
+  ['ICH #2 — Gary Vee','YouTube Integration','May 11 2025',306298,7300,725,'https://youtu.be/Dgg8XGgDLQ4?t=1199'],
+  ['UpFlip — SASQUATCH Pest Control','YouTube Integration','May 12 2025',30756,506,38,'https://youtu.be/Grn8WG56sMo?t=615'],
+  ['ICH #1 — Dr. K','YouTube Integration','Apr 20 2025',309533,9300,767,'https://youtu.be/XStL8NGP1VA?t=875'],
+  ['UpFlip — Modern Amenities','YouTube Integration','Apr 21 2025',1722222,40000,2252,'https://youtu.be/zQf1ptrm7CA?t=657'],
+  ['UpFlip — Bird Bird Biscuit','YouTube Integration','Mar 17 2025',333454,5400,281,'https://youtu.be/P3aj8zXV9Dg?t=476'],
+  ['UpFlip — Brick Street Farms','YouTube Integration','Feb 10 2025',1450968,32000,1722,'https://youtu.be/ueM54Q9AGZ4?t=585'],
+  ['UpFlip — Boss Security Screens','YouTube Integration','Jan 13 2025',89783,1400,112,'https://youtu.be/8uKxwk5cKSs?t=456'],
+  ['UpFlip — Gas Station Episode','YouTube Integration','Jan 15 2026',26465,704,49,'https://www.youtube.com/watch?v=522WM7pcwcw&t=342'],
+  ['UpFlip — Cleaning Compilation','YouTube Integration','Jan 5 2026',28563,431,41,'https://youtu.be/K3wDBnIEjaw?t=718'],
+  ['UpFlip — Sneaker Hustle','YouTube Integration','Jan 19 2026',50451,461,75,'https://youtu.be/IxjHkWO-7-4?t=770'],
+  ['UpFlip — Pelayo Tech','YouTube Integration','Jan 12 2026',451359,8600,562,'https://youtu.be/xTigixXmBMQ?t=606'],
+  ['ICH #10 — VegasMatt','YouTube Integration','Jan 18 2026',323142,4000,630,'https://youtu.be/WPTgAwXjIyE?t=982'],
+];
+
+function fmtNum(n) {
+  if (n >= 1e6) return (n / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
+  if (n >= 1e3) return Math.round(n / 1e3) + 'K';
+  return n;
+}
+
+function getPlatformBadge(title, format) {
+  if (format === 'YouTube Integration') return '<span class="top5-badge badge-yt">YouTube</span>';
+  if (title.includes('TikTok')) return '<span class="top5-badge badge-tt">TikTok</span>';
+  if (title.includes('FB Reel') || title.includes('Facebook')) return '<span class="top5-badge badge-fb">Facebook</span>';
+  return '<span class="top5-badge badge-ig">Instagram</span>';
+}
+
+function getTableBadge(title, format) {
+  if (format === 'YouTube Integration') return '<span style="display:inline-flex;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;background:rgba(255,0,0,0.1);color:#ff5555;">YouTube</span>';
+  if (title.includes('TikTok')) return '<span style="display:inline-flex;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;background:rgba(255,255,255,0.07);color:#aaa;">TikTok</span>';
+  if (title.includes('FB Reel') || title.includes('Facebook')) return '<span style="display:inline-flex;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;background:rgba(59,130,246,0.12);color:#60a5fa;">Facebook</span>';
+  return '<span style="display:inline-flex;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;background:rgba(168,85,247,0.12);color:#c084fc;">Instagram</span>';
+}
+
+// Top 5
+const top5 = [...ALL_ROWS].sort((a, b) => b[3] - a[3]).slice(0, 5);
+document.getElementById('report-top5').innerHTML = top5.map(([title, format, date, views, likes, comments, url], i) =>
+  `<div class="top5-card">
+    ${getPlatformBadge(title, format)}
+    <div class="top5-rank">#${i + 1} ranked</div>
+    <div class="top5-views">${fmtNum(views)}</div>
+    <div class="top5-views-label">views</div>
+    <div class="top5-title">${title}</div>
+    <a class="top5-link" href="${url}" target="_blank">View post ↗</a>
+  </div>`
+).join('');
+
+// Full table
+document.getElementById('report-tbody').innerHTML = ALL_ROWS.map(([title, format, date, views, likes, comments, url]) =>
+  `<tr>
+    <td class="title">${title}</td>
+    <td>${getTableBadge(title, format)}</td>
+    <td>${date}</td>
+    <td class="right views">${fmtNum(views)}</td>
+    <td class="right">${fmtNum(likes)}</td>
+    <td class="right">${fmtNum(comments)}</td>
+  </tr>`
+).join('');
+</script>
+</body>
+</html>
