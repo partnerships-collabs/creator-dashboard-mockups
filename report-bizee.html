@@ -37,16 +37,13 @@ body {
 
 /* ─── Print bar ─── */
 .print-bar {
-  background: #111;
-  border-bottom: 1px solid var(--border);
-  padding: 12px 40px;
-  display: flex; align-items: center; justify-content: space-between;
+  background: #111; border-bottom: 1px solid var(--border);
+  padding: 12px 40px; display: flex; align-items: center; justify-content: space-between;
   position: sticky; top: 0; z-index: 100;
 }
 .print-btn {
   display: inline-flex; align-items: center; gap: 6px;
-  background: var(--accent); color: #fff;
-  border: none; border-radius: 8px;
+  background: var(--accent); color: #fff; border: none; border-radius: 8px;
   padding: 9px 20px; font-size: 12px; font-weight: 700;
   cursor: pointer; font-family: 'Inter', sans-serif;
 }
@@ -55,36 +52,29 @@ body {
 
 /* ─── Slide base ─── */
 .slide {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  width: 100%; min-height: 100vh; position: relative;
+  overflow: hidden; display: flex; flex-direction: column;
   background: var(--bg);
 }
 
-/* Radial glow decorations */
+/* Decorative glow */
 .glow {
   position: absolute; pointer-events: none;
-  width: 600px; height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(242,86,86,0.09) 0%, transparent 65%);
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(242,86,86,0.08) 0%, transparent 65%);
 }
 .glow-tl { top: -250px; left: -150px; }
 .glow-br { bottom: -250px; right: -150px; }
 .glow-tr { top: -200px; right: -150px; }
 
-/* ─── Slide brand bar ─── */
+/* ─── Slide brand bar (shown on non-cover slides) ─── */
 .slide-bar {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 26px 56px;
-  flex-shrink: 0;
+  padding: 26px 56px; flex-shrink: 0;
 }
 .slide-bar-left { display: flex; align-items: center; gap: 8px; }
 .ca-mark {
-  width: 28px; height: 28px;
-  background: var(--accent); border-radius: 7px;
+  width: 28px; height: 28px; background: var(--accent); border-radius: 7px;
   display: flex; align-items: center; justify-content: center;
   font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 10px; color: #fff;
 }
@@ -93,44 +83,22 @@ body {
 .slide-client { font-size: 12px; font-weight: 600; color: var(--muted); }
 .slide-num { font-size: 11px; color: var(--dim); font-weight: 500; letter-spacing: 0.5px; }
 
-/* ─── SLIDE 1: COVER ─── */
-.cover {
-  flex-direction: row;
-  min-height: 100vh;
+/* ─── Shared helpers ─── */
+.section-label {
+  font-size: 11px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px;
 }
+
+/* ════════════════════════════════
+   SLIDE 1 — COVER
+════════════════════════════════ */
+.cover { flex-direction: row; min-height: 100vh; }
+
 .cover-left {
-  flex: 1;
-  padding: 68px 64px;
+  flex: 1; padding: 68px 64px;
   display: flex; flex-direction: column; justify-content: space-between;
   position: relative; z-index: 1;
 }
-.cover-right {
-  width: 44%;
-  background: linear-gradient(145deg, #140606 0%, #260b0b 60%, #1a0505 100%);
-  position: relative;
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-}
-.cover-right-glow {
-  position: absolute;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(242,86,86,0.35) 0%, transparent 65%);
-  top: 50%; left: 50%; transform: translate(-50%, -50%);
-}
-.cover-right-content {
-  position: relative; z-index: 1;
-  text-align: center;
-}
-.cover-right-num {
-  font-family: 'Nunito', sans-serif; font-weight: 900;
-  font-size: 108px; color: var(--accent);
-  letter-spacing: -4px; line-height: 1;
-}
-.cover-right-label {
-  font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.4);
-  text-transform: uppercase; letter-spacing: 3px; margin-top: 12px;
-}
-
 .cover-logo { display: flex; align-items: center; gap: 10px; }
 .cover-logo-mark {
   width: 38px; height: 38px; background: var(--accent); border-radius: 10px;
@@ -138,7 +106,7 @@ body {
   font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 14px; color: #fff;
 }
 .cover-logo-name { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 16px; }
-.cover-logo-date { font-size: 11px; color: var(--dim); margin-top: 2px; }
+.cover-logo-url { font-size: 11px; color: var(--dim); margin-top: 2px; }
 
 .cover-eyebrow {
   font-size: 11px; font-weight: 700; color: var(--accent);
@@ -146,77 +114,142 @@ body {
 }
 .cover-title {
   font-family: 'Nunito', sans-serif; font-weight: 900;
-  font-size: 80px; letter-spacing: -3.5px; line-height: 0.92;
-  color: var(--text);
+  font-size: 80px; letter-spacing: -3.5px; line-height: 0.92; color: var(--text);
 }
 .cover-sub {
   font-size: 14px; color: var(--muted); margin-top: 20px; line-height: 1.55; font-weight: 500;
 }
-.cover-stats {
-  display: flex; gap: 36px;
-  padding-top: 26px; margin-top: 26px;
+.cover-meta {
+  display: flex; gap: 24px; margin-top: 28px; padding-top: 24px;
   border-top: 1px solid var(--border);
 }
-.cs-val {
-  font-family: 'Nunito', sans-serif; font-weight: 900;
-  font-size: 28px; color: var(--accent); letter-spacing: -0.5px;
-}
-.cs-lbl {
-  font-size: 9px; font-weight: 700; color: var(--muted);
-  text-transform: uppercase; letter-spacing: 1.5px; margin-top: 3px;
-}
+.cover-meta-item { font-size: 12px; color: var(--muted); font-weight: 500; }
+.cover-meta-item strong { color: var(--text); }
+.cover-date { font-size: 11px; color: var(--dim); }
 
-/* ─── HERO STAT SLIDES ─── */
-.hero-body {
-  flex: 1;
-  display: flex; align-items: center;
-  padding: 0 72px 56px;
-  gap: 72px;
+/* Cover right — creator list */
+.cover-right {
+  width: 42%;
+  background: linear-gradient(145deg, #140606 0%, #200909 60%, #160505 100%);
+  position: relative; display: flex; flex-direction: column;
+  justify-content: center; padding: 56px 48px; gap: 0;
+  overflow: hidden;
 }
-.hero-left { flex: 1; }
-.hero-label {
-  font-size: 11px; font-weight: 700; color: var(--muted);
-  text-transform: uppercase; letter-spacing: 3px; margin-bottom: 14px;
+.cover-right-glow {
+  position: absolute; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(242,86,86,0.25) 0%, transparent 65%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  pointer-events: none;
 }
-.hero-number {
+.cover-right-label {
+  font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.3);
+  text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 28px;
+  position: relative; z-index: 1;
+}
+.creator-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative; z-index: 1;
+}
+.creator-row:first-of-type { padding-top: 0; }
+.creator-row:last-of-type { border-bottom: none; }
+.creator-row-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.creator-row-detail { font-size: 10px; color: var(--muted); }
+.creator-row-views {
   font-family: 'Nunito', sans-serif; font-weight: 900;
-  font-size: clamp(88px, 13vw, 156px);
-  letter-spacing: -5px; line-height: 0.9;
-  color: var(--accent);
+  font-size: 32px; color: var(--accent); letter-spacing: -1px; line-height: 1;
+  text-align: right; flex-shrink: 0; margin-left: 16px;
 }
-.hero-number.white { color: var(--text); }
-.hero-unit {
-  font-family: 'Nunito', sans-serif; font-weight: 900;
-  font-size: clamp(28px, 4.5vw, 52px);
-  letter-spacing: -1px; color: var(--dim);
-  margin-top: 10px; text-transform: uppercase;
-}
-.hero-context {
-  font-size: 15px; color: rgba(255,255,255,0.45);
-  margin-top: 24px; line-height: 1.65; max-width: 420px; font-weight: 500;
-}
-.hero-right {
-  width: 340px;
-  display: flex; flex-direction: column; gap: 12px;
-  flex-shrink: 0;
-}
-.hero-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 14px; padding: 16px 20px;
-}
-.hero-card-val {
-  font-family: 'Nunito', sans-serif; font-weight: 900;
-  font-size: 26px; color: var(--text); letter-spacing: -0.5px;
-}
-.hero-card-lbl {
-  font-size: 9px; color: var(--muted); font-weight: 700;
-  text-transform: uppercase; letter-spacing: 1px; margin-top: 2px;
-}
+.creator-row-views span { font-size: 12px; color: var(--dim); font-family: 'Inter', sans-serif; font-weight: 600; display: block; text-align: right; }
 
-/* ─── TOP 5 SLIDE ─── */
+/* ════════════════════════════════
+   SLIDE 2 — CREATOR PERFORMANCE
+════════════════════════════════ */
+.perf-body {
+  flex: 1; display: flex; align-items: stretch;
+  padding: 0 56px 56px; gap: 24px;
+}
+.perf-main {
+  flex: 1; background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 40px 44px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; overflow: hidden;
+}
+.perf-main-glow {
+  position: absolute; width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(242,86,86,0.12) 0%, transparent 65%);
+  bottom: -150px; right: -100px; pointer-events: none;
+}
+.perf-main-name {
+  font-size: 12px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 2px;
+}
+.perf-main-num {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: clamp(72px, 11vw, 128px);
+  letter-spacing: -4px; line-height: 0.9; color: var(--accent);
+  margin: 16px 0 6px;
+}
+.perf-main-unit {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 28px; letter-spacing: -0.5px; color: var(--dim);
+  text-transform: uppercase;
+}
+.perf-main-detail { font-size: 12px; color: var(--muted); margin-top: 20px; line-height: 1.5; }
+
+.perf-stack {
+  width: 300px; flex-shrink: 0;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.perf-card {
+  flex: 1; background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px 26px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.perf-card-name { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.perf-card-detail { font-size: 10px; color: var(--muted); }
+.perf-card-num {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 44px; color: var(--accent); letter-spacing: -1.5px; line-height: 1;
+  margin-top: 16px;
+}
+.perf-card-num span { font-size: 14px; color: var(--dim); font-family: 'Inter', sans-serif; font-weight: 600; margin-left: 2px; }
+
+/* ════════════════════════════════
+   SLIDE 3 — ENGAGEMENT
+════════════════════════════════ */
+.eng-body {
+  flex: 1; display: flex; align-items: center;
+  padding: 0 56px 56px; gap: 20px;
+}
+.eng-card {
+  flex: 1; background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 44px 40px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 300px;
+}
+.eng-label {
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 2.5px;
+}
+.eng-num {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: clamp(56px, 9vw, 104px);
+  letter-spacing: -3px; line-height: 0.9; color: var(--text);
+}
+.eng-num.accent { color: var(--accent); }
+.eng-unit {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 22px; letter-spacing: -0.5px; color: var(--dim);
+  text-transform: uppercase; margin-top: 8px;
+}
+.eng-context { font-size: 12px; color: var(--muted); margin-top: 16px; line-height: 1.5; }
+
+/* ════════════════════════════════
+   SLIDE 4 — TOP 5 POSTS
+════════════════════════════════ */
 .top5-body {
-  flex: 1;
-  display: flex; flex-direction: column; justify-content: center;
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
   padding: 0 56px 56px;
 }
 .top5-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
@@ -249,37 +282,56 @@ body {
 .top5-title { font-size: 10px; color: #aaa; font-weight: 600; line-height: 1.4; flex: 1; }
 .top5-link { font-size: 9px; color: var(--accent); font-weight: 700; text-decoration: none; margin-top: 12px; }
 
-/* ─── BREAKDOWN SLIDE ─── */
-.breakdown-body {
-  flex: 1;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 0 72px 56px;
-  gap: 20px;
+/* ════════════════════════════════
+   SLIDE 5 — LOOKING AHEAD
+════════════════════════════════ */
+.ahead-body {
+  flex: 1; display: flex; align-items: center;
+  padding: 0 72px 56px; gap: 72px;
 }
-.breakdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.breakdown-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 16px; padding: 24px 28px;
-}
-.breakdown-name { font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 4px; }
-.breakdown-period { font-size: 10px; color: var(--muted); }
-.breakdown-views {
+.ahead-left { flex: 1; }
+.ahead-num {
   font-family: 'Nunito', sans-serif; font-weight: 900;
-  font-size: 52px; color: var(--accent);
-  letter-spacing: -1.5px; line-height: 1; margin-top: 14px;
+  font-size: clamp(88px, 13vw, 152px);
+  letter-spacing: -5px; line-height: 0.9; color: var(--accent);
 }
-.breakdown-views span { font-size: 18px; color: var(--dim); font-family: 'Inter', sans-serif; font-weight: 600; margin-left: 2px; }
-.breakdown-detail { font-size: 10px; color: var(--dim); margin-top: 6px; }
+.ahead-unit {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: clamp(26px, 4vw, 48px);
+  letter-spacing: -1px; color: var(--dim);
+  margin-top: 10px; text-transform: uppercase;
+}
+.ahead-context {
+  font-size: 15px; color: rgba(255,255,255,0.45);
+  margin-top: 24px; line-height: 1.65; max-width: 400px; font-weight: 500;
+}
+.ahead-right {
+  width: 340px; flex-shrink: 0;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.ahead-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px 20px;
+}
+.ahead-card-val {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 26px; color: var(--text); letter-spacing: -0.5px;
+}
+.ahead-card-lbl {
+  font-size: 9px; color: var(--muted); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; margin-top: 2px;
+}
 
-/* ─── TABLE SLIDE ─── */
+/* ════════════════════════════════
+   SLIDE 6 — DATA TABLE
+════════════════════════════════ */
 .table-body {
   flex: 1; padding: 0 48px 48px;
   display: flex; flex-direction: column;
 }
 .table-wrap {
   background: var(--card); border: 1px solid var(--border);
-  border-radius: 14px; overflow: hidden; flex: 1;
-  overflow-y: auto;
+  border-radius: 14px; overflow: hidden; flex: 1; overflow-y: auto;
 }
 .analytics-table { width: 100%; border-collapse: collapse; font-size: 10px; }
 .analytics-table thead tr { border-bottom: 1px solid var(--border); }
@@ -296,10 +348,10 @@ body {
 .analytics-table td.vc { color: var(--text); font-weight: 700; font-family: 'Nunito', sans-serif; font-size: 12px; }
 .analytics-table tbody tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
 
-/* ─── CLOSING SLIDE ─── */
-.slide-close {
-  display: flex; align-items: center; justify-content: center;
-}
+/* ════════════════════════════════
+   SLIDE 7 — CLOSING
+════════════════════════════════ */
+.slide-close { display: flex; align-items: center; justify-content: center; }
 .close-inner { text-align: center; max-width: 520px; }
 .close-mark {
   width: 64px; height: 64px; background: var(--accent); border-radius: 18px;
@@ -307,18 +359,12 @@ body {
   font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 24px; color: #fff;
   margin: 0 auto 24px;
 }
-.close-divider {
-  width: 36px; height: 3px; background: var(--accent);
-  border-radius: 2px; margin: 0 auto 24px;
-}
+.close-divider { width: 36px; height: 3px; background: var(--accent); border-radius: 2px; margin: 0 auto 24px; }
 .close-title {
   font-family: 'Nunito', sans-serif; font-weight: 900;
-  font-size: 52px; color: var(--text); letter-spacing: -2px; line-height: 1.05;
-  margin-bottom: 16px;
+  font-size: 52px; color: var(--text); letter-spacing: -2px; line-height: 1.05; margin-bottom: 16px;
 }
-.close-sub {
-  font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 32px;
-}
+.close-sub { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 32px; }
 .close-contact {
   display: inline-block;
   background: var(--card); border: 1px solid var(--border);
@@ -340,9 +386,9 @@ body {
   </button>
 </div>
 
-<!-- ═══════════════════════════════
+<!-- ════════════════════════════════
      SLIDE 1 — COVER
-═══════════════════════════════ -->
+════════════════════════════════ -->
 <div class="slide cover">
   <div class="glow glow-tl"></div>
   <div class="cover-left">
@@ -350,88 +396,52 @@ body {
       <div class="cover-logo-mark">CA</div>
       <div>
         <div class="cover-logo-name">Creators Agency</div>
-        <div class="cover-logo-date">creatorsagency.co</div>
+        <div class="cover-logo-url">creatorsagency.co</div>
       </div>
     </div>
     <div>
       <div class="cover-eyebrow">Partnership Performance Report</div>
       <div class="cover-title">Bizee</div>
       <div class="cover-sub">Campaign analytics across all active creator partnerships<br>January 2025 – April 2026</div>
-      <div class="cover-stats">
-        <div>
-          <div class="cs-val">59.1M</div>
-          <div class="cs-lbl">Total Views</div>
-        </div>
-        <div>
-          <div class="cs-val">2.7M</div>
-          <div class="cs-lbl">Total Likes</div>
-        </div>
-        <div>
-          <div class="cs-val">51</div>
-          <div class="cs-lbl">Posts</div>
-        </div>
-        <div>
-          <div class="cs-val">4</div>
-          <div class="cs-lbl">Campaigns</div>
-        </div>
+      <div class="cover-meta">
+        <div class="cover-meta-item"><strong>51</strong> posts published</div>
+        <div class="cover-meta-item"><strong>3</strong> creator partners</div>
+        <div class="cover-meta-item"><strong>5</strong> platforms</div>
+        <div class="cover-meta-item"><strong>4</strong> campaigns</div>
       </div>
     </div>
-    <div style="font-size:11px;color:var(--dim)">April 2026</div>
+    <div class="cover-date">April 2026</div>
   </div>
   <div class="cover-right">
     <div class="cover-right-glow"></div>
-    <div class="cover-right-content">
-      <div class="cover-right-num">59.1M</div>
-      <div class="cover-right-label">Total Views</div>
+    <div class="cover-right-label">Views by creator</div>
+    <div class="creator-row">
+      <div>
+        <div class="creator-row-name">School of Hard Knocks</div>
+        <div class="creator-row-detail">17 posts · Aug 2025 – Jul 2026</div>
+      </div>
+      <div class="creator-row-views">47.6M <span>views</span></div>
+    </div>
+    <div class="creator-row">
+      <div>
+        <div class="creator-row-name">UpFlip</div>
+        <div class="creator-row-detail">20 posts · Jan 2025 – ongoing</div>
+      </div>
+      <div class="creator-row-views">7.5M <span>views</span></div>
+    </div>
+    <div class="creator-row">
+      <div>
+        <div class="creator-row-name">Iced Coffee Hour</div>
+        <div class="creator-row-detail">14 posts · Apr 2025 – ongoing</div>
+      </div>
+      <div class="creator-row-views">4.1M <span>views</span></div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════
-     SLIDE 2 — VIEWS
-═══════════════════════════════ -->
-<div class="slide">
-  <div class="glow glow-tl"></div>
-  <div class="slide-bar">
-    <div class="slide-bar-left">
-      <div class="ca-mark">CA</div>
-      <div class="ca-name">Creators Agency</div>
-      <span class="slide-sep">×</span>
-      <span class="slide-client">Bizee</span>
-    </div>
-    <div class="slide-num">01 / 07</div>
-  </div>
-  <div class="hero-body">
-    <div class="hero-left">
-      <div class="hero-label">Total Views</div>
-      <div class="hero-number">59.1M</div>
-      <div class="hero-unit">Views</div>
-      <div class="hero-context">Combined views across all 51 sponsored posts from January 2025 through April 2026 — spanning YouTube, Instagram, TikTok, and Facebook.</div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-card">
-        <div class="hero-card-val">47.6M</div>
-        <div class="hero-card-lbl">School of Hard Knocks</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-val">6.9M</div>
-        <div class="hero-card-lbl">UpFlip (2025)</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-val">4.1M</div>
-        <div class="hero-card-lbl">Iced Coffee Hour</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-val">557K</div>
-        <div class="hero-card-lbl">UpFlip (2026, in progress)</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════
-     SLIDE 3 — LIKES
-═══════════════════════════════ -->
+<!-- ════════════════════════════════
+     SLIDE 2 — CREATOR PERFORMANCE
+════════════════════════════════ -->
 <div class="slide">
   <div class="glow glow-br"></div>
   <div class="slide-bar">
@@ -441,39 +451,85 @@ body {
       <span class="slide-sep">×</span>
       <span class="slide-client">Bizee</span>
     </div>
-    <div class="slide-num">02 / 07</div>
+    <div class="slide-num">01 / 06</div>
   </div>
-  <div class="hero-body">
-    <div class="hero-left">
-      <div class="hero-label">Total Engagement</div>
-      <div class="hero-number white">2.7M</div>
-      <div class="hero-unit">Likes</div>
-      <div class="hero-context">School of Hard Knocks drove the majority of engagement — single posts exceeding 376K likes. Short-form content across Instagram and TikTok consistently outperformed benchmarks.</div>
+  <div class="perf-body">
+    <div class="perf-main">
+      <div class="perf-main-glow"></div>
+      <div class="perf-main-name">School of Hard Knocks</div>
+      <div>
+        <div class="perf-main-num">47.6M</div>
+        <div class="perf-main-unit">Views</div>
+      </div>
+      <div class="perf-main-detail">
+        17 posts published · YouTube Integration · TikTok · Instagram Reels · Facebook<br>
+        12-month campaign · Aug 2025 – Jul 2026
+      </div>
     </div>
-    <div class="hero-right">
-      <div class="hero-card">
-        <div class="hero-card-val">42.6K</div>
-        <div class="hero-card-lbl">Total Comments</div>
+    <div class="perf-stack">
+      <div class="perf-card">
+        <div>
+          <div class="perf-card-name">UpFlip</div>
+          <div class="perf-card-detail">20 posts · YouTube Integration + Short-form<br>Jan 2025 – ongoing</div>
+        </div>
+        <div class="perf-card-num">7.5M <span>views</span></div>
       </div>
-      <div class="hero-card">
-        <div class="hero-card-val">51</div>
-        <div class="hero-card-lbl">Posted Deliverables</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-val">3</div>
-        <div class="hero-card-lbl">Active Creator Partners</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-val">5</div>
-        <div class="hero-card-lbl">Platforms</div>
+      <div class="perf-card">
+        <div>
+          <div class="perf-card-name">Iced Coffee Hour</div>
+          <div class="perf-card-detail">14 posts · YouTube Integration<br>Apr 2025 – ongoing</div>
+        </div>
+        <div class="perf-card-num">4.1M <span>views</span></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════
+<!-- ════════════════════════════════
+     SLIDE 3 — ENGAGEMENT
+════════════════════════════════ -->
+<div class="slide">
+  <div class="glow glow-tl"></div>
+  <div class="slide-bar">
+    <div class="slide-bar-left">
+      <div class="ca-mark">CA</div>
+      <div class="ca-name">Creators Agency</div>
+      <span class="slide-sep">×</span>
+      <span class="slide-client">Bizee</span>
+    </div>
+    <div class="slide-num">02 / 06</div>
+  </div>
+  <div class="eng-body">
+    <div class="eng-card">
+      <div class="eng-label">Total Likes</div>
+      <div>
+        <div class="eng-num accent">2.7M</div>
+        <div class="eng-unit">Likes</div>
+      </div>
+      <div class="eng-context">School of Hard Knocks short-form drove the majority — single posts exceeding 376K likes on Instagram alone.</div>
+    </div>
+    <div class="eng-card">
+      <div class="eng-label">Total Comments</div>
+      <div>
+        <div class="eng-num">42.6K</div>
+        <div class="eng-unit">Comments</div>
+      </div>
+      <div class="eng-context">Highest comment volume on SHK's Richest Men in Atlanta reel — 4,227 comments on a single post.</div>
+    </div>
+    <div class="eng-card">
+      <div class="eng-label">Posts Published</div>
+      <div>
+        <div class="eng-num">51</div>
+        <div class="eng-unit">Posts</div>
+      </div>
+      <div class="eng-context">Across YouTube, Instagram, TikTok, Facebook — 3 active creator partnerships over 16 months.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
      SLIDE 4 — TOP 5 POSTS
-═══════════════════════════════ -->
+════════════════════════════════ -->
 <div class="slide">
   <div class="glow glow-tr"></div>
   <div class="slide-bar">
@@ -483,62 +539,17 @@ body {
       <span class="slide-sep">×</span>
       <span class="slide-client">Bizee</span>
     </div>
-    <div class="slide-num">03 / 07</div>
+    <div class="slide-num">03 / 06</div>
   </div>
   <div class="top5-body">
-    <div class="hero-label" style="margin-bottom:20px">Top 5 Posts by Views</div>
+    <div class="section-label">Top 5 Posts by Views</div>
     <div class="top5-grid" id="top5-grid"></div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════
-     SLIDE 5 — CAMPAIGN BREAKDOWN
-═══════════════════════════════ -->
-<div class="slide">
-  <div class="glow glow-tl"></div>
-  <div class="slide-bar">
-    <div class="slide-bar-left">
-      <div class="ca-mark">CA</div>
-      <div class="ca-name">Creators Agency</div>
-      <span class="slide-sep">×</span>
-      <span class="slide-client">Bizee</span>
-    </div>
-    <div class="slide-num">04 / 07</div>
-  </div>
-  <div class="breakdown-body">
-    <div class="hero-label">Performance by Campaign</div>
-    <div class="breakdown-grid">
-      <div class="breakdown-card">
-        <div class="breakdown-name">School of Hard Knocks</div>
-        <div class="breakdown-period">Aug 2025 – Jul 2026 · 12-month campaign · Multi-platform</div>
-        <div class="breakdown-views">47.6M <span>views</span></div>
-        <div class="breakdown-detail">17 posts · YouTube · TikTok · Instagram · Facebook</div>
-      </div>
-      <div class="breakdown-card">
-        <div class="breakdown-name">Iced Coffee Hour</div>
-        <div class="breakdown-period">Apr 2025 – ongoing · YouTube Integration</div>
-        <div class="breakdown-views">4.1M <span>views</span></div>
-        <div class="breakdown-detail">14 posts · YouTube Integration</div>
-      </div>
-      <div class="breakdown-card">
-        <div class="breakdown-name">UpFlip (2025)</div>
-        <div class="breakdown-period">Jan – Dec 2025 · YouTube Integration</div>
-        <div class="breakdown-views">6.9M <span>views</span></div>
-        <div class="breakdown-detail">14 posts · YouTube Integration</div>
-      </div>
-      <div class="breakdown-card">
-        <div class="breakdown-name">UpFlip (2026)</div>
-        <div class="breakdown-period">Jan – Dec 2026 · In progress</div>
-        <div class="breakdown-views">557K <span>views</span></div>
-        <div class="breakdown-detail">6 posts so far · YouTube + Short-form</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════
-     SLIDE 6 — ACTIVE PARTNERSHIPS
-═══════════════════════════════ -->
+<!-- ════════════════════════════════
+     SLIDE 5 — LOOKING AHEAD
+════════════════════════════════ -->
 <div class="slide">
   <div class="glow glow-br"></div>
   <div class="slide-bar">
@@ -548,35 +559,35 @@ body {
       <span class="slide-sep">×</span>
       <span class="slide-client">Bizee</span>
     </div>
-    <div class="slide-num">05 / 07</div>
+    <div class="slide-num">04 / 06</div>
   </div>
-  <div class="hero-body">
-    <div class="hero-left">
-      <div class="hero-label">Looking Ahead</div>
-      <div class="hero-number">84</div>
-      <div class="hero-unit">Upcoming</div>
-      <div class="hero-context">Deliverables scheduled across April through December 2026 — with 3 active creator partnerships continuing across 5 platforms.</div>
+  <div class="ahead-body">
+    <div class="ahead-left">
+      <div class="section-label">Looking Ahead</div>
+      <div class="ahead-num">84</div>
+      <div class="ahead-unit">Upcoming</div>
+      <div class="ahead-context">Deliverables scheduled across April through December 2026 — across 3 active creator partnerships on 5 platforms.</div>
     </div>
-    <div class="hero-right">
-      <div class="hero-card">
-        <div class="hero-card-val">3</div>
-        <div class="hero-card-lbl">Active Creators (SHK · UpFlip · ICH)</div>
+    <div class="ahead-right">
+      <div class="ahead-card">
+        <div class="ahead-card-val">3</div>
+        <div class="ahead-card-lbl">Active Creator Partners</div>
       </div>
-      <div class="hero-card">
-        <div class="hero-card-val">5</div>
-        <div class="hero-card-lbl">Platforms</div>
+      <div class="ahead-card">
+        <div class="ahead-card-val">5</div>
+        <div class="ahead-card-lbl">Platforms</div>
       </div>
-      <div class="hero-card">
-        <div class="hero-card-val">Apr – Dec</div>
-        <div class="hero-card-lbl">Remaining 2026</div>
+      <div class="ahead-card">
+        <div class="ahead-card-val">Apr – Dec 2026</div>
+        <div class="ahead-card-lbl">Remaining Schedule</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════
-     SLIDE 7 — FULL DATA TABLE
-═══════════════════════════════ -->
+<!-- ════════════════════════════════
+     SLIDE 6 — DATA TABLE
+════════════════════════════════ -->
 <div class="slide">
   <div class="slide-bar">
     <div class="slide-bar-left">
@@ -585,10 +596,10 @@ body {
       <span class="slide-sep">×</span>
       <span class="slide-client">Bizee</span>
     </div>
-    <div class="slide-num">06 / 07</div>
+    <div class="slide-num">05 / 06</div>
   </div>
   <div class="table-body">
-    <div class="hero-label" style="margin-bottom:14px">All 51 Posted Deliverables</div>
+    <div class="section-label" style="margin-bottom:14px">All 51 Posted Deliverables</div>
     <div class="table-wrap">
       <table class="analytics-table">
         <thead>
@@ -607,9 +618,9 @@ body {
   </div>
 </div>
 
-<!-- ═══════════════════════════════
-     SLIDE 8 — CLOSING
-═══════════════════════════════ -->
+<!-- ════════════════════════════════
+     SLIDE 7 — CLOSING
+════════════════════════════════ -->
 <div class="slide slide-close">
   <div class="glow glow-tl"></div>
   <div class="glow glow-br"></div>
@@ -626,7 +637,7 @@ body {
     </div>
   </div>
   <div style="position:absolute;bottom:28px;right:40px">
-    <div class="slide-num">07 / 07</div>
+    <div class="slide-num">06 / 06</div>
   </div>
 </div>
 
